@@ -1,3 +1,5 @@
+//file reserved for creating and exporting all required fetch calls
+
 export const deleteProduct = async (id: number) => {
 	try {
 		const response = await fetch(`http://localhost:????/product/${id}`, {
