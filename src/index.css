@@ -9,10 +9,10 @@
 	font-size: 16px;
 	scroll-behavior: smooth;
 	font-family: Inter, sans-serif;
-	--qdark: #003153;
-	--qlight: #f7f9f9;
-	--qprimary: #a1f7a6;
-	--qsecondary: #9381ff;
+	--colorDark: #003153;
+	--colorLight: #f7f9f9;
+	--colorPrimary: #a1f7a6;
+	--colorSecondary: #9381ff;
 }
 
 body {

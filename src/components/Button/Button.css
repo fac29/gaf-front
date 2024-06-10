@@ -1,0 +1,27 @@
+.btnPrimary {
+	background-color: var(--qprimary);
+	color: var(--qdark);
+	border-radius: 8px;
+	padding: 16px 24px;
+	border: none;
+	font-weight: 700;
+}
+
+.btnSecondary {
+	background-color: none;
+	color: var(--qdark);
+	border-radius: 8px;
+	padding: 16px 24px;
+	border: solid 2px var(--qdark);
+	font-weight: 700;
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover {
+	opacity: 0.6;
+	border-radius: 8px 8px 0 8px;
+}
+
+button:hover {
+	cursor: pointer;
+}
