@@ -30,6 +30,7 @@ export default function Landingpage() {
 				>
 					click me
 				</button>
+				{/* these are examples of hown to use the context api inside the components */}
 				<button
 					onClick={() =>
 						setUser({ ...user, role: 'client', name: 'ferg', username: 'alex' })
