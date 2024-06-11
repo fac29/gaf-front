@@ -3,6 +3,7 @@ import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
 
 export default function Landingpage() {
+	//method to access the ContextAPi
 	const { user, setUser } = useUserContext();
 
 	return (
@@ -13,14 +14,24 @@ export default function Landingpage() {
 			<main>
 				<h1>Landing Page</h1>
 				<h3>{user ? user.name : 'user set to null'}</h3>
+				<h4>{user ? user.role : 'user set to null'}</h4>
+				<h5>{user ? user.username : 'user set to null'}</h5>
+
 				<button
 					onClick={() =>
-						setUser({
-							typeofuser: 'user',
-							name: 'user',
-							email: 'user',
-							cart: [],
-						})
+						setUser((prevUser) => ({
+							...(prevUser || {}),
+							role: 'admin',
+							name: 'gui',
+							username: 'gafgui',
+						}))
+					}
+				>
+					click me
+				</button>
+				<button
+					onClick={() =>
+						setUser({ ...user, role: 'client', name: 'ferg', username: 'alex' })
 					}
 				>
 					click me

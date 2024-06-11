@@ -22,7 +22,7 @@ export default function UserContextProvider({
 		</UserContext.Provider>
 	);
 }
-
+//this fuction is used to consume the context and helps avoid having to check if the context null or adding inports in all pages
 export function useUserContext() {
 	const context = React.useContext(UserContext);
 	if (!context) {
