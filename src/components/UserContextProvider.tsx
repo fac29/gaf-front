@@ -1,11 +1,5 @@
 import React from 'react';
-
-type User = {
-	typeofuser: string;
-	name: string;
-	email: string;
-	cart: Array<string>;
-};
+import { User } from '../utils/tyBucket';
 
 type UserContext = {
 	user: User | undefined;
