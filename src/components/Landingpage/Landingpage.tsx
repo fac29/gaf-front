@@ -17,6 +17,7 @@ export default function Landingpage() {
 				<h4>{user ? user.role : 'user set to null'}</h4>
 				<h5>{user ? user.username : 'user set to null'}</h5>
 
+				{/* these are examples of hown to use the context api inside the components */}
 				<button
 					onClick={() =>
 						setUser((prevUser) => ({
