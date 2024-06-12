@@ -1,6 +1,6 @@
 //import React from 'react'
 import './Card.css';
-import Imgdisplay from '../Imgdisplay/Imgdisplay';
+import Imgdisplay from '../ImgDisplay/ImgDisplay';
 
 export default function Card() {
 	return (
