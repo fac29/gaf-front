@@ -9,14 +9,14 @@ export default function Landingpage() {
 	const [ting, setTing] = React.useState();
 
 	const handleFEtch = async () => {
-		const response = await randomProducts;
+		const response = await randomProducts();
 
 		setTing(response);
 		console.log(response);
 	};
 
 	React.useEffect(() => {
-		handleFEtch;
+		handleFEtch();
 	}, []);
 
 	return (
