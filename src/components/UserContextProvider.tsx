@@ -3,18 +3,26 @@ import { User } from '../utils/tyBucket';
 
 type UserContext = {
 	user: User | undefined;
-	setUser: React.Dispatch<React.SetStateAction<undefined>>;
+	setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
 	//userLoading: boolean;
 };
 
 export const UserContext = React.createContext<UserContext | null>(null);
+
+// Default user structure
+const defaultUser: User = {
+	role: '',
+	name: '',
+	username: '',
+	cart: [],
+};
 
 export default function UserContextProvider({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	const [user, setUser] = React.useState();
+	const [user, setUser] = React.useState<User | undefined>(defaultUser);
 
 	return (
 		<UserContext.Provider value={{ user, setUser }}>
