@@ -1,28 +1,30 @@
 import React from 'react';
 import './Search.css';
+import Button from '../Button/Button';
 import { sanitizeInput } from '../../utils/utils';
 
 export default function Search() {
 	const [userInput, setUserInput] = React.useState('');
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		console.log(userInput);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('Form submitted with userInpuit:', userInput);
 		console.log(`Sanitized user input ${sanitizeInput(userInput)}`);
+
+		// Add handler to send the data to search
 		setUserInput('');
 	};
 
 	return (
 		<form
-			method="post"
 			onChange={(e) => setUserInput(e.target.value)}
 			onSubmit={handleSubmit}
 		>
 			<label>
 				Search:
-				<input defaultValue={userInput} />
+				<input value={userInput} />
 			</label>
-			<button type="submit">Search</button>
+			<Button btnText="Search" btnclassName="searchButton" />
 		</form>
 	);
 }
