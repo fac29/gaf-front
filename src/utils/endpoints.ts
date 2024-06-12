@@ -2,7 +2,7 @@
 
 export const deleteProduct = async (id: number) => {
 	try {
-		const response = await fetch(`http://localhost:????/product/${id}`, {
+		const response = await fetch(`http://localhost:3000/product/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
