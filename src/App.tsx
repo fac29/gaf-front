@@ -2,6 +2,7 @@
 import Landingpage from './components/Landingpage/Landingpage';
 import ProductPage from './components/Productpage/ProductPage';
 import Gallery from './components/Gallery/Gallery';
+import { BasketProvider } from './components/BasketContextProvider';
 
 const products = [
 	{
@@ -62,10 +63,10 @@ const products = [
 
 export default function App() {
 	return (
-		<>
+		<BasketProvider>
 			<Landingpage />
 			<ProductPage />
 			<Gallery products={products} />
-		</>
+		</BasketProvider>
 	);
 }

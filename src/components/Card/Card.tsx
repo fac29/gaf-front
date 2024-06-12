@@ -1,6 +1,7 @@
 import './Card.css';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import Button from '../Button/Button';
+import { useBasket } from '../BasketContextProvider';
 
 type CardProps = {
 	image?: string;
@@ -24,6 +25,12 @@ export default function Card({
 	description,
 	price,
 }: CardProps): JSX.Element {
+	const { addToBasket } = useBasket();
+
+	const handleAddToBasket = () => {
+		addToBasket({ image, name, description, price });
+	};
+
 	return (
 		<div className="card">
 			<ImgDisplay
@@ -36,7 +43,7 @@ export default function Card({
 				<p className="card-price">£{price.toFixed(2)}</p>
 				<Button
 					btnText="Add to basket"
-					btnonClick={()=>{})}
+					btnonClick={handleAddToBasket}
 					btnclassName="add-to-basket-btn"
 				/>
 			</div>
