@@ -13,8 +13,16 @@ export const deleteProduct = async (id: number) => {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 
-		const result = await response.json();
-		return result;
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			// If the response is JSON, parse it
+			const result = await response.json();
+			return result;
+		} else {
+			// If the response is not JSON, return the response text
+			const result = await response.text();
+			return result;
+		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
@@ -37,8 +45,16 @@ export const singleProduct = async (id: number) => {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 
-		const result = await response.json();
-		return result;
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			// If the response is JSON, parse it
+			const result = await response.json();
+			return result;
+		} else {
+			// If the response is not JSON, return the response text
+			const result = await response.text();
+			return result;
+		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
@@ -60,9 +76,16 @@ export const randomProducts = async () => {
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
-
-		const result = await response.json();
-		return result;
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			// If the response is JSON, parse it
+			const result = await response.json();
+			return result;
+		} else {
+			// If the response is not JSON, return the response text
+			const result = await response.text();
+			return result;
+		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
@@ -86,8 +109,16 @@ export const SearchProducts = async (userInput: Array<string>) => {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 
-		const result = await response.json();
-		return result;
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			// If the response is JSON, parse it
+			const result = await response.json();
+			return result;
+		} else {
+			// If the response is not JSON, return the response text
+			const result = await response.text();
+			return result;
+		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
