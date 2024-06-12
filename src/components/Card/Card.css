@@ -1,0 +1,41 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-details {
+    padding: 16px;
+  }
+  
+  .card-details h2 {
+    font-size: 1.5em;
+    margin: 0;
+    margin-bottom: 8px;
+    color: black;
+  }
+  
+  .card-details p {
+    margin: 8px 0;
+    color: black;
+  }
+  
+  .card-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
