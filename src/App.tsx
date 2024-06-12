@@ -8,7 +8,13 @@ export default function App() {
 		<>
 			<Landingpage />
 			<ProductPage />
-			<ImgDisplay size={'small'} image={'/Images/image.jpeg'} />
+			{/* <ImgDisplay size={'small'} image={'/Images/image.jpeg'} />
+			<ImgDisplay
+				size={'small'}
+				image={
+					'https://i1.sndcdn.com/artworks-000067630056-afxn9j-t240x240.jpg'
+				}
+			/> */}
 		</>
 	);
 }
