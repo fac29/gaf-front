@@ -21,10 +21,11 @@ export default function Landingpage() {
 				<button
 					onClick={() =>
 						setUser((prevUser) => ({
-							...(prevUser || {}),
+							...(prevUser || { role: '', name: '', username: '', cart: [] }),
 							role: 'admin',
 							name: 'gui',
 							username: 'gafgui',
+							cart: prevUser?.cart || [],
 						}))
 					}
 				>
@@ -33,7 +34,13 @@ export default function Landingpage() {
 				{/* these are examples of hown to use the context api inside the components */}
 				<button
 					onClick={() =>
-						setUser({ ...user, role: 'client', name: 'ferg', username: 'alex' })
+						setUser({
+							...user,
+							role: 'client',
+							name: 'ferg',
+							username: 'alex',
+							cart: user?.cart || [],
+						})
 					}
 				>
 					click me
