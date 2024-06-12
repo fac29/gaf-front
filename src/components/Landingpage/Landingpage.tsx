@@ -1,10 +1,23 @@
-//import React from 'react';
+import React from 'react';
 import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
+import { randomProducts } from '../../utils/endpoints.js';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
 	const { user, setUser } = useUserContext();
+	const [ting, setTing] = React.useState();
+
+	const handleFEtch = async () => {
+		const response = await randomProducts;
+
+		setTing(response);
+		console.log(response);
+	};
+
+	React.useEffect(() => {
+		handleFEtch;
+	}, []);
 
 	return (
 		<>
@@ -16,6 +29,7 @@ export default function Landingpage() {
 				<h3>{user ? user.name : 'user set to null'}</h3>
 				<h4>{user ? user.role : 'user set to null'}</h4>
 				<h5>{user ? user.username : 'user set to null'}</h5>
+				<p>{ting ? ting : ''}</p>
 
 				{/* these are examples of hown to use the context api inside the components */}
 				<button
