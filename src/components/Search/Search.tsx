@@ -8,7 +8,7 @@ export default function Search() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('Form submitted with userInpuit:', userInput);
+		console.log('Form submitted with userInput:', userInput);
 		console.log(`Sanitized user input ${sanitizeInput(userInput)}`);
 
 		// Add handler to send the data to search

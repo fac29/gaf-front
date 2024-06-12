@@ -1,0 +1,13 @@
+form {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+li form:hover {
+	background-color: #111;
+}
+input {
+	width: 30vw;
+}
