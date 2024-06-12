@@ -1,6 +1,7 @@
 //import React from 'react';
 import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
+import Navbar from '../Navbar/Navbar.tsx';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
@@ -9,7 +10,7 @@ export default function Landingpage() {
 	return (
 		<>
 			<header>
-				<p>this is where the nav and search will go</p>
+				<Navbar />
 			</header>
 			<main>
 				<h1>Landing Page</h1>
