@@ -1,5 +1,6 @@
 import './Card.css';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
+import Button from '../Button/Button';
 
 type CardProps = {
 	image?: string;
@@ -33,6 +34,11 @@ export default function Card({
 				<h2>{name}</h2>
 				{description && <p>{description}</p>}
 				<p className="card-price">£{price.toFixed(2)}</p>
+				<Button
+					btnText="Add to basket"
+					btnonClick={()=>{})}
+					btnclassName="add-to-basket-btn"
+				/>
 			</div>
 		</div>
 	);
