@@ -3,65 +3,25 @@ import Landingpage from './components/Landingpage/Landingpage';
 import ProductPage from './components/Productpage/ProductPage';
 import Gallery from './components/Gallery/Gallery';
 import { BasketProvider } from './components/BasketContextProvider';
-
-const products = [
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 1',
-		description: 'This is the description for product 1.',
-		price: 19.99,
-	},
-	{
-		image: '../public/Images/image.jpeg',
-		name: 'Product 2',
-		description: 'This is the description for product 2.',
-		price: 29.99,
-	},
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 3',
-		description: 'This is the description for product 3.',
-		price: 39.99,
-	},
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 1',
-		description: 'This is the description for product 1.',
-		price: 19.99,
-	},
-	{
-		image: '../public/Images/image.jpeg',
-		name: 'Product 2',
-		description: 'This is the description for product 2.',
-		price: 29.99,
-	},
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 3',
-		description: 'This is the description for product 3.',
-		price: 39.99,
-	},
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 1',
-		description: 'This is the description for product 1.',
-		price: 19.99,
-	},
-	{
-		image: '../public/Images/image.jpeg',
-		name: 'Product 2',
-		description: 'This is the description for product 2.',
-		price: 29.99,
-	},
-	{
-		image: 'https://via.placeholder.com/300',
-		name: 'Product 3',
-		description: 'This is the description for product 3.',
-		price: 39.99,
-	},
-];
+import { useState, useEffect } from 'react';
+import { randomProducts } from './utils/endpoints';
 
 export default function App() {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const fetchedProducts = await randomProducts();
+				setProducts(fetchedProducts);
+			} catch (error) {
+				console.error('Failed to fetch products:', error);
+			}
+		};
+
+		fetchProducts();
+	}, []);
+
 	return (
 		<BasketProvider>
 			<Landingpage />
