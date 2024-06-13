@@ -1,10 +1,6 @@
 //import React from 'react';
 import Landingpage from './components/Landingpage/Landingpage';
 import ProductPage from './components/Productpage/ProductPage';
-import Gallery from './components/Gallery/Gallery';
-import { BasketProvider } from './components/BasketContextProvider';
-import { useState, useEffect } from 'react';
-import { randomProducts } from './utils/endpoints';
 
 export default function App() {
 	const [products, setProducts] = useState([]);
