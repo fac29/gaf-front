@@ -20,6 +20,10 @@ type GalleryProps = {
  * @returns {JSX.Element} The Gallery component displaying a list of product cards.
  */
 const Gallery: React.FC<GalleryProps> = ({ products }) => {
+
+  if (!products || products.length === 0) {
+    return <div className="gallery">No products available</div>;
+  }
   return (
     <div className="gallery">
       {products.map((product, index) => (
