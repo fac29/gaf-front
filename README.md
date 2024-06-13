@@ -4,7 +4,7 @@
 ![Node.js](https://img.shields.io/badge/TS--Node-blue)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
-An ecommerce web app. Built with typescript, React and node deployed on AWS.
+An ecommerce web app. Built with typescript, React and node.
 
 ## Table of Contents
 
