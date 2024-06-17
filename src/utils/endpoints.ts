@@ -98,7 +98,7 @@ export const randomProducts = async () => {
 export const SearchProducts = async (userInput: Array<string>) => {
 	try {
 		const response = await fetch(`http://localhost:3000/products`, {
-			method: 'GET',
+			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},

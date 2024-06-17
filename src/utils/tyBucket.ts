@@ -53,5 +53,6 @@ export type User = {
 	name: string;
 	username: string;
 	cart: Array<Cart>;
+	search: Array<Product>;
 };
 //end of ContextAPi types
