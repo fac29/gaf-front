@@ -7,13 +7,13 @@ export default function Navbar() {
 		<div className="container">
 			<ul>
 				<li>
-					<a href="">Home</a>
+					<a href={`/contacts/1`}>Home</a>
 				</li>
 				<li>
 					<Search />
 				</li>
 				<li className="right">
-					<a href="">Cart</a>
+					<a href={`/contacts/1`}>Cart</a>
 				</li>
 			</ul>
 		</div>

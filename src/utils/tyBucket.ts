@@ -31,6 +31,7 @@ export type Review = {
 };
 
 export type Cards = {
+	id: number;
 	image: string;
 	name: string;
 	description: string;
