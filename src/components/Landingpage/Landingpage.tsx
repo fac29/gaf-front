@@ -3,21 +3,16 @@ import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
 import Navbar from '../Navbar/Navbar.tsx';
 import Gallery from '../Gallery/Gallery.tsx';
+import { randomProducts } from '../../utils/endpoints.js';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
 	const { user, setUser } = useUserContext();
 
-	const randomProducts = async () => {
+	const randomProductsHandler = async () => {
 		try {
-			const response = await fetch(`http://localhost:3000/products/random`, {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			});
-			const data = await response.json();
-			setUser({ ...user, search: data });
+			const response = await randomProducts();
+			setUser({ ...user, search: response });
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
@@ -27,10 +22,8 @@ export default function Landingpage() {
 		}
 	};
 
-	React.useEffect(async () => {
-		SearchProducts(sanitizedUserInput).then((res) =>
-			setUser({ ...user, search: res }),
-		);
+	React.useEffect(() => {
+		randomProductsHandler();
 	}, []);
 
 	return (
@@ -39,7 +32,7 @@ export default function Landingpage() {
 				<Navbar />
 			</header>
 			<main>
-				<Gallery products={user?.search} />
+				{user?.search.length > 1 ? <Gallery products={user.search} /> : ''}
 			</main>
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
