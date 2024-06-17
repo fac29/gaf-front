@@ -3,21 +3,3 @@
 	align-items: center;
 	justify-content: center;
 }
-
-.thumbnail {
-	width: 100px;
-	height: 256px;
-	aspect-ratio: 3/2;
-}
-
-.heroimage {
-	width: 100%;
-	height: 100%;
-	aspect-ratio: 16/9;
-}
-
-.cartimage {
-	width: 64px;
-	height: 64px;
-	aspect-ratio: 1/1;
-}
