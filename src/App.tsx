@@ -1,12 +1,17 @@
-//import React from 'react';
 import Landingpage from './components/Landingpage/Landingpage';
-//import ProductPage from './components/Productpage/ProductPage';
+import ProductPage from './components/Productpage/ProductPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default function App() {
 	return (
 		<>
-			<Landingpage />
-			{/* <ProductPage /> */}
+		
+			<Router>
+				<Routes>
+					<Route path="/product/:id" element={<ProductPage />} />
+					<Route path="/" element={<Landingpage />} />
+				</Routes>
+			</Router>
 		</>
 	);
 }

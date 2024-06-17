@@ -4,7 +4,7 @@ export type Product = {
 	id: number;
 	name: string;
 	description: string;
-	image: string;
+	image_path: string;
 	stock: number;
 	Categories: Array<Category>;
 	price: number;
