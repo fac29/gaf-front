@@ -5,7 +5,7 @@ import { Cards } from '../../utils/tyBucket';
 
 export default function Card({ id, image, name, description, price }: Cards) {
 	const handleProductRouting = () => {
-		<a href={`/product/${id}`}></a>;
+		<a href={`/product/${id}`} />;
 	};
 	const handleAddToBasket = () => {};
 
