@@ -6,7 +6,7 @@ export default function Navbar() {
 	return (
 		<div className="navstyle">
 			<a href="">Home</a>
-			<div>
+			<div className="rightnav">
 				<Search />
 
 				<a href="">Cart</a>

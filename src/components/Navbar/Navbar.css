@@ -1,5 +1,12 @@
 .navstyle {
 	display: flex;
-	justify-content: center;
-	background-color: pink;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+}
+
+.rightnav {
+	display: flex;
+	align-items: center;
+	gap: 32px;
 }
