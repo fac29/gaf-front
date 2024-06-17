@@ -40,5 +40,5 @@ An ecommerce web app. Built with typescript, React and node.
 To start the server, use the following command:
 
 ```sh
-npm start dev
+npm run dev
 ```
