@@ -15,6 +15,7 @@ const defaultUser: User = {
 	name: '',
 	username: '',
 	cart: [],
+	search: [],
 };
 
 export default function UserContextProvider({

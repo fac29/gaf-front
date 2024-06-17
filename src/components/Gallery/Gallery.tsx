@@ -11,6 +11,7 @@ export default function Gallery({ products }: { products: Product[] }) {
 				{products.map((product) => (
 					//use card component to display item
 					<Card
+						id={product.id}
 						key={product.id}
 						image={product.image_path}
 						name={product.name}
