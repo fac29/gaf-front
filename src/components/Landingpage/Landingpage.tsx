@@ -2,6 +2,7 @@
 import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
 import Navbar from '../Navbar/Navbar.tsx';
+import Card from '../Card/Card';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
@@ -46,6 +47,17 @@ export default function Landingpage() {
 				>
 					click me
 				</button>
+				<div>
+					<p>example card</p>
+					<Card
+						image={
+							'https://www.shutterstock.com/image-vector/vector-realistic-isolated-neon-sign-260nw-726184279.jpg'
+						}
+						name={'ting the ting'}
+						description={'yolo swagins big ting'}
+						price={5}
+					/>
+				</div>
 			</main>
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
