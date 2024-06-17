@@ -1,12 +1,37 @@
-//import React from 'react';
+import React from 'react';
 import './Landingpage.css';
 import { useUserContext } from '../UserContextProvider.js';
 import Navbar from '../Navbar/Navbar.tsx';
-import Card from '../Card/Card';
+import Gallery from '../Gallery/Gallery.tsx';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
 	const { user, setUser } = useUserContext();
+
+	const randomProducts = async () => {
+		try {
+			const response = await fetch(`http://localhost:3000/products/random`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+			const data = await response.json();
+			setUser({ ...user, search: data });
+		} catch (error) {
+			if (error instanceof Error) {
+				alert(error.message);
+			} else {
+				alert('An unexpected error occurred');
+			}
+		}
+	};
+
+	React.useEffect(async () => {
+		SearchProducts(sanitizedUserInput).then((res) =>
+			setUser({ ...user, search: res }),
+		);
+	}, []);
 
 	return (
 		<>
@@ -14,51 +39,7 @@ export default function Landingpage() {
 				<Navbar />
 			</header>
 			<main>
-				<h1>Landing Page</h1>
-				<h3>{user ? user.name : 'user set to null'}</h3>
-				<h4>{user ? user.role : 'user set to null'}</h4>
-				<h5>{user ? user.username : 'user set to null'}</h5>
-
-				{/* these are examples of hown to use the context api inside the components */}
-				<button
-					onClick={() =>
-						setUser((prevUser) => ({
-							...(prevUser || { role: '', name: '', username: '', cart: [] }),
-							role: 'admin',
-							name: 'gui',
-							username: 'gafgui',
-							cart: prevUser?.cart || [],
-						}))
-					}
-				>
-					click me
-				</button>
-				{/* these are examples of hown to use the context api inside the components */}
-				<button
-					onClick={() =>
-						setUser({
-							...user,
-							role: 'client',
-							name: 'ferg',
-							username: 'alex',
-							cart: user?.cart || [],
-						})
-					}
-				>
-					click me
-				</button>
-				<div>
-					<p>example card</p>
-					<Card
-						id={1}
-						image={
-							'https://www.shutterstock.com/image-vector/vector-realistic-isolated-neon-sign-260nw-726184279.jpg'
-						}
-						name={'ting the ting'}
-						description={'yolo swagins big ting'}
-						price={5}
-					/>
-				</div>
+				<Gallery products={user?.search} />
 			</main>
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
