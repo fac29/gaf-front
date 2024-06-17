@@ -50,6 +50,7 @@ export default function Landingpage() {
 				<div>
 					<p>example card</p>
 					<Card
+						id={1}
 						image={
 							'https://www.shutterstock.com/image-vector/vector-realistic-isolated-neon-sign-260nw-726184279.jpg'
 						}

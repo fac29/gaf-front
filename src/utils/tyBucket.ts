@@ -31,10 +31,16 @@ export type Review = {
 };
 
 export type Cards = {
+	id: number;
 	image: string;
 	name: string;
 	description: string;
 	price: number;
+};
+
+export type ImgPropt = {
+	imgurl: string;
+	look: string;
 };
 
 //section for ContextAPi types
