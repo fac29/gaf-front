@@ -6,6 +6,8 @@ header {
 main {
 	width: 100vw;
 	padding: 32px;
+	display: flex;
+	flex-direction: column;
 }
 
 footer {
