@@ -37,6 +37,11 @@ export type Cards = {
 	price: number;
 };
 
+export type ImgPropt = {
+	imgurl: string;
+	look: string;
+};
+
 //section for ContextAPi types
 export type CartItem = {
 	productId: string;

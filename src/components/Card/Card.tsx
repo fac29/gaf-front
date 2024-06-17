@@ -9,8 +9,8 @@ export default function Card({ image, name, description, price }: Cards) {
 	return (
 		<div className="card">
 			<ImgDisplay
-				size={'medium'}
-				image={image || '../Images/placeholder-image.jpg'}
+				look={'medium'}
+				imgurl={image || '../Images/placeholder-image.jpg'}
 			/>
 			<div className="card-details">
 				<div>
@@ -21,7 +21,7 @@ export default function Card({ image, name, description, price }: Cards) {
 				<Button
 					btnText="Add to basket"
 					btnonClick={handleAddToBasket}
-					btnclassName="btnSecondary"
+					btnclassName="btnPrimary"
 				/>
 			</div>
 		</div>
