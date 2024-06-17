@@ -32,7 +32,11 @@ export default function Landingpage() {
 				<Navbar />
 			</header>
 			<main>
-				{user?.search.length > 1 ? <Gallery products={user.search} /> : ''}
+				{user?.search.length > 0 ? (
+					<Gallery products={user.search} />
+				) : (
+					<p>there are no matching products</p>
+				)}
 			</main>
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
