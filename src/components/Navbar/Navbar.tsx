@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import './Navbar.css';
 import Search from '../Search/Search';
 
@@ -8,7 +8,6 @@ export default function Navbar() {
 			<a href="">Home</a>
 			<div className="rightnav">
 				<Search />
-
 				<a href="">Cart</a>
 			</div>
 		</div>
