@@ -12,7 +12,7 @@ export default function Gallery({ products }: { products: Product[] }) {
 					//use card component to display item
 					<Card
 						key={product.id}
-						image={product.image}
+						image={product.image_path}
 						name={product.name}
 						description={product.description}
 						price={product.price}
