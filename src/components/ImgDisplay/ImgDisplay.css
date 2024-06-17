@@ -5,9 +5,9 @@
 }
 
 .thumbnail {
-	width: 256px;
+	width: 100px;
 	height: 256px;
-	aspect-ratio: 3/2x;
+	aspect-ratio: 3/2;
 }
 
 .heroimage {

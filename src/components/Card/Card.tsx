@@ -13,7 +13,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 		<div className="card">
 			<div onClick={handleProductRouting}>
 				<ImgDisplay
-					look={'medium'}
+					look={'thumbnail'}
 					imgurl={image || '../Images/placeholder-image.jpg'}
 				/>
 				<div className="card-details">

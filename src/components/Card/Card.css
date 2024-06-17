@@ -8,6 +8,7 @@
 	padding: 16px;
 	color: var(--colorPrimary);
 	cursor: pointer;
+	max-width: 300px;
 }
 
 .card:hover {
