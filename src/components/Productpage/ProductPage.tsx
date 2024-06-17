@@ -10,7 +10,7 @@ import { Product } from '../../utils/tyBucket';
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
 	const { id } = useParams();
-	
+
 	const handleAddToBasket = () => {
 		if (product) {
 			console.log(`Added product ${product.id} to cart`);
@@ -47,8 +47,8 @@ export default function ProductPage() {
 				{product ? (
 					<>
 						<ImgDisplay
-							image={product.image_path || '../Images/placeholder-image.jpg'}
-							size="big"
+							imgurl={product.image_path || '../Images/placeholder-image.jpg'}
+							look="heroimage"
 						/>
 						<p>{product.name}</p>
 						<p>{product.description}</p>
