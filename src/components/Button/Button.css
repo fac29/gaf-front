@@ -1,6 +1,6 @@
 .btnPrimary {
-	background-color: var(--qprimary);
-	color: var(--qdark);
+	background-color: var(--colorPrimary);
+	color: var(--colorDark);
 	border-radius: 8px;
 	padding: 16px 24px;
 	border: none;
@@ -9,10 +9,10 @@
 
 .btnSecondary {
 	background-color: none;
-	color: var(--qdark);
+	color: var(--colorDark);
 	border-radius: 8px;
 	padding: 16px 24px;
-	border: solid 2px var(--qdark);
+	border: solid 2px var(--colorDark);
 	font-weight: 700;
 }
 

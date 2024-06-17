@@ -30,6 +30,13 @@ export type Review = {
 	createdAt: string;
 };
 
+export type Cards = {
+	image: string;
+	name: string;
+	description: string;
+	price: number;
+};
+
 //section for ContextAPi types
 export type CartItem = {
 	productId: string;
@@ -38,6 +45,7 @@ export type CartItem = {
 
 export type Cart = {
 	cart: Array<CartItem>;
+	cartId: number;
 };
 
 export type User = {
