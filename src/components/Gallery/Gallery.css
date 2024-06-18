@@ -1,8 +1,6 @@
 .gallery {
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto;
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
 	padding: 16px;
 }
