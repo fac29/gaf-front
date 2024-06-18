@@ -192,7 +192,7 @@ export const signUp = async (username: string, password: string) => {
 
 export const fetchReviews = async (productId: number) => {
 	try {
-		const response = await fetch(`http://localhost:3000/reviews/${productId}`, {
+		const response = await fetch(`http://localhost:3000/review/${productId}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

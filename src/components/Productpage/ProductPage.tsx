@@ -76,7 +76,7 @@ export default function ProductPage() {
 				<Button
 					btnText="Add to basket"
 					btnonClick={handleAddToBasket}
-					btnclassName="btnSecondary"
+					btnclassName="btnPrimary"
 				/>
 				<Reviews reviewsArray={reviews} />
 			</main>

@@ -5,6 +5,8 @@
 	padding: 16px 24px;
 	border: none;
 	font-weight: 700;
+	width:fit-content;
+	
 }
 
 .btnSecondary {
@@ -14,6 +16,7 @@
 	padding: 16px 24px;
 	border: solid 2px var(--colorDark);
 	font-weight: 700;
+	width: fit-content;
 }
 
 .btnPrimary:hover,
