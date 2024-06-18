@@ -17,8 +17,8 @@ An ecommerce web app. Built with typescript, React and node.
 - See all products
 - Search for an individual product
 - Add a product to the cart
-- Log into your account
-- register a new account
+- Log into your user account
+- register a new user account
 
 ## Installation
 
