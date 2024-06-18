@@ -34,7 +34,7 @@ export default function Search() {
 				Search:
 				<input value={userInput} />
 			</label>
-			<Button btnText="Search" btnclassName="searchButton" />
+			<Button btnText="Search" btnclassName="btnPrimary" />
 		</form>
 	);
 }
