@@ -8,7 +8,6 @@ export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
 
 	const handleProductRouting = () => {
-		//console.log(`Navigate ${id}`);
 		navigate(`/product/${id}`);
 	};
 	const handleAddToBasket = () => {
