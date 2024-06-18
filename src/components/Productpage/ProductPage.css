@@ -19,3 +19,10 @@
 .star.filled {
 	color: #ffca28;
 }
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(min(50vw, 50rem));
+    min-width: 20rem;
+}

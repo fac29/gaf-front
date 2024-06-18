@@ -59,26 +59,28 @@ export default function ProductPage() {
 				<Navbar hasSearch={false} />
 			</header>
 			<main>
-				<h1>Product Page</h1>
-				{product ? (
-					<>
-						<ImgDisplay
-							imgurl={product.image_path || '../Images/placeholder-image.jpg'}
-							look="heroimage"
-						/>
-						<p>{product.name}</p>
-						<p>{product.description}</p>
-						<p>{`Price: $${product.price}`}</p>
-					</>
-				) : (
-					<p>Loading...</p>
-				)}
-				<Button
-					btnText="Add to basket"
-					btnonClick={handleAddToBasket}
-					btnclassName="btnPrimary"
-				/>
-				<Reviews reviewsArray={reviews} />
+				<div className="productContainer">
+					<h1>Product Page</h1>
+					{product ? (
+						<>
+							<ImgDisplay
+								imgurl={product.image_path || '../Images/placeholder-image.jpg'}
+								look="productImage"
+							/>
+							<p>{product.name}</p>
+							<p>{product.description}</p>
+							<p>{`Price: $${product.price}`}</p>
+						</>
+					) : (
+						<p>Loading...</p>
+					)}
+					<Button
+						btnText="Add to basket"
+						btnonClick={handleAddToBasket}
+						btnclassName="btnPrimary"
+					/>
+					<Reviews reviewsArray={reviews} />
+				</div>
 			</main>
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
