@@ -1,20 +1,14 @@
-import React from 'react';
+// import React from 'react';
 import './CreateLog.css';
 import Button from '../Button/Button';
+import { CreateLogProps } from '../../utils/tyBucket';
 
-interface CreateLogProps {
-	isCreateAccountOpen: boolean;
-	isLogInOpen: boolean;
-	closeCreateAccountModal: () => void;
-	closeLogInModal: () => void;
-}
-
-const CreateLog: React.FC<CreateLogProps> = ({
+export default function CreateLog({
 	isCreateAccountOpen,
 	isLogInOpen,
 	closeCreateAccountModal,
 	closeLogInModal,
-}) => {
+}: CreateLogProps) {
 	return (
 		<div className="CreateLog">
 			{isCreateAccountOpen && (
@@ -28,6 +22,10 @@ const CreateLog: React.FC<CreateLogProps> = ({
 						</button>
 						<h2>Create Account</h2>
 						<form>
+							<div>
+								<label>Name:</label>
+								<input type="text" required />
+							</div>
 							<div>
 								<label>Email:</label>
 								<input type="email" required />
@@ -65,6 +63,4 @@ const CreateLog: React.FC<CreateLogProps> = ({
 			)}
 		</div>
 	);
-};
-
-export default CreateLog;
+}

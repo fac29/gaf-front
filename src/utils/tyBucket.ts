@@ -62,3 +62,10 @@ export type User = {
 	search: Array<Product>;
 };
 //end of ContextAPi types
+
+export type CreateLogProps {
+	isCreateAccountOpen: boolean;
+	isLogInOpen: boolean;
+	closeCreateAccountModal: () => void;
+	closeLogInModal: () => void;
+}
