@@ -63,9 +63,9 @@ export type User = {
 };
 //end of ContextAPi types
 
-export type CreateLogProps {
+export type CreateLogProps = {
 	isCreateAccountOpen: boolean;
 	isLogInOpen: boolean;
 	closeCreateAccountModal: () => void;
 	closeLogInModal: () => void;
-}
+};
