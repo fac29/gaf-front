@@ -33,7 +33,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 				cart: updatedCart,
 			});
 		}
-		console.log(user);
+		console.log(user.cart);
 	};
 
 	return (
