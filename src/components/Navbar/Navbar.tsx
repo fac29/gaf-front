@@ -2,12 +2,16 @@
 import './Navbar.css';
 import Search from '../Search/Search';
 
-export default function Navbar() {
+type props = {
+	hasSearch?: boolean;
+};
+
+export default function Navbar({ hasSearch = true}: props) {
 	return (
 		<div className="navstyle">
 			<a href="">Home</a>
 			<div className="rightnav">
-				<Search />
+				{hasSearch && <Search />}
 				<a href="">Cart</a>
 			</div>
 		</div>

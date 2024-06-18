@@ -40,7 +40,7 @@ export default function ProductPage() {
 	return (
 		<>
 			<header>
-				<Navbar />
+				<Navbar hasSearch={false} />
 			</header>
 			<main>
 				<h1>Product Page</h1>
