@@ -127,3 +127,70 @@ export const SearchProducts = async (userInput: Array<string>) => {
 		}
 	}
 };
+
+
+export const login = async (username: string, password: string) => {
+
+	try{
+		const response = await fetch(`http://localhost:3000/login`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ username, password }),
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result;
+		} else {
+			const result = await response.text();
+			return result;
+		}
+
+	} catch (error) {
+		if (error instanceof Error) {
+		alert(error.message)
+		} else {
+			alert('Unknown error')
+		}
+	}
+}
+
+export const signUp = async (username: string, password: string) => {
+
+	try{
+		const response = await fetch(`http://localhost:3000/signup`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ username, password }),
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result;
+		} else {
+			const result = await response.text();
+			return result;
+		}
+
+	} catch (error) {
+		if (error instanceof Error) {
+		alert(error.message)
+		} else {
+			alert('Unknown error')
+		}
+	}
+}
