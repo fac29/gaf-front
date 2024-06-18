@@ -34,13 +34,13 @@ export default function Navbar({ hasSearch = true }: props) {
 					btnclassName="btnSecondary"
 					btnonClick={openLogInModal}
 				/>
+				<CreateLog
+					isCreateAccountOpen={isCreateAccountOpen}
+					isLogInOpen={isLogInOpen}
+					closeCreateAccountModal={closeCreateAccountModal}
+					closeLogInModal={closeLogInModal}
+				/>
 			</div>
-			<CreateLog
-				isCreateAccountOpen={isCreateAccountOpen}
-				isLogInOpen={isLogInOpen}
-				closeCreateAccountModal={closeCreateAccountModal}
-				closeLogInModal={closeLogInModal}
-			/>
 		</div>
 	);
 }
