@@ -30,6 +30,10 @@ export type Review = {
 	createdAt: string;
 };
 
+export type ReviewsProp = {
+	reviewsArray: Review[];
+};
+
 export type Cards = {
 	id: number;
 	image: string;

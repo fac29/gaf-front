@@ -3,12 +3,14 @@ import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Navbar from '../Navbar/Navbar';
-import { singleProduct } from '../../utils/endpoints';
+import { singleProduct, fetchReviews } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
-import { Product } from '../../utils/tyBucket';
+import { Product, Review } from '../../utils/tyBucket';
+import Reviews from '../Reviews/Reviews';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
+	const [reviews, setReviews] = useState<Review[]>([]);
 	const { id } = useParams();
 
 	const handleAddToBasket = () => {
@@ -34,7 +36,21 @@ export default function ProductPage() {
 			}
 		};
 
+		const fetchProductReviews = async () => {
+			try {
+				const reviewsData = await fetchReviews(Number(id));
+				if (Array.isArray(reviewsData)) {
+					setReviews(reviewsData);
+				} else {
+					console.error('Reviews data is not in expected format:', reviewsData);
+				}
+			} catch (error) {
+				console.error('Error fetching reviews:', error);
+			}
+		};
+
 		fetchProduct();
+		fetchProductReviews();
 	}, [id]);
 
 	return (
@@ -62,6 +78,7 @@ export default function ProductPage() {
 					btnonClick={handleAddToBasket}
 					btnclassName="btnSecondary"
 				/>
+				<Reviews reviewsArray={reviews} />
 			</main>
 
 			<footer>
