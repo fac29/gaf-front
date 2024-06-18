@@ -80,7 +80,6 @@ export default function ProductPage() {
 				/>
 				<Reviews reviewsArray={reviews} />
 			</main>
-
 			<footer>
 				<p>this is where some sort of cool footer will go</p>
 			</footer>

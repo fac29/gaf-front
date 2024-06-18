@@ -4,10 +4,27 @@ form {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+	
 }
 li form:hover {
 	background-color: #111;
 }
 input {
 	width: 30vw;
+}
+
+.search-input {
+    /* padding: 8px; */
+    border: 1px solid var(--colorSecondary);
+
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    /* box-sizing: border-box; */
+    font-size: 1rem;
+    color: black;
+}
+
+.search-input::placeholder {
+    color: gray; /* Set the placeholder text color to gray */
 }

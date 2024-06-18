@@ -6,6 +6,12 @@
 	padding: 16px;
 }
 
+.navstyle form {
+	display: flex;
+	gap: 1rem;
+	align-items: last baseline;
+}
+
 .rightnav {
 	display: flex;
 	align-items: center;

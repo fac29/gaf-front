@@ -8,11 +8,13 @@ import { useUserContext } from '../UserContextProvider';
 export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
 	const { user, setUser } = useUserContext();
+
 	// taking user to the product detail page
 	const handleProductRouting = () => {
 		navigate(`/product/${id}`);
 	};
-	//adding products to userCart
+
+	// adding products to userCart
 	const handleAddToCart = (pid: string) => {
 		if (user) {
 			const doesItemExist = user.cart.find(

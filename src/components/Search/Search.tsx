@@ -38,10 +38,11 @@ export default function Search() {
 	return (
 		<form onSubmit={handleSubmit}>
 			<label>
-				Search:
 				<input
 					value={userInput}
 					onChange={(e) => setUserInput(e.target.value)}
+					placeholder="Search"
+					className="search-input"
 				/>
 			</label>
 			<Button btnText="Search" btnclassName="btnPrimary" />
