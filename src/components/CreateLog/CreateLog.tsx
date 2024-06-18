@@ -23,6 +23,10 @@ export default function CreateLog({
 						<h2>Create Account</h2>
 						<form>
 							<div>
+								<label>Name:</label>
+								<input type="text" required />
+							</div>
+							<div>
 								<label>Email:</label>
 								<input type="email" required />
 							</div>
