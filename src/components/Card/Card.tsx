@@ -1,9 +1,10 @@
 import './Card.css';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import Button from '../Button/Button';
-import { Cards, Cart, CartItem } from '../../utils/tyBucket';
+import { Cards } from '../../utils/tyBucket';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../UserContextProvider';
+import { Cart, CartItem } from '../../utils/tyBucket';
 
 export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
@@ -14,10 +15,6 @@ export default function Card({ id, image, name, description, price }: Cards) {
 		navigate(`/product/${id}`);
 	};
 	//adding products to userCart
-	/* const updateCart = (newCart) => {
-    setUser({ ...user, cart: newCart });
-  }; */
-
 	const handleAddToCart = (productId: number) => {
 		if (user) {
 			const updatedCart: Cart[] = [...user.cart];
