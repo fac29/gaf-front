@@ -10,7 +10,7 @@ export default function Search() {
 	const [userInput, setUserInput] = React.useState('');
 	const { user, setUser } = useUserContext();
 
-	const handleSubmit = async (e: Event) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		const sanitizedUserInput = sanitizeInput(userInput);
@@ -36,13 +36,13 @@ export default function Search() {
 	};
 
 	return (
-		<form
-			onChange={(e) => setUserInput(e.target.value)}
-			onSubmit={handleSubmit}
-		>
+		<form onSubmit={handleSubmit}>
 			<label>
 				Search:
-				<input value={userInput} />
+				<input
+					value={userInput}
+					onChange={(e) => setUserInput(e.target.value)}
+				/>
 			</label>
 			<Button btnText="Search" btnclassName="btnPrimary" />
 		</form>
