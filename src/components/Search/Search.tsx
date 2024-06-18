@@ -10,29 +10,39 @@ export default function Search() {
 	const [userInput, setUserInput] = React.useState('');
 	const { user, setUser } = useUserContext();
 
-	const handleSubmit = (e: Event) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		console.log('Form submitted with userInput:', userInput);
-		console.log(`Sanitized user input ${sanitizeInput(userInput)}`);
-
-		// Handler to send the data to search
 		const sanitizedUserInput = sanitizeInput(userInput);
-		SearchProducts(sanitizedUserInput).then((res) =>
-			setUser({ ...user, search: res }),
-		);
+
+		try {
+			const response = await SearchProducts(sanitizedUserInput);
+			if (typeof response === 'string') {
+				alert(
+					`The search for product: ${sanitizedUserInput} was unsuccessful. Server message: ${response}`,
+				);
+			} else {
+				setUser({ ...user, search: response } as User);
+			}
+		} catch (error) {
+			if (error instanceof Error) {
+				alert(error.message);
+			} else {
+				alert('An unexpected error occurred');
+			}
+		}
 
 		setUserInput('');
 	};
 
 	return (
-		<form
-			onChange={(e) => setUserInput(e.target.value)}
-			onSubmit={handleSubmit}
-		>
+		<form onSubmit={handleSubmit}>
 			<label>
 				Search:
-				<input value={userInput} />
+				<input
+					value={userInput}
+					onChange={(e) => setUserInput(e.target.value)}
+				/>
 			</label>
 			<Button btnText="Search" btnclassName="btnPrimary" />
 		</form>
