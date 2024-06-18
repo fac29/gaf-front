@@ -3,15 +3,17 @@ import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import Button from '../Button/Button';
 import { Cards } from '../../utils/tyBucket';
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../UserContextProvider';
 
 export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
+	const { user, setUser } = useUserContext();
 
 	const handleProductRouting = () => {
 		navigate(`/product/${id}`);
 	};
 	const handleAddToBasket = () => {
-		console.log('added');
+		if(user) setUser({ ...user, cart: [...user.cart[]] });
 	};
 
 	return (
