@@ -1,6 +1,7 @@
 import './Reviews.css';
 import { ReviewsProp } from '../../utils/tyBucket';
-import { renderStars } from '../../utils/utils';
+import ReviewsScore from './ReviewsScore/ReviewsScore';
+
 
 export default function Reviews({ reviewsArray }: ReviewsProp) {
 	return (
@@ -11,7 +12,7 @@ export default function Reviews({ reviewsArray }: ReviewsProp) {
 					<div className="review-content">
 						<h3>{review.name}</h3>
 						<p>{review.description}</p>
-                        <div className="review-score">{renderStars(review.score)}</div>
+                        <ReviewsScore score={review.score} />
 					</div>
 				</div>
 			))}

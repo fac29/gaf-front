@@ -73,3 +73,4 @@ export type CreateLogProps = {
 	closeCreateAccountModal: () => void;
 	closeLogInModal: () => void;
 };
+

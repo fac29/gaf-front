@@ -1,0 +1,8 @@
+.star {
+	color: #d3d3d3; /* Default star color */
+	font-size: 1.5rem; /* Adjust size as needed */
+}
+
+.star.filled {
+	color: #ffd700; /* Gold color for filled stars */
+}
