@@ -128,23 +128,23 @@ export const SearchProducts = async (userInput: Array<string>) => {
 	}
 };
 
-export const login = async (username: string, password: string) => {
+export const login = async (email: string, password: string) => {
 	try {
 		const response = await fetch(`http://localhost:3000/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ username, password }),
+			body: JSON.stringify({ email, password }),
 		});
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
-
 		const contentType = response.headers.get('Content-Type');
 		if (contentType && contentType.includes('application/json')) {
 			const result = await response.json();
+			// Trigger state update (remove Create Account and log in buttons, Show log out)
 			return result;
 		} else {
 			const result = await response.text();
@@ -159,14 +159,15 @@ export const login = async (username: string, password: string) => {
 	}
 };
 
-export const signUp = async (username: string, password: string) => {
+export const signUp = async (name: string, email: string, password: string) => {
 	try {
 		const response = await fetch(`http://localhost:3000/signup`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ username, password }),
+			body: JSON.stringify({ name, email, password }),
+			credentials: 'include', // Ensure cookies are included
 		});
 
 		if (!response.ok) {
@@ -176,6 +177,8 @@ export const signUp = async (username: string, password: string) => {
 		const contentType = response.headers.get('Content-Type');
 		if (contentType && contentType.includes('application/json')) {
 			const result = await response.json();
+
+			// Trigger state update (remove Create Account and log in buttons, Show log out)
 			return result;
 		} else {
 			const result = await response.text();
