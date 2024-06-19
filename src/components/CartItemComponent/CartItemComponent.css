@@ -1,6 +1,6 @@
 .cartitembox {
 	border: solid 1px var(--colorDark);
-	background-color: var(--colorDark);
+
 	color: var(--colorDark);
 	display: flex;
 	justify-content: space-between;
