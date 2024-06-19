@@ -7,11 +7,11 @@ export default function CartComponent(handleModalToggle: () => void) {
 	const { user } = useUserContext();
 
 	return (
-		<div
-			className="cartycart"
-			onClick={() => handleModalToggle.handleModalToggle()}
-		>
+		<div className="cartycart">
 			<div className="cartbody">
+				<div onClick={() => handleModalToggle.handleModalToggle()}>
+					<p>back</p>
+				</div>
 				{user && user.cart.length > 0 ? (
 					user.cart.map((item) => (
 						<div key={item.productId}>
