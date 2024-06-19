@@ -3,34 +3,27 @@ import './CartComponent.css';
 import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
 
-export default function CartComponent(modalIsOpen: boolean) {
+export default function CartComponent(handleModalToggle: () => void) {
 	const { user } = useUserContext();
 
 	return (
-		<>
-			{modalIsOpen ? (
-				<div className="cartycart">
-					<h6>Shopping Cart</h6>
+		<div
+			className="cartycart"
+			onClick={() => handleModalToggle.handleModalToggle()}
+		>
+			<div className="cartbody">
+				{user && user.cart.length > 0 ? (
+					user.cart.map((item) => (
+						<div key={item.productId}>
+							<CartItemComponent id={item.productId} quantity={item.quantity} />
+						</div>
+					))
+				) : (
 					<div>
-						{user && user.cart.length > 0 ? (
-							user.cart.map((item) => (
-								<div key={item.productId}>
-									<CartItemComponent
-										id={item.productId}
-										quantity={item.quantity}
-									/>
-								</div>
-							))
-						) : (
-							<div>
-								<p>your cart is empty</p>
-							</div>
-						)}
+						<p>your cart is empty</p>
 					</div>
-				</div>
-			) : (
-				''
-			)}
-		</>
+				)}
+			</div>
+		</div>
 	);
 }
