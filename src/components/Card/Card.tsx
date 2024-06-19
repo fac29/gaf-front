@@ -10,6 +10,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
 	//calling the customHook for the contextAPI function
 	const { user, setUser } = useUserContext();
+
 	// taking user to the product detail page
 	const handleProductRouting = () => {
 		navigate(`/product/${id}`);
@@ -36,7 +37,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 
 	return (
 		<div className="card">
-			<div onClick={() => handleProductRouting}>
+			<div onClick={handleProductRouting}>
 				<ImgDisplay
 					look={'thumbnail'}
 					imgurl={image || '../Images/placeholder-image.jpg'}

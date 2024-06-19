@@ -1,0 +1,28 @@
+/* ProductPage.css */
+.review {
+	border: 1px solid #ddd;
+	padding: 1rem;
+	border-radius: 8px;
+	margin-top: 1rem;
+	background-color: #f9f9f9;
+}
+
+.review p {
+	margin: 0.5rem 0;
+}
+
+.star {
+	color: #ccc;
+	font-size: 1.25rem;
+}
+
+.star.filled {
+	color: #ffca28;
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(min(50vw, 50rem));
+    min-width: 20rem;
+}

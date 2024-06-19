@@ -3,19 +3,35 @@ import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Navbar from '../Navbar/Navbar';
-import { singleProduct } from '../../utils/endpoints';
+import { singleProduct, fetchReviews } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
-import { Product } from '../../utils/tyBucket';
+import { Product, Review } from '../../utils/tyBucket';
+import Reviews from '../Reviews/Reviews';
+import { useUserContext } from '../UserContextProvider';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
+	const [reviews, setReviews] = useState<Review[]>([]);
+	//calling the customHook for the contextAPI function
+	const { user, setUser } = useUserContext();
 	const { id } = useParams();
 
-	const handleAddToBasket = () => {
-		if (product) {
-			console.log(`Added product ${product.id} to cart`);
-		} else {
-			console.log('Product is null, cannot add to cart');
+	const handleAddToBasket = (productId: number) => {
+		if (user) {
+			const updatedCart: Cart[] = [...user.cart];
+			const existingCartItem: CartItem | undefined = updatedCart.find(
+				(item) => item.productId === productId,
+			);
+
+			if (existingCartItem) {
+				existingCartItem.quantity += 1;
+			} else {
+				updatedCart.push({ productId, quantity: 1 } as CartItem);
+			}
+
+			setUser({ ...user, cart: updatedCart });
+			console.log(`Added product ${productId} to cart`);
+			console.log(user.cart);
 		}
 	};
 
@@ -34,7 +50,21 @@ export default function ProductPage() {
 			}
 		};
 
+		const fetchProductReviews = async () => {
+			try {
+				const reviewsData = await fetchReviews(Number(id));
+				if (Array.isArray(reviewsData)) {
+					setReviews(reviewsData);
+				} else {
+					console.error('Reviews data is not in expected format:', reviewsData);
+				}
+			} catch (error) {
+				console.error('Error fetching reviews:', error);
+			}
+		};
+
 		fetchProduct();
+		fetchProductReviews();
 	}, [id]);
 
 	return (
@@ -43,29 +73,31 @@ export default function ProductPage() {
 				<Navbar hasSearch={false} />
 			</header>
 			<main>
-				<h1>Product Page</h1>
-				{product ? (
-					<>
-						<ImgDisplay
-							imgurl={product.image_path || '../Images/placeholder-image.jpg'}
-							look="heroimage"
-						/>
-						<p>{product.name}</p>
-						<p>{product.description}</p>
-						<p>{`Price: $${product.price}`}</p>
-					</>
-				) : (
-					<p>Loading...</p>
-				)}
-				<Button
-					btnText="Add to basket"
-					btnonClick={handleAddToBasket}
-					btnclassName="btnSecondary"
-				/>
+				<div className="productContainer">
+					<h1>Product Page</h1>
+					{product ? (
+						<>
+							<ImgDisplay
+								imgurl={product.image_path || '../Images/placeholder-image.jpg'}
+								look="productImage"
+							/>
+							<p>{product.name}</p>
+							<p>{product.description}</p>
+							<p>{`Price: $${product.price}`}</p>
+						</>
+					) : (
+						<p>Loading...</p>
+					)}
+					<Button
+						btnText="Add to basket"
+						btnonClick={() => handleAddToBasket(id)}
+						btnclassName="btnPrimary"
+					/>
+					<Reviews reviewsArray={reviews} />
+				</div>
 			</main>
-
 			<footer>
-				<p>this is where some sort of cool footer will go</p>
+				<p>this is where some sort of footer will go</p>
 			</footer>
 		</>
 	);

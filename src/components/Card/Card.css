@@ -9,10 +9,11 @@
 	color: var(--colorPrimary);
 	cursor: pointer;
 	max-width: 300px;
+	justify-content: space-between; /* Ensure content is spaced between the top and bottom */
 }
 
 .card:hover {
-	transform: translateY(-5px);
+    transform: translateY(-5px);
 	z-index: 1;
 }
 
@@ -42,4 +43,9 @@
 	font-size: 1.2em;
 	font-weight: bold;
 	color: #2c3e50;
+}
+
+.card .btnPrimary {
+	align-self: center; /* Center the button horizontally */
+	margin-top: auto; /* Push the button to the bottom of the card */
 }
