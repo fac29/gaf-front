@@ -7,17 +7,31 @@ import { singleProduct, fetchReviews } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
 import { Product, Review } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
+import { useUserContext } from '../UserContextProvider';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
 	const [reviews, setReviews] = useState<Review[]>([]);
+	//calling the customHook for the contextAPI function
+	const { user, setUser } = useUserContext();
 	const { id } = useParams();
 
-	const handleAddToBasket = () => {
-		if (product) {
-			console.log(`Added product ${product.id} to cart`);
-		} else {
-			console.log('Product is null, cannot add to cart');
+	const handleAddToBasket = (productId: number) => {
+		if (user) {
+			const updatedCart: Cart[] = [...user.cart];
+			const existingCartItem: CartItem | undefined = updatedCart.find(
+				(item) => item.productId === productId,
+			);
+
+			if (existingCartItem) {
+				existingCartItem.quantity += 1;
+			} else {
+				updatedCart.push({ productId, quantity: 1 } as CartItem);
+			}
+
+			setUser({ ...user, cart: updatedCart });
+			console.log(`Added product ${productId} to cart`);
+			console.log(user.cart);
 		}
 	};
 
@@ -76,7 +90,7 @@ export default function ProductPage() {
 					)}
 					<Button
 						btnText="Add to basket"
-						btnonClick={handleAddToBasket}
+						btnonClick={() => handleAddToBasket(id)}
 						btnclassName="btnPrimary"
 					/>
 					<Reviews reviewsArray={reviews} />

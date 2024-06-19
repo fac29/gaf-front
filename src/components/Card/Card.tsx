@@ -37,7 +37,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 
 	return (
 		<div className="card">
-			<div onClick={() => handleProductRouting}>
+			<div onClick={handleProductRouting}>
 				<ImgDisplay
 					look={'thumbnail'}
 					imgurl={image || '../Images/placeholder-image.jpg'}
