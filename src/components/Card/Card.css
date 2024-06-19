@@ -13,6 +13,11 @@
 
 .card:hover {
 	transform: translateY(-5px);
+	z-index: 1;
+}
+
+.card:active {
+	transform: translateY(0);
 }
 
 .card-details {
