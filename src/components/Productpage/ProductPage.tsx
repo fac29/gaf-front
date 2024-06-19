@@ -97,7 +97,7 @@ export default function ProductPage() {
 				</div>
 			</main>
 			<footer>
-				<p>this is where some sort of cool footer will go</p>
+				<p>this is where some sort of footer will go</p>
 			</footer>
 		</>
 	);
