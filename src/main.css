@@ -16,24 +16,22 @@
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 0
-
+	background-color: #333;
+	color: white;
+	padding: 0;
 }
 
 header h1 {
-    margin: 0;
+	margin: 0;
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 1rem;
+	margin-top: 2rem;
 }
-
 
 body {
 	-webkit-font-smoothing: antialiased;
@@ -44,18 +42,19 @@ body {
 	width: 100vw;
 	display: flex;
 	justify-content: center;
+	position: relative;
 }
 
 main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+	padding: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
 	align-items: center;
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+	font-size: 2rem;
+	margin-bottom: 1rem;
 }
 
 a {
@@ -71,6 +70,6 @@ a:hover {
 }
 
 p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
+	font-size: 1rem;
+	margin: 0.5rem 0;
 }
