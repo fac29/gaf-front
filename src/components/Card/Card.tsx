@@ -1,46 +1,43 @@
 import './Card.css';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import Button from '../Button/Button';
-import { Cards, CartItem } from '../../utils/tyBucket';
+import { Cards } from '../../utils/tyBucket';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../UserContextProvider';
+import { Cart, CartItem } from '../../utils/tyBucket';
 
 export default function Card({ id, image, name, description, price }: Cards) {
 	const navigate = useNavigate();
+	//calling the customHook for the contextAPI function
 	const { user, setUser } = useUserContext();
 
 	// taking user to the product detail page
 	const handleProductRouting = () => {
 		navigate(`/product/${id}`);
 	};
-
-	// adding products to userCart
-	const handleAddToCart = (pid: string) => {
+	//adding products to userCart
+	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const doesItemExist = user.cart.find(
-				(el: CartItem) => el.productId === pid,
+			const updatedCart: Cart[] = [...user.cart];
+			const existingCartItem: CartItem | undefined = updatedCart.find(
+				(item) => item.productId === productId,
 			);
-			let updatedCart;
-			if (doesItemExist) {
-				updatedCart = user.cart.map((item) =>
-					item.productId === pid
-						? { ...item, quantity: item.quantity + 1 }
-						: item,
-				);
+
+			if (existingCartItem) {
+				existingCartItem.quantity += 1;
 			} else {
-				updatedCart = [...user.cart, { productId: pid, quantity: 1 }];
+				updatedCart.push({ productId, quantity: 1 } as CartItem);
 			}
-			setUser({
-				...user,
-				cart: updatedCart,
-			});
+
+			setUser({ ...user, cart: updatedCart });
+			console.log(`Added product ${productId} to cart`);
+			console.log(user.cart);
 		}
-		console.log(user.cart);
 	};
 
 	return (
 		<div className="card">
-			<div onClick={handleProductRouting}>
+			<div onClick={() => handleProductRouting}>
 				<ImgDisplay
 					look={'thumbnail'}
 					imgurl={image || '../Images/placeholder-image.jpg'}

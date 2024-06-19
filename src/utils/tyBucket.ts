@@ -49,7 +49,7 @@ export type ImgPropt = {
 
 //section for ContextAPi types
 export type CartItem = {
-	productId: string;
+	productId: number;
 	quantity: number;
 };
 
