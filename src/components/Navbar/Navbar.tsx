@@ -4,12 +4,14 @@ import Search from '../Search/Search';
 import CreateLog from '../CreateLog/CreateLog';
 import Button from '../Button/Button';
 import { useUserContext } from '../UserContextProvider';
+import CartComponent from '../CartComponent/CartComponent';
 
 type props = {
 	hasSearch?: boolean;
 };
 
 export default function Navbar({ hasSearch = true }: props) {
+	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
 	const [isLogInOpen, setIsLogInOpen] = useState(false);
 
@@ -31,6 +33,7 @@ export default function Navbar({ hasSearch = true }: props) {
 			<div className="rightnav">
 				{hasSearch && <Search />}
 				<a href="">Cart {totalQuantity > 0 ? `${totalQuantity}items` : ''}</a>
+				<CartComponent show={modalIsOpen} />
 				<Button
 					btnText="Create Account"
 					btnclassName="btnSecondary"

@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import { Product, Review } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
-import CartComponent from '../Cart/CartComponent';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
@@ -99,7 +98,6 @@ export default function ProductPage() {
 			</main>
 			<footer>
 				<p>this is where some sort of footer will go</p>
-				<CartComponent />
 			</footer>
 		</>
 	);
