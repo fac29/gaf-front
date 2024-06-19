@@ -16,6 +16,20 @@ export default function ProductPage() {
 	const { user, setUser } = useUserContext();
 	const { id } = useParams();
 
+	const fetchProductReviews = async (prodId: number) => {
+		try {
+			const reviewsData = await fetchReviews(prodId);
+			if (Array.isArray(reviewsData)) {
+				setReviews(reviewsData);
+			} else {
+				//console.error('Reviews data is not in expected format:', reviewsData);
+				setReviews([]);
+			}
+		} catch (error) {
+			console.error('Error fetching reviews:', error);
+		}
+	};
+
 	const handleAddToBasket = (productId: number) => {
 		if (user) {
 			const updatedCart: Cart[] = [...user.cart];
@@ -35,36 +49,23 @@ export default function ProductPage() {
 		}
 	};
 
+	const fetchProduct = async (prodId: number) => {
+		try {
+			const productData = await singleProduct(prodId);
+
+			if (Array.isArray(productData) && productData.length > 0) {
+				setProduct(productData[0]); // Access the first element of the array
+			} else {
+				console.error('Product data is not in expected format:', productData);
+			}
+		} catch (error) {
+			console.error('Error fetching product:', error);
+		}
+	};
+
 	useEffect(() => {
-		const fetchProduct = async () => {
-			try {
-				const productData = await singleProduct(Number(id));
-
-				if (Array.isArray(productData) && productData.length > 0) {
-					setProduct(productData[0]); // Access the first element of the array
-				} else {
-					console.error('Product data is not in expected format:', productData);
-				}
-			} catch (error) {
-				console.error('Error fetching product:', error);
-			}
-		};
-
-		const fetchProductReviews = async () => {
-			try {
-				const reviewsData = await fetchReviews(Number(id));
-				if (Array.isArray(reviewsData)) {
-					setReviews(reviewsData);
-				} else {
-					console.error('Reviews data is not in expected format:', reviewsData);
-				}
-			} catch (error) {
-				console.error('Error fetching reviews:', error);
-			}
-		};
-
-		fetchProduct();
-		fetchProductReviews();
+		fetchProduct(id);
+		fetchProductReviews(id);
 	}, [id]);
 
 	return (
@@ -93,7 +94,7 @@ export default function ProductPage() {
 						btnonClick={() => handleAddToBasket(id)}
 						btnclassName="btnPrimary"
 					/>
-					<Reviews reviewsArray={reviews} />
+					{reviews.length >= 1 && <Reviews reviewsArray={reviews} />}
 				</div>
 			</main>
 			<footer>
