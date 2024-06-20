@@ -199,9 +199,9 @@ export const fetchReviews = async (productId: number) => {
 			},
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
+		// if (!response.ok) {
+		// 	throw new Error(`HTTP error! status: ${response.status}`);
+		// }
 
 		const contentType = response.headers.get('Content-Type');
 		if (contentType && contentType.includes('application/json')) {
@@ -217,5 +217,40 @@ export const fetchReviews = async (productId: number) => {
 		} else {
 			alert('An unexpected error occurred');
 		}
+	}
+};
+
+export const fetchProductScore = async (productId: number) => {
+	try {
+		const response = await fetch(`http://localhost:3000/productscore/${productId}`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			if (Array.isArray(result) && result.length > 0) {
+				return result[0]; // Return the first element of the array
+			} else {
+				throw new Error('Invalid response format');
+			}
+		} else {
+			const result = await response.text();
+			throw new Error(`Unexpected response content type: ${contentType} ${result}`);
+		}
+	} catch (error) {
+		if (error instanceof Error) {
+			alert(error.message);
+		} else {
+			alert('An unexpected error occurred');
+		}
+		throw error;
 	}
 };

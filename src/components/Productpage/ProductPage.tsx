@@ -3,15 +3,22 @@ import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Navbar from '../Navbar/Navbar';
-import { singleProduct, fetchReviews } from '../../utils/endpoints';
+import {
+	singleProduct,
+	fetchReviews,
+	fetchProductScore,
+} from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
 import { Product, Review } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
+import ReviewsScore from '../Reviews/ReviewsScore/ReviewsScore';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
 	const [reviews, setReviews] = useState<Review[]>([]);
+	const [productScore, setProductScore] = useState<number | null>(null);
+
 	//calling the customHook for the contextAPI function
 	const { user, setUser } = useUserContext();
 	const { id } = useParams();
@@ -63,9 +70,27 @@ export default function ProductPage() {
 		}
 	};
 
+	const fetchProductScores = async (prodId: number) => {
+		try {
+			const scoreData = await fetchProductScore(prodId);
+
+			setProductScore(scoreData.average_score);
+			console.log(`ProductScore: ${scoreData.average_score}`);
+		} catch (error) {
+			console.error('Error fetching product score:', error);
+		}
+	};
+
 	useEffect(() => {
-		fetchProduct(id);
-		fetchProductReviews(id);
+		const productId = Number(id);
+		if (isNaN(productId)) {
+			console.error('Invalid product ID');
+			return;
+		}
+
+		fetchProduct(productId);
+		fetchProductReviews(productId);
+		fetchProductScores(productId);
 	}, [id]);
 
 	return (
@@ -85,13 +110,22 @@ export default function ProductPage() {
 							<p>{product.name}</p>
 							<p>{product.description}</p>
 							<p>{`Price: $${product.price}`}</p>
+							{productScore !== null ? (
+								<div className="averageScore">
+									<p style={{ marginRight: '8px' }}>Average Score:</p>
+									<ReviewsScore score={productScore} />
+								</div>
+							) : (
+								<p>No reviews for this item</p>
+							)}
 						</>
 					) : (
 						<p>Loading...</p>
 					)}
+
 					<Button
 						btnText="Add to basket"
-						btnonClick={() => handleAddToBasket(id)}
+						btnonClick={() => handleAddToBasket(Number(id))}
 						btnclassName="btnPrimary"
 					/>
 					{reviews.length >= 1 && <Reviews reviewsArray={reviews} />}
