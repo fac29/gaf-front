@@ -21,15 +21,15 @@ export default function ImgDisplay({ imgurl, look }: ImgPropt) {
 		return (
 			<img
 				src={imgurl}
-				style={{ width: '64px', height: '64px', aspectRatio: '1' }}
+				style={{
+					width: '32px',
+					height: '32px',
+					aspectRatio: '1',
+					borderRadius: '8px',
+				}}
 			/>
 		);
 
 	if (look === 'productImage')
-		return (
-			<img
-				src={imgurl}
-				style={{ width: '100%', height: 'auto' }}
-			/>
-		);
+		return <img src={imgurl} style={{ width: '100%', height: 'auto' }} />;
 }

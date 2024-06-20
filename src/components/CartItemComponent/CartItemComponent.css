@@ -1,0 +1,22 @@
+.cartitembox {
+	border: solid 1px var(--colorDark);
+
+	color: var(--colorDark);
+	display: flex;
+	justify-content: space-between;
+	max-width: 333px;
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.leftcartitembox {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.rightcartitembox {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
