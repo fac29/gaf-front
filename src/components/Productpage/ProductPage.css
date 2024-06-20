@@ -21,8 +21,13 @@
 }
 
 .productContainer {
-    display: flex;
-    flex-direction: column;
-    width: calc(min(50vw, 50rem));
-    min-width: 20rem;
+	display: flex;
+	flex-direction: column;
+	width: calc(min(50vw, 50rem));
+	min-width: 20rem;
+}
+
+.averageScore {
+	display: flex;
+	align-items: center;
 }

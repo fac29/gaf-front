@@ -3,11 +3,16 @@ import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Navbar from '../Navbar/Navbar';
-import { singleProduct, fetchReviews, fetchProductScore } from '../../utils/endpoints';
+import {
+	singleProduct,
+	fetchReviews,
+	fetchProductScore,
+} from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
 import { Product, Review } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
+import ReviewsScore from '../Reviews/ReviewsScore/ReviewsScore';
 
 export default function ProductPage() {
 	const [product, setProduct] = useState<Product | null>(null);
@@ -67,7 +72,6 @@ export default function ProductPage() {
 
 	const fetchProductScores = async (prodId: number) => {
 		try {
-			
 			const scoreData = await fetchProductScore(prodId);
 
 			setProductScore(scoreData.average_score);
@@ -107,7 +111,10 @@ export default function ProductPage() {
 							<p>{product.description}</p>
 							<p>{`Price: $${product.price}`}</p>
 							{productScore !== null ? (
-								<p>{`Average Score: ${productScore}`}</p>
+								<div className="averageScore">
+									<p style={{ marginRight: '8px' }}>Average Score:</p>
+									<ReviewsScore score={productScore} />
+								</div>
 							) : (
 								<p>No reviews for this item</p>
 							)}
@@ -115,6 +122,7 @@ export default function ProductPage() {
 					) : (
 						<p>Loading...</p>
 					)}
+
 					<Button
 						btnText="Add to basket"
 						btnonClick={() => handleAddToBasket(Number(id))}
