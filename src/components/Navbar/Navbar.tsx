@@ -5,6 +5,7 @@ import CreateLog from '../CreateLog/CreateLog';
 import Button from '../Button/Button';
 import { useUserContext } from '../UserContextProvider';
 import CartComponent from '../Cart/CartComponent';
+import { useNavigate } from 'react-router-dom';
 
 type props = {
 	hasSearch?: boolean;
@@ -23,6 +24,13 @@ export default function Navbar({ hasSearch = true }: props) {
 	const closeLogInModal = () => setIsLogInOpen(false);
 	//calling the customHook for the contextAPI function
 	const { user } = useUserContext();
+
+	const navigate = useNavigate();
+	const handleProductRouting = () => {
+		navigate(`/`);
+	};
+
+
 	//create a function that checks the user.cart array and tallys the total quantity of items
 	const totalQuantity: number = user.cart.reduce((acc, item) => {
 		return acc + item.quantity;
@@ -30,7 +38,8 @@ export default function Navbar({ hasSearch = true }: props) {
 
 	return (
 		<div className="navstyle">
-			<a href="">Home</a>
+			<a href="#" onClick={handleProductRouting}>Home</a>
+				
 			<div className="rightnav">
 				{hasSearch && <Search />}
 				<div onClick={() => handleModalToggle()}>

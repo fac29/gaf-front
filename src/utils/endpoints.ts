@@ -199,9 +199,9 @@ export const fetchReviews = async (productId: number) => {
 			},
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
+		// if (!response.ok) {
+		// 	throw new Error(`HTTP error! status: ${response.status}`);
+		// }
 
 		const contentType = response.headers.get('Content-Type');
 		if (contentType && contentType.includes('application/json')) {
