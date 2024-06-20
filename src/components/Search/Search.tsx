@@ -12,7 +12,6 @@ export default function Search() {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
 		const sanitizedUserInput = sanitizeInput(userInput);
 
 		try {
@@ -36,16 +35,20 @@ export default function Search() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label>
+		<>
+			<form onSubmit={handleSubmit}>
 				<input
 					value={userInput}
 					onChange={(e) => setUserInput(e.target.value)}
 					placeholder="Search"
 					className="search-input"
 				/>
-			</label>
-			<Button btnText="Search" btnclassName="btnPrimary" />
-		</form>
+				<Button
+					btnText="Search"
+					btnclassName="btnPrimary"
+					btnonClick={handleSubmit}
+				/>
+			</form>
+		</>
 	);
 }
