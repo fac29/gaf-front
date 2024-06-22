@@ -1,36 +1,16 @@
 /* css reset */
 
-*,
-*::before,
-*::after {
+* {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
 	scroll-behavior: smooth;
-	font-family: Inter, sans-serif;
-	--colorDark: #003153;
-	--colorLight: #f7f9f9;
-	--colorPrimary: #a1f7a6;
-	--colorSecondary: #9381ff;
-}
-
-header {
-	background-color: #333;
-	color: white;
-	padding: 0;
-}
-
-header h1 {
-	margin: 0;
-}
-
-footer {
-	background-color: #333;
-	color: white;
-	text-align: center;
-	padding: 1rem;
-	margin-top: 2rem;
+	font-family: 'Inter', sans-serif;
+	--colorDark: #222831; /* Darker background for better contrast */
+	--colorLight: #eeeeee; /* Lighter color for text */
+	--colorPrimary: #00adb5; /* Calmer primary color */
+	--colorSecondary: #ff5722; /* Contrasting secondary color */
 }
 
 body {
@@ -38,38 +18,88 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background-color: var(--colorDark);
 	color: var(--colorLight);
-	height: 100vh;
-	width: 100vw;
+	min-height: 100vh;
 	display: flex;
-	justify-content: center;
-	position: relative;
+	flex-direction: column;
+}
+
+header {
+	background-color: #333;
+	color: var(--colorLight);
+	width: 100%;
+	padding: 0rem 0;
+	text-align: center;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 2.5rem;
 }
 
 main {
+	flex: 1; /* Ensures main takes up available space */
 	padding: 2rem;
 	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	background-color: #393e46;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+	background-color: #333;
+	color: var(--colorLight);
+	text-align: center;
+	padding: 1rem;
+	width: 100%;
+	box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
 	font-size: 2rem;
 	margin-bottom: 1rem;
+	color: var(--colorPrimary);
 }
 
 a {
 	color: var(--colorPrimary);
 	text-decoration: none;
 	font-weight: 700;
-	transition: 0.3s ease;
+	transition: color 0.3s ease;
 }
 
 a:hover {
 	color: var(--colorSecondary);
-	text-decoration: none;
 }
 
 p {
 	font-size: 1rem;
 	margin: 0.5rem 0;
+	line-height: 1.6;
+}
+
+/* Ensure footer is at the bottom */
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
