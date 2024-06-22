@@ -1,16 +1,18 @@
 .card {
-	border: 1px solid var(--colorSecondary);
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	display: flex;
-	flex-direction: column;
-	padding: 16px;
-	color: var(--colorPrimary);
-	cursor: pointer;
-	max-width: 300px;
-	background-color: #2b2b2b; /* Slightly different background color for cards */
+    border: 1px solid var(--colorSecondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    color: var(--colorPrimary);
+    cursor: pointer;
+    max-width: 300px;
+    background-color: #2b2b2b;
+    flex: 1; /* Ensure the card stretches to fill the available height */
 }
+
 
 .card:hover {
 	transform: scale(1.05); /* Subtle scaling effect */
