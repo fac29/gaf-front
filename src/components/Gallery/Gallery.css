@@ -3,4 +3,20 @@
 	flex-wrap: wrap;
 	gap: 16px;
 	padding: 16px;
+	justify-content: center; /* Center the cards horizontally */
+	align-items: flex-start; /* Align cards to the top */
+}
+
+@media (min-width: 768px) {
+	.gallery {
+		gap: 24px; /* Increase gap for larger screens */
+		padding: 24px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.gallery {
+		gap: 32px; /* Increase gap for even larger screens */
+		padding: 32px;
+	}
 }
