@@ -3,10 +3,11 @@
 	flex-direction: column;
 	width: calc(min(50vw, 50rem));
 	min-width: 20rem;
-	background-color: rgba(43, 43, 43, 0.8); /* Dark grey with 0.8 opacity */
+	background-color: rgba(43, 43, 43, 0.6);
 	padding: 2rem;
 	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+	border: 1px solid var(--colorSecondary);
 }
 
 .review {

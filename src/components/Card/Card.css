@@ -9,7 +9,6 @@
     color: var(--colorPrimary);
     cursor: pointer;
     max-width: 300px;
-    background-color: #2b2b2b;
 	background-color: rgba(43, 43, 43, 0.6);
     flex: 1; /* Ensure the card stretches to fill the available height */
 }
