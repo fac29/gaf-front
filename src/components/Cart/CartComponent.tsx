@@ -14,16 +14,22 @@ export default function CartComponent({ handleModalToggle }) {
 		}
 	}, [user, handleModalToggle]);
 
+	const handleClickOutside = (event) => {
+		if (event.target.classList.contains('cartycart')) {
+			handleModalToggle();
+		}
+	};
+
 	return (
-		<div className="cartycart">
+		<div className="cartycart" onClick={handleClickOutside}>
 			<div className="cartbody">
-				<div>
+				{/* <div>
 					<IoMdCloseCircle
 						color="darkred"
 						size="2rem"
 						onClick={handleModalToggle}
 					/>
-				</div>
+				</div> */}
 				{user && user.cart.length > 0 ? (
 					user.cart.map((item) => (
 						<div key={item.productId} className="cart-item">

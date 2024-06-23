@@ -25,7 +25,7 @@
 	align-items: center; /* Ensure the text inside the button is centered vertically */
 }
 
-.btnMinimal {
+/* .btnMinimal {
 	background-color: transparent;
 	color: var(--colorDark);
 	padding: 0rem 0.2rem;
@@ -38,11 +38,11 @@
 		background-color 0.3s ease,
 		color 0.3s ease;
 	display: flex;
-	align-items: center; /* Ensure the text inside the button is centered vertically */
+	align-items: center; /* Ensure the text inside the button is centered vertically 
 	justify-content: center;
-	width: 32px; /* Ensure the button is square */
-	height: 32px; /* Ensure the button is square */
-}
+	width: 32px; /* Ensure the button is square 
+	height: 32px; /* Ensure the button is square 
+} */
 
 .btnSecondary:hover {
 	background-color: var(--colorPrimary);
@@ -52,13 +52,14 @@
 }
 
 .btnMinimal:hover {
-	background-color: var(--colorPrimary);
+	color: var(--colorPrimary);
+	cursor: pointer;
 }
 
 .btnPrimary:hover,
 .btnSecondary:hover {
 	opacity: 0.6;
-	border-radius: 8px 8px 0 8px;
+	border-radius: 8px 8px 8px 8px;
 }
 
 button:hover {

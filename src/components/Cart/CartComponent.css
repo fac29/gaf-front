@@ -22,27 +22,27 @@
 	max-height: 90vh; /* Ensures cart does not occupy the entire height */
 	margin: 4rem 2rem; /* Centers the cart vertically */
 	padding: 16px;
-	padding-top: 8px;
+	/* padding-top: 8px; */
 	box-shadow: -2px 0 8px rgba(0, 0, 0, 0.8);
 	overflow-y: auto;
 	border-radius: 8px; /* Added rounded corners */
 }
 
-.cartbody > div:first-child {
+/* .cartbody > div:first-child {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 10px;
 	cursor: pointer;
 	width: fit-content;
-}
+} */
 
-.cartbody > div:first-child p {
+/* .cartbody > div:first-child p {
 	cursor: pointer;
 	margin: 0;
 	font-weight: bold;
 	color: var(--colorDark);
-}
+} */
 
 .cartbody > div:last-child {
 	margin: 0;
