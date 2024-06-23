@@ -57,11 +57,11 @@ export default function CreateLog({
 				<div className="modal-overlay" onClick={closeCreateAccountModal}>
 					<div className="modal-content"  onClick={(e) => e.stopPropagation()}>
 						<div className='formLine'>
-						<IoMdCloseCircle className="closeIcon"
+						{/* <IoMdCloseCircle className="closeIcon"
 							color="darkred"
 							size="2rem"
 							onClick={closeCreateAccountModal}
-						/>
+						/> */}
 
 						<h2>Create Account</h2>
 						</div>
@@ -100,7 +100,7 @@ export default function CreateLog({
 								/>
 							</div>
 							<Button
-								btnText="Create Account"
+								btnText="Create"
 								btnclassName="btnPrimary"
 								btnonClick={handleSubmitCreate}
 							/>
@@ -113,11 +113,11 @@ export default function CreateLog({
 				<div className="modal-overlay" onClick={closeLogInModal}>
 					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
 						<div className='formLine'>
-						<IoMdCloseCircle className="closeIcon"
+						{/* <IoMdCloseCircle className="closeIcon"
 							color="darkred"
 							size="2rem"
 							onClick={closeLogInModal}
-						/>
+						/> */}
 						<h2>Log In</h2>
 						</div>
 						<form>
