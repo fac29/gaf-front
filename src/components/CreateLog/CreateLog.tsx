@@ -3,6 +3,7 @@ import './CreateLog.css';
 import Button from '../Button/Button';
 import { CreateLogProps } from '../../utils/tyBucket';
 import { login, signUp } from '../../utils/endpoints';
+import { IoMdCloseCircle } from 'react-icons/io';
 
 export default function CreateLog({
 	isCreateAccountOpen,
@@ -54,53 +55,49 @@ export default function CreateLog({
 		<div className="CreateLog">
 			{isCreateAccountOpen && (
 				<div className="modal-overlay" onClick={closeCreateAccountModal}>
-					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
-						<button
-							className="modal-close-button"
+					<div className="modal-content"  onClick={(e) => e.stopPropagation()}>
+						<div className='formLine'>
+						<IoMdCloseCircle className="closeIcon"
+							color="darkred"
+							size="2rem"
 							onClick={closeCreateAccountModal}
-						>
-							&times;
-						</button>
+						/>
+
 						<h2>Create Account</h2>
+						</div>
 						<form>
-							<div>
-								<label>
-									Name:
-									<input
-										type="text"
-										value={nameInput}
-										onChange={(e) => {
-											setNameInput(e.target.value);
-											validateSubmitForm();
-										}}
-									/>
-								</label>
+							<div className="formLine">
+								<label>Name:</label>
+								<input
+									type="text"
+									value={nameInput}
+									onChange={(e) => {
+										setNameInput(e.target.value);
+										validateSubmitForm();
+									}}
+								/>
 							</div>
-							<div>
-								<label>
-									Email:
-									<input
-										type="email"
-										value={emailInput}
-										onChange={(e) => {
-											setEmailInput(e.target.value);
-											validateSubmitForm();
-										}}
-									/>
-								</label>
+							<div className="formLine">
+								<label>Email:</label>
+								<input
+									type="email"
+									value={emailInput}
+									onChange={(e) => {
+										setEmailInput(e.target.value);
+										validateSubmitForm();
+									}}
+								/>
 							</div>
-							<div>
-								<label>
-									Password:
-									<input
-										type="password"
-										value={passwordInput}
-										onChange={(e) => {
-											setPasswordInput(e.target.value);
-											validateSubmitForm();
-										}}
-									/>
-								</label>
+							<div className="formLine">
+								<label>Password:</label>
+								<input
+									type="password"
+									value={passwordInput}
+									onChange={(e) => {
+										setPasswordInput(e.target.value);
+										validateSubmitForm();
+									}}
+								/>
 							</div>
 							<Button
 								btnText="Create Account"
@@ -115,36 +112,36 @@ export default function CreateLog({
 			{isLogInOpen && (
 				<div className="modal-overlay" onClick={closeLogInModal}>
 					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
-						<button className="modal-close-button" onClick={closeLogInModal}>
-							&times;
-						</button>
+						<div className='formLine'>
+						<IoMdCloseCircle className="closeIcon"
+							color="darkred"
+							size="2rem"
+							onClick={closeLogInModal}
+						/>
 						<h2>Log In</h2>
+						</div>
 						<form>
-							<div>
-								<label>
-									Email:
-									<input
-										type="email"
-										value={emailInput}
-										onChange={(e) => {
-											setEmailInput(e.target.value);
-											validateLogInForm();
-										}}
-									/>
-								</label>
+							<div className="formLine">
+								<label>Email:</label>
+								<input
+									type="email"
+									value={emailInput}
+									onChange={(e) => {
+										setEmailInput(e.target.value);
+										validateLogInForm();
+									}}
+								/>
 							</div>
-							<div>
-								<label>
-									Password:
-									<input
-										type="password"
-										value={passwordInput}
-										onChange={(e) => {
-											setPasswordInput(e.target.value);
-											validateLogInForm();
-										}}
-									/>
-								</label>
+							<div className="formLine">
+								<label>Password:</label>
+								<input
+									type="password"
+									value={passwordInput}
+									onChange={(e) => {
+										setPasswordInput(e.target.value);
+										validateLogInForm();
+									}}
+								/>
 							</div>
 							<Button
 								btnText="Log In"

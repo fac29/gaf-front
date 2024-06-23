@@ -10,6 +10,7 @@
 	--colorDark: #222831; /* Darker background for better contrast */
 	--colorLight: #eeeeee; /* Lighter color for text */
 	--colorPrimary: #00adb5; /* Calmer primary color */
+	--colorPrimaryTransparent: rgba(0, 173, 181, 0.6);
 	--colorSecondary: #ff5722; /* Contrasting secondary color */
 }
 

@@ -1,4 +1,5 @@
 //import React from 'react';
+import  { useEffect } from 'react';
 import './CartComponent.css';
 import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
@@ -7,12 +8,18 @@ import { IoMdCloseCircle } from 'react-icons/io';
 export default function CartComponent({ handleModalToggle }) {
 	const { user } = useUserContext();
 
+	useEffect(() => {
+		if (user && user.cart.length === 0) {
+			handleModalToggle();
+		}
+	}, [user, handleModalToggle]);
+
 	return (
 		<div className="cartycart">
 			<div className="cartbody">
 				<div>
 					<IoMdCloseCircle
-						color="red"
+						color="darkred"
 						size="2rem"
 						onClick={handleModalToggle}
 					/>
@@ -25,7 +32,7 @@ export default function CartComponent({ handleModalToggle }) {
 					))
 				) : (
 					<div>
-						<p>your cart is empty</p>
+						<p>Your cart is empty</p>
 					</div>
 				)}
 			</div>
