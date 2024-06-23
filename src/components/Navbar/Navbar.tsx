@@ -45,14 +45,18 @@ export default function Navbar({ hasSearch = true }: props) {
 			<div className="rightnav">
 				{hasSearch && <Search />}
 
-				<div className="cart-icon" onClick={() => handleModalToggle()}>
-				{totalQuantity > 0 ? (
+				<div
+					className="cart-icon"
+					onClick={totalQuantity > 0 ? handleModalToggle : undefined}
+					style={{ cursor: totalQuantity > 0 ? 'pointer' : 'default' }}
+				>
+					{totalQuantity > 0 ? (
 						<>
-							<FaCartArrowDown size={24} />
+							<FaCartArrowDown size={24}  />
 							<span className="cart-badge">{totalQuantity}</span>
 						</>
 					) : (
-						<FaShoppingCart size={24} />
+						<FaShoppingCart size={24} color='grey'/>
 					)}
 				</div>
 				{modalIsOpen && <CartComponent handleModalToggle={handleModalToggle} />}
