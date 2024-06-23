@@ -2,19 +2,24 @@
 import './CartComponent.css';
 import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
+import { IoMdCloseCircle } from 'react-icons/io';
 
-export default function CartComponent(handleModalToggle: () => void) {
+export default function CartComponent({ handleModalToggle }) {
 	const { user } = useUserContext();
 
 	return (
 		<div className="cartycart">
 			<div className="cartbody">
-				<div onClick={() => handleModalToggle.handleModalToggle()}>
-					<p>back</p>
+				<div>
+					<IoMdCloseCircle
+						color="red"
+						size="2rem"
+						onClick={handleModalToggle}
+					/>
 				</div>
 				{user && user.cart.length > 0 ? (
 					user.cart.map((item) => (
-						<div key={item.productId}>
+						<div key={item.productId} className="cart-item">
 							<CartItemComponent id={item.productId} quantity={item.quantity} />
 						</div>
 					))

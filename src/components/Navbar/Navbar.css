@@ -10,20 +10,66 @@
 	position: sticky; /* Make the navbar sticky */
 	top: 0;
 	z-index: 1000;
-	padding-left: 40px; /* Add padding to the left to move "Home" away from the edge */
-	padding-right: 40px; /* Add padding to the right to ensure content fits well */
+	padding-left: 24px; /* Add padding to the left to move "Home" away from the edge */
+	padding-right: 24px; /* Add padding to the right to ensure content fits well */
 }
 
 .navstyle form {
 	display: flex;
-	gap: 1rem;
-	align-items: center; /* Corrected to align items to the center */
+	align-items: center; /* Align items vertically centered */
+	color: white;
+	text-align: center;
+	padding: 0; /* Remove padding from the form */
+	text-decoration: none;
+}
+
+li form:hover {
+	background-color: #111;
+}
+
+input {
+	width: 30vw;
+}
+
+.search-input {
+	padding: 0.75rem 1.5rem; /* Match padding with the button */
+	border: 1px solid var(--colorSecondary);
+	border-radius: 4px;
+	width: 100%;
+	max-width: 300px;
+	font-size: 1rem;
+	color: black;
+	height: fit-content; /* Ensure height fits the content */
+}
+
+.search-input::placeholder {
+	color: gray; /* Set the placeholder text color to gray */
 }
 
 .rightnav {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	gap: 32px;
 	white-space: nowrap; /* Ensure content does not wrap */
+}
+
+.cart-icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 0.5rem
+}
+
+.cart-badge {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	background-color: var(--colorPrimary);
+	border-radius: 50%;
+	padding: 2px 6px;
+	color: var(--colorDark);
+	font-size: 0.8rem;
+	font-weight: bold;
+	line-height: 1;
 }

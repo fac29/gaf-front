@@ -79,13 +79,13 @@ export default function CartItemComponent({ id, quantity }) {
 				<Button
 					btnText="-"
 					btnonClick={() => handleDecrementCart(id)}
-					btnclassName="btnPrimary"
+					btnclassName="btnMinimal"
 				/>
 				<p>{quantity ? quantity : 'no product quantity'}</p>
 				<Button
 					btnText="+"
 					btnonClick={() => handleAddToCart(id)}
-					btnclassName="btnPrimary"
+					btnclassName="btnMinimal"
 				/>
 			</div>
 		</div>
