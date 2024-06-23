@@ -1,4 +1,14 @@
-/* ProductPage.css */
+.productContainer {
+	display: flex;
+	flex-direction: column;
+	width: calc(min(50vw, 50rem));
+	min-width: 20rem;
+	background-color: rgba(43, 43, 43, 0.8); /* Dark grey with 0.8 opacity */
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .review {
 	border: 1px solid #ddd;
 	padding: 1rem;
@@ -20,14 +30,13 @@
 	color: #ffca28;
 }
 
-.productContainer {
-	display: flex;
-	flex-direction: column;
-	width: calc(min(50vw, 50rem));
-	min-width: 20rem;
-}
-
 .averageScore {
 	display: flex;
 	align-items: center;
+	gap:0.5rem
+}
+
+.addToBasketButton{
+	margin-top: 1rem;
+	margin-bottom: 2rem;
 }
