@@ -18,7 +18,7 @@ export default function Card({ id, image, name, description, price }: Cards) {
 	//adding products to userCart
 	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const updatedCart: CartItem[] = [...user.cart];
+			const updatedCart: CartItem[] = user && user.cart ? [...user.cart] : [];
 			const existingCartItem: CartItem | undefined = updatedCart.find(
 				(element) => element.productId === productId,
 			);
