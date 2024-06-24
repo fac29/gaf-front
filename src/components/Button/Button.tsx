@@ -3,7 +3,7 @@ import './Button.css';
 
 type btnProps = {
 	btnText: string;
-	btnonClick?: () => void;
+	btnonClick?: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 	btnclassName: string;
 };
 
