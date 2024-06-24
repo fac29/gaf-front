@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@types/react-icons": "^3.0.0",
+    "aws-cdk-lib": "^2.147.0",
     "bcryptjs": "^2.4.3",
+    "constructs": "^10.3.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express-session": "^1.18.0",
