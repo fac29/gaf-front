@@ -41,7 +41,8 @@ export default function ProductPage() {
 	const handleAddToCart = (productId: number) => {
 		if (user) {
 			//const updatedCart: CartItem[] = [...user.cart];
-			const updatedCart: CartItem[] = user.cart ? user.cart.flatMap(e => e.cart) : [];
+			const updatedCart: CartItem[] = user && user.cart ? [...user.cart] : [];
+
 			const existingCartItem: CartItem | undefined = updatedCart.find(
 				(element) => element.productId === productId,
 			);
