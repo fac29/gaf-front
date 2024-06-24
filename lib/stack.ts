@@ -18,11 +18,11 @@ export class NewStack extends cdk.Stack {
 			autoDeleteObjects: true, // Optional: Automatically delete objects in the bucket when the bucket is deleted
 		});
 
-		// Deploy local files to the S3 bucket
+		// // Deploy local files to the S3 bucket
 		new s3deploy.BucketDeployment(this, 'DeployApp', {
 			sources: [s3deploy.Source.asset('./bin')],
 			destinationBucket: myBucket,
-			// destinationKeyPrefix: 'app/', // optional prefix in the bucket
+			//destinationKeyPrefix: 'app/', // optional prefix in the bucket
 		});
 
 		// CloudFormation output for your S3 bucket name

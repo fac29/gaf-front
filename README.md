@@ -45,3 +45,6 @@ To start the server, use the following command:
 ```sh
 npm run dev
 ```
+
+### Deploy
+cdk bootstrap aws://788798427985/eu-west-2
