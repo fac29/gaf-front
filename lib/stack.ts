@@ -2,8 +2,8 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { aws_s3 as s3 } from 'aws-cdk-lib';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
-import * as ec2 from 'aws-cdk-lib/aws-ec2';
-import * as iam from 'aws-cdk-lib/aws-iam';
+// import * as ec2 from 'aws-cdk-lib/aws-ec2';
+// import * as iam from 'aws-cdk-lib/aws-iam';
 
 export class NewStack extends cdk.Stack {
 	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
