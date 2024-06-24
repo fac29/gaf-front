@@ -5,17 +5,22 @@ import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
 import { CartComponentProps } from '../../utils/tyBucket';
 
-export default function CartComponent({ handleModalToggle }: CartComponentProps) {
+export default function CartComponent({
+	handleModalToggle,
+}: CartComponentProps) {
 	const { user } = useUserContext();
 
 	useEffect(() => {
-		if (user && user.cart.length === 0) {
+		if (user?.cart && user.cart.length === 0) {
 			handleModalToggle();
 		}
 	}, [user, handleModalToggle]);
 
 	const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
-		if (event.target instanceof HTMLDivElement && event.target.classList.contains('cartycart')) {
+		if (
+			event.target instanceof HTMLDivElement &&
+			event.target.classList.contains('cartycart')
+		) {
 			handleModalToggle();
 		}
 	};
@@ -23,17 +28,13 @@ export default function CartComponent({ handleModalToggle }: CartComponentProps)
 	return (
 		<div className="cartycart" onClick={handleClickOutside}>
 			<div className="cartbody">
-				{/* <div>
-					<IoMdCloseCircle
-						color="darkred"
-						size="2rem"
-						onClick={handleModalToggle}
-					/>
-				</div> */}
-				{user && user.cart.length > 0 ? (
+				{user?.cart && user.cart.length > 0 ? (
 					user.cart.map((item) => (
 						<div key={item.productId} className="cart-item">
-							<CartItemComponent productId={item.productId} quantity={item.quantity} />
+							<CartItemComponent
+								productId={item.productId}
+								quantity={item.quantity}
+							/>
 						</div>
 					))
 				) : (

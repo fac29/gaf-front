@@ -38,9 +38,10 @@ export default function ProductPage() {
 	};
 
 	//adding products to userCart
-	const handleAddToBasket = (productId: number) => {
+	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const updatedCart: CartItem[] = [...user.cart];
+			//const updatedCart: CartItem[] = [...user.cart];
+			const updatedCart: CartItem[] = user.cart ? user.cart.flatMap(e => e.cart) : [];
 			const existingCartItem: CartItem | undefined = updatedCart.find(
 				(element) => element.productId === productId,
 			);
@@ -126,7 +127,7 @@ export default function ProductPage() {
 					<div className="addToBasketButton">
 						<Button
 							btnText="Add to basket"
-							btnonClick={() => handleAddToBasket(Number(id))}
+							btnonClick={() => handleAddToCart(Number(id))}
 							btnclassName="btnPrimary"
 						/>
 					</div>

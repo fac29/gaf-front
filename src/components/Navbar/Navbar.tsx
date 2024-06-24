@@ -33,7 +33,7 @@ export default function Navbar({ hasSearch = true }: props) {
 	};
 
 	//create a function that checks the user.cart array and tallys the total quantity of items
-	const totalQuantity: number = user!.cart.reduce((acc, item) => {
+	const totalQuantity: number = user?.cart.reduce((acc, item) => {
 		return acc + item.quantity;
 	}, 0);
 
