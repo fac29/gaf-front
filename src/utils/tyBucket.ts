@@ -61,11 +61,11 @@ export type CartComponentProps = {
 // };
 
 export type User = {
-	role: string;
+	role?: string;
 	name: string;
 	username: string;
-	cart: Array<CartItem>;
-	search: Array<Product>;
+	cart?: Array<CartItem>;
+	search?: Array<Product>;
 };
 //end of ContextAPi types
 
