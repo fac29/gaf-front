@@ -52,17 +52,19 @@ export type CartItem = {
 	productId: number;
 	quantity: number;
 };
-
-export type Cart = {
-	cart: Array<CartItem>;
-	cartId: number;
+export type CartComponentProps = {
+	handleModalToggle: () => void;
 };
+// export type Cart = {
+// 	cart: Array<CartItem>;
+// 	cartId: number;
+// };
 
 export type User = {
 	role: string;
 	name: string;
 	username: string;
-	cart: Array<Cart>;
+	cart: Array<CartItem>;
 	search: Array<Product>;
 };
 //end of ContextAPi types
@@ -73,4 +75,3 @@ export type CreateLogProps = {
 	closeCreateAccountModal: () => void;
 	closeLogInModal: () => void;
 };
-

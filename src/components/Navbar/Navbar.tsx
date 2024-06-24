@@ -8,6 +8,7 @@ import CartComponent from '../Cart/CartComponent';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaCartArrowDown } from 'react-icons/fa'; // Import the cart icon from react-icons
 
+
 type props = {
 	hasSearch?: boolean;
 };
@@ -32,7 +33,7 @@ export default function Navbar({ hasSearch = true }: props) {
 	};
 
 	//create a function that checks the user.cart array and tallys the total quantity of items
-	const totalQuantity: number = user.cart.reduce((acc, item) => {
+	const totalQuantity: number = user!.cart.reduce((acc, item) => {
 		return acc + item.quantity;
 	}, 0);
 

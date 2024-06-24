@@ -1,11 +1,11 @@
 //import React from 'react';
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
 import './CartComponent.css';
 import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
-import { IoMdCloseCircle } from 'react-icons/io';
+import { CartComponentProps } from '../../utils/tyBucket';
 
-export default function CartComponent({ handleModalToggle }) {
+export default function CartComponent({ handleModalToggle }: CartComponentProps) {
 	const { user } = useUserContext();
 
 	useEffect(() => {
@@ -14,8 +14,8 @@ export default function CartComponent({ handleModalToggle }) {
 		}
 	}, [user, handleModalToggle]);
 
-	const handleClickOutside = (event) => {
-		if (event.target.classList.contains('cartycart')) {
+	const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+		if (event.target instanceof HTMLDivElement && event.target.classList.contains('cartycart')) {
 			handleModalToggle();
 		}
 	};
@@ -33,7 +33,7 @@ export default function CartComponent({ handleModalToggle }) {
 				{user && user.cart.length > 0 ? (
 					user.cart.map((item) => (
 						<div key={item.productId} className="cart-item">
-							<CartItemComponent id={item.productId} quantity={item.quantity} />
+							<CartItemComponent productId={item.productId} quantity={item.quantity} />
 						</div>
 					))
 				) : (

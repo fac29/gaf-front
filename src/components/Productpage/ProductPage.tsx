@@ -9,7 +9,7 @@ import {
 	fetchProductScore,
 } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
-import { Product, Review, Cart, CartItem } from '../../utils/tyBucket';
+import { Product, Review, CartItem } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
 import ReviewsScore from '../Reviews/ReviewsScore/ReviewsScore';
@@ -37,22 +37,21 @@ export default function ProductPage() {
 		}
 	};
 
+	//adding products to userCart
 	const handleAddToBasket = (productId: number) => {
 		if (user) {
-			const updatedCart: CartItem[] = [...user.cart.flatMap(cart => cart.cart)];
-			const existingCartItem = updatedCart.find(item => item.productId === productId);
-
-			// const existingCartItem: Cart | undefined = updatedCart.find(
-			// 	(item) => item.productId === productId,
-			// );
+			const updatedCart: CartItem[] = [...user.cart];
+			const existingCartItem: CartItem | undefined = updatedCart.find(
+				(element) => element.productId === productId,
+			);
 
 			if (existingCartItem) {
 				existingCartItem.quantity += 1;
 			} else {
 				updatedCart.push({ productId, quantity: 1 } as CartItem);
 			}
-			const newCart: Cart = { cart: updatedCart, cartId: user.cart[0].cartId };
-			setUser({ ...user, cart: [newCart] });
+
+			setUser({ ...user, cart: updatedCart });
 			console.log(`Added product ${productId} to cart`);
 			console.log(user.cart);
 		}

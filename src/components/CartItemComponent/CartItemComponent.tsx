@@ -1,21 +1,21 @@
 import React from 'react';
 import './CartItemComponent.css';
 import { useUserContext } from '../UserContextProvider';
-import Button from '../Button/Button';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
-import { Cart, CartItem } from '../../utils/tyBucket';
+import { CartItem, Product } from '../../utils/tyBucket';
 import { singleProduct } from '../../utils/endpoints';
 import { CiSquarePlus, CiSquareMinus, CiSquareRemove } from 'react-icons/ci';
 
-export default function CartItemComponent({ id, quantity }) {
+export default function CartItemComponent({ productId, quantity }: CartItem) {
 	const { user, setUser } = useUserContext();
-	const [prodDeets, setProdDeets] = React.useState();
+	const [prodDeets, setProdDeets] = React.useState<Product>();
 
+	//adding products to userCart
 	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const updatedCart: Cart[] = [...user.cart];
+			const updatedCart: CartItem[] = [...user.cart];
 			const existingCartItem: CartItem | undefined = updatedCart.find(
-				(item) => item.productId === productId,
+				(element) => element.productId === productId,
 			);
 
 			if (existingCartItem) {
@@ -25,12 +25,14 @@ export default function CartItemComponent({ id, quantity }) {
 			}
 
 			setUser({ ...user, cart: updatedCart });
+			console.log(`Added product ${productId} to cart`);
+			console.log(user.cart);
 		}
 	};
 
 	const handleDecrementCart = (productId: number) => {
 		if (user) {
-			const updatedCart: Cart[] = [...user.cart];
+			const updatedCart: CartItem[] = [...user.cart];
 			const existingCartItemIndex: number = updatedCart.findIndex(
 				(item) => item.productId === productId,
 			);
@@ -47,9 +49,9 @@ export default function CartItemComponent({ id, quantity }) {
 		}
 	};
 
-	const fetchProductInfo = async (prodid) => {
+	const fetchProductInfo = async (productId: number) => {
 		try {
-			const productData = await singleProduct(prodid);
+			const productData = await singleProduct(productId);
 
 			if (Array.isArray(productData) && productData.length > 0) {
 				setProdDeets(productData[0]); // Access the first element of the array
@@ -62,11 +64,11 @@ export default function CartItemComponent({ id, quantity }) {
 	};
 
 	React.useEffect(() => {
-		fetchProductInfo(id);
+		fetchProductInfo(productId);
 	}, []);
 
 	return (
-		<div key={id} className="cartitembox">
+		<div key={productId} className="cartitembox">
 			<div className="leftcartitembox">
 				<ImgDisplay
 					look={'cartimage'}
@@ -77,23 +79,18 @@ export default function CartItemComponent({ id, quantity }) {
 				<p>{prodDeets ? prodDeets.name : 'no product name'}</p>
 			</div>
 			<div className="rightcartitembox">
-				{/* <Button
-					btnText="-"
-					btnonClick={() => handleDecrementCart(id)}
-					btnclassName="btnMinimal"
-				/> */}
 				{quantity === 1 ? (
 					<CiSquareRemove
 						color="darkred"
 						size="30px"
 						className="btnMinimal"
-						onClick={() => handleDecrementCart(id)}
+						onClick={() => handleDecrementCart(productId)}
 					/>
 				) : (
 					<CiSquareMinus
 						size="30px"
 						className="btnMinimal"
-						onClick={() => handleDecrementCart(id)}
+						onClick={() => handleDecrementCart(productId)}
 					/>
 				)}
 
@@ -101,7 +98,7 @@ export default function CartItemComponent({ id, quantity }) {
 				<CiSquarePlus
 					size="30px"
 					className="btnMinimal"
-					onClick={() => handleAddToCart(id)}
+					onClick={() => handleAddToCart(productId)}
 				/>
 			</div>
 		</div>
