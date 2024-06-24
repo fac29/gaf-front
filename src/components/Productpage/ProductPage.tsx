@@ -9,7 +9,7 @@ import {
 	fetchProductScore,
 } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
-import { Product, Review } from '../../utils/tyBucket';
+import { Product, Review, Cart, CartItem } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
 import ReviewsScore from '../Reviews/ReviewsScore/ReviewsScore';
@@ -39,18 +39,20 @@ export default function ProductPage() {
 
 	const handleAddToBasket = (productId: number) => {
 		if (user) {
-			const updatedCart: Cart[] = [...user.cart];
-			const existingCartItem: CartItem | undefined = updatedCart.find(
-				(item) => item.productId === productId,
-			);
+			const updatedCart: CartItem[] = [...user.cart.flatMap(cart => cart.cart)];
+			const existingCartItem = updatedCart.find(item => item.productId === productId);
+
+			// const existingCartItem: Cart | undefined = updatedCart.find(
+			// 	(item) => item.productId === productId,
+			// );
 
 			if (existingCartItem) {
 				existingCartItem.quantity += 1;
 			} else {
 				updatedCart.push({ productId, quantity: 1 } as CartItem);
 			}
-
-			setUser({ ...user, cart: updatedCart });
+			const newCart: Cart = { cart: updatedCart, cartId: user.cart[0].cartId };
+			setUser({ ...user, cart: [newCart] });
 			console.log(`Added product ${productId} to cart`);
 			console.log(user.cart);
 		}
@@ -133,7 +135,7 @@ export default function ProductPage() {
 				</div>
 			</main>
 			<footer>
-				<p>this is where some sort of footer will go</p>
+				<p>Buy stuff if you want to be happy</p>
 			</footer>
 		</>
 	);
