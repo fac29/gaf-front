@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@types/react-icons": "^3.0.0",
+    "aws-cdk-lib": "^2.147.0",
     "bcryptjs": "^2.4.3",
+    "constructs": "^10.3.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express-session": "^1.18.0",
     "icons": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -31,7 +34,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "prettier": "3.3.1",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.2",
     "vite": "^5.2.0"
   }
 }
