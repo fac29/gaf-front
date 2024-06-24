@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import ImgDisplay from '../ImgDisplay/ImgDisplay';
 import { Cart, CartItem } from '../../utils/tyBucket';
 import { singleProduct } from '../../utils/endpoints';
+import { CiSquarePlus, CiSquareMinus, CiSquareRemove } from 'react-icons/ci';
 
 export default function CartItemComponent({ id, quantity }) {
 	const { user, setUser } = useUserContext();
@@ -76,16 +77,31 @@ export default function CartItemComponent({ id, quantity }) {
 				<p>{prodDeets ? prodDeets.name : 'no product name'}</p>
 			</div>
 			<div className="rightcartitembox">
-				<Button
+				{/* <Button
 					btnText="-"
 					btnonClick={() => handleDecrementCart(id)}
-					btnclassName="btnPrimary"
-				/>
+					btnclassName="btnMinimal"
+				/> */}
+				{quantity === 1 ? (
+					<CiSquareRemove
+						color="darkred"
+						size="30px"
+						className="btnMinimal"
+						onClick={() => handleDecrementCart(id)}
+					/>
+				) : (
+					<CiSquareMinus
+						size="30px"
+						className="btnMinimal"
+						onClick={() => handleDecrementCart(id)}
+					/>
+				)}
+
 				<p>{quantity ? quantity : 'no product quantity'}</p>
-				<Button
-					btnText="+"
-					btnonClick={() => handleAddToCart(id)}
-					btnclassName="btnPrimary"
+				<CiSquarePlus
+					size="30px"
+					className="btnMinimal"
+					onClick={() => handleAddToCart(id)}
 				/>
 			</div>
 		</div>

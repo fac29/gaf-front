@@ -1,10 +1,9 @@
 .cartitembox {
-	border: solid 1px var(--colorDark);
-
+	/* border: solid 1px var(--colorDark); */
+	width: 100%;
 	color: var(--colorDark);
 	display: flex;
 	justify-content: space-between;
-	max-width: 333px;
 	padding: 16px;
 	border-radius: 8px;
 }
@@ -18,5 +17,6 @@
 .rightcartitembox {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	justify-content: flex-start;
+	gap: 4px;
 }

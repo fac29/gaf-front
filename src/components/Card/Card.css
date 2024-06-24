@@ -1,51 +1,56 @@
 .card {
-	border: 1px solid var(--colorSecondary);
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease;
-	display: flex;
-	flex-direction: column;
-	padding: 16px;
-	color: var(--colorPrimary);
-	cursor: pointer;
-	max-width: 300px;
-	justify-content: space-between; /* Ensure content is spaced between the top and bottom */
+    border: 1px solid var(--colorSecondary);
+    border-radius: 8px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    color: var(--colorPrimary);
+    cursor: pointer;
+    max-width: 300px;
+	background-color: rgba(43, 43, 43, 0.6);
+    flex: 1; /* Ensure the card stretches to fill the available height */
 }
+
 
 .card:hover {
-    transform: translateY(-5px);
-	z-index: 1;
+	transform: scale(1.05); /* Subtle scaling effect */
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
 }
 
-.card:active {
-	transform: translateY(0);
+.card img {
+	border-radius: 8px;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
 }
 
 .card-details {
-	padding: 16px;
+	padding: 16px 0;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
 
 .cname {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color: var(--colorSecondary);
+	margin: 0;
 }
 
 .card-details h4 {
-	font-size: 1.5em;
+	font-size: 1.2rem;
 	margin: 0;
-	margin-bottom: 8px;
+	color: var(--colorLight); /* Adjusted color for better readability */
 }
 
 .card-price {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	font-weight: bold;
-	color: #2c3e50;
+	color: var(--colorPrimary); /* Changed color for better visibility */
 }
 
 .card .btnPrimary {
-	align-self: center; /* Center the button horizontally */
 	margin-top: auto; /* Push the button to the bottom of the card */
 }

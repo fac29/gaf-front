@@ -1,30 +1,32 @@
 form {
-	display: block;
+	display: flex;
+	align-items: center; /* Align items vertically centered */
 	color: white;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 0; /* Remove padding from the form */
 	text-decoration: none;
-	
+    gap: 1rem;
 }
+
 li form:hover {
 	background-color: #111;
 }
+
 input {
 	width: 30vw;
 }
 
 .search-input {
-    /* padding: 8px; */
-    border: 1px solid var(--colorSecondary);
-
-    border-radius: 4px;
-    width: 100%;
-    max-width: 300px;
-    /* box-sizing: border-box; */
-    font-size: 1rem;
-    color: black;
+	padding: 0.75rem 1.5rem; /* Match padding with the button */
+	border: 1px solid var(--colorSecondary);
+	border-radius: 4px;
+	width: 100%;
+	max-width: 300px;
+	font-size: 1rem;
+	color: black;
+	height: fit-content; /* Ensure height fits the content */
 }
 
 .search-input::placeholder {
-    color: gray; /* Set the placeholder text color to gray */
+	color: gray; /* Set the placeholder text color to gray */
 }

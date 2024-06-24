@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import { useUserContext } from '../UserContextProvider';
 import CartComponent from '../Cart/CartComponent';
 import { useNavigate } from 'react-router-dom';
+import { FaShoppingCart, FaCartArrowDown } from 'react-icons/fa'; // Import the cart icon from react-icons
 
 type props = {
 	hasSearch?: boolean;
@@ -30,7 +31,6 @@ export default function Navbar({ hasSearch = true }: props) {
 		navigate(`/`);
 	};
 
-
 	//create a function that checks the user.cart array and tallys the total quantity of items
 	const totalQuantity: number = user.cart.reduce((acc, item) => {
 		return acc + item.quantity;
@@ -38,12 +38,26 @@ export default function Navbar({ hasSearch = true }: props) {
 
 	return (
 		<div className="navstyle">
-			<a href="#" onClick={handleProductRouting}>Home</a>
-				
+			<a href="#" onClick={handleProductRouting}>
+				Home
+			</a>
+
 			<div className="rightnav">
 				{hasSearch && <Search />}
-				<div onClick={() => handleModalToggle()}>
-					<p>Cart</p> {totalQuantity > 0 ? `${totalQuantity}items` : ''}
+
+				<div
+					className="cart-icon"
+					onClick={totalQuantity > 0 ? handleModalToggle : undefined}
+					style={{ cursor: totalQuantity > 0 ? 'pointer' : 'default' }}
+				>
+					{totalQuantity > 0 ? (
+						<>
+							<FaCartArrowDown size={24}  />
+							<span className="cart-badge">{totalQuantity}</span>
+						</>
+					) : (
+						<FaShoppingCart size={24} color='grey'/>
+					)}
 				</div>
 				{modalIsOpen && <CartComponent handleModalToggle={handleModalToggle} />}
 

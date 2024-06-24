@@ -100,19 +100,19 @@ export default function ProductPage() {
 			</header>
 			<main>
 				<div className="productContainer">
-					<h1>Product Page</h1>
 					{product ? (
 						<>
+							<h1>{product.name}</h1>
 							<ImgDisplay
 								imgurl={product.image_path || '../Images/placeholder-image.jpg'}
 								look="productImage"
 							/>
 							<p>{product.name}</p>
 							<p>{product.description}</p>
-							<p>{`Price: $${product.price}`}</p>
+							<p>{`£${product.price}`}</p>
 							{productScore !== null ? (
 								<div className="averageScore">
-									<p style={{ marginRight: '8px' }}>Average Score:</p>
+									<p>Average Score:</p>
 									<ReviewsScore score={productScore} />
 								</div>
 							) : (
@@ -122,12 +122,13 @@ export default function ProductPage() {
 					) : (
 						<p>Loading...</p>
 					)}
-
-					<Button
-						btnText="Add to basket"
-						btnonClick={() => handleAddToBasket(Number(id))}
-						btnclassName="btnPrimary"
-					/>
+					<div className="addToBasketButton">
+						<Button
+							btnText="Add to basket"
+							btnonClick={() => handleAddToBasket(Number(id))}
+							btnclassName="btnPrimary"
+						/>
+					</div>
 					{reviews.length >= 1 && <Reviews reviewsArray={reviews} />}
 				</div>
 			</main>
