@@ -9,7 +9,7 @@ import {
 	fetchProductScore,
 } from '../../utils/endpoints';
 import { useEffect, useState } from 'react';
-import { Product, Review } from '../../utils/tyBucket';
+import { Product, Review, CartItem } from '../../utils/tyBucket';
 import Reviews from '../Reviews/Reviews';
 import { useUserContext } from '../UserContextProvider';
 import ReviewsScore from '../Reviews/ReviewsScore/ReviewsScore';
@@ -37,11 +37,14 @@ export default function ProductPage() {
 		}
 	};
 
-	const handleAddToBasket = (productId: number) => {
+	//adding products to userCart
+	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const updatedCart: Cart[] = [...user.cart];
+			//const updatedCart: CartItem[] = [...user.cart];
+			const updatedCart: CartItem[] = user && user.cart ? [...user.cart] : [];
+
 			const existingCartItem: CartItem | undefined = updatedCart.find(
-				(item) => item.productId === productId,
+				(element) => element.productId === productId,
 			);
 
 			if (existingCartItem) {
@@ -125,7 +128,7 @@ export default function ProductPage() {
 					<div className="addToBasketButton">
 						<Button
 							btnText="Add to basket"
-							btnonClick={() => handleAddToBasket(Number(id))}
+							btnonClick={() => handleAddToCart(Number(id))}
 							btnclassName="btnPrimary"
 						/>
 					</div>
@@ -133,7 +136,7 @@ export default function ProductPage() {
 				</div>
 			</main>
 			<footer>
-				<p>this is where some sort of footer will go</p>
+				<p>Buy stuff if you want to be happy</p>
 			</footer>
 		</>
 	);

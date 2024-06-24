@@ -3,7 +3,6 @@ import './CreateLog.css';
 import Button from '../Button/Button';
 import { CreateLogProps } from '../../utils/tyBucket';
 import { login, signUp } from '../../utils/endpoints';
-import { IoMdCloseCircle } from 'react-icons/io';
 
 export default function CreateLog({
 	isCreateAccountOpen,
@@ -16,7 +15,7 @@ export default function CreateLog({
 	const [passwordInput, setPasswordInput] = React.useState('');
 	const [isFormValid, setIsFormValid] = React.useState(false);
 
-	const handleSubmitCreate = (e) => {
+	const handleSubmitCreate = (e: Event) => {
 		e.preventDefault();
 		if (validateSubmitForm()) {
 			signUp(nameInput, emailInput, passwordInput);
@@ -24,7 +23,7 @@ export default function CreateLog({
 			alert('Please fill in all required fields.');
 		}
 	};
-	const handleSubmitLogIn = (e) => {
+	const handleSubmitLogIn = (e: Event) => {
 		e.preventDefault();
 		if (validateLogInForm()) {
 			login(emailInput, passwordInput);
@@ -39,7 +38,7 @@ export default function CreateLog({
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isNameValid && isEmailValid && isPasswordValid;
-		setIsFormValid(isValid);
+		setIsFormValid(!isFormValid);
 		return isValid;
 	};
 	const validateLogInForm = () => {
@@ -47,7 +46,7 @@ export default function CreateLog({
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isEmailValid && isPasswordValid;
-		setIsFormValid(isValid);
+		setIsFormValid(!isFormValid);
 		return isValid;
 	};
 
@@ -102,7 +101,7 @@ export default function CreateLog({
 							<Button
 								btnText="Create"
 								btnclassName="btnPrimary"
-								btnonClick={handleSubmitCreate}
+								btnonClick={()=>handleSubmitCreate}
 							/>
 						</form>
 					</div>
@@ -146,7 +145,7 @@ export default function CreateLog({
 							<Button
 								btnText="Log In"
 								btnclassName="btnPrimary"
-								btnonClick={handleSubmitLogIn}
+								btnonClick={()=>handleSubmitLogIn}
 							/>
 						</form>
 					</div>
