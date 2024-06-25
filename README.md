@@ -45,3 +45,8 @@ To start the server, use the following command:
 ```sh
 npm run dev
 ```
+
+### Deploy
+cdk bootstrap
+cdk deploy
+
