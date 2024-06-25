@@ -47,19 +47,33 @@ npm run dev
 ```
 
 # Useful CDK commands:
+
 ### Deploy
+
 cdk bootstrap
 cdk bootstrap aws://788798427985/us-west-2
 cdk deploy
 
 ### List stacks
+
 aws cloudformation list-stacks --query "StackSummaries[?StackName=='CDKToolkit']"
 
-### Delete stack
-aws cloudformation delete-stack --stack-name CDKToolkit
-
 ### Update stack
+
 cdk synth
 cdk deploy
 
 ### Delete the CDK context file
+
+rm cdk.context.json
+
+### Delete the bootstrap bucket
+
+cdk bootstrap --destroy
+
+aws s3 rb s3://cdk-hnb659fds-assets-788798427985-eu-west-2 --force
+
+
+### Delete stack
+
+aws cloudformation delete-stack --stack-name CDKToolkit

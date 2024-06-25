@@ -56,8 +56,14 @@ export class NewStack extends cdk.Stack {
 			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonEC2FullAccess'),
 		); // Allow full access to EC2
 
+		role.addManagedPolicy(
+			iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess'),
+		);
+
 		// Create a new EC2 key pair
-		//const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
+		// const keyPair = new ec2.CfnKeyPair(this, 'KeyPair', {
+		// 	keyName: 'gafPair',
+		// });
 
 		// Define the EC2 instance
 		const instance = new ec2.Instance(this, 'Instance', {
@@ -66,7 +72,7 @@ export class NewStack extends cdk.Stack {
 			machineImage: new ec2.AmazonLinuxImage(),
 			securityGroup,
 			role,
-			//keyPair,
+			keyName: 'gafPair',
 			vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC }, // Ensure the instance is in a public subnet
 			associatePublicIpAddress: true, // Ensure the instance has a public IP
 		});

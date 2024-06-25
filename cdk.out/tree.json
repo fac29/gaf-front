@@ -827,6 +827,18 @@
                             ":iam::aws:policy/AmazonEC2FullAccess"
                           ]
                         ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/AdministratorAccess"
+                          ]
+                        ]
                       }
                     ]
                   }
@@ -885,6 +897,7 @@
                       "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
                     },
                     "instanceType": "t2.micro",
+                    "keyName": "gafPair",
                     "networkInterfaces": [
                       {
                         "deviceIndex": "0",

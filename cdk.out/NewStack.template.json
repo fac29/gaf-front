@@ -681,6 +681,18 @@
         ":iam::aws:policy/AmazonEC2FullAccess"
        ]
       ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AdministratorAccess"
+       ]
+      ]
      }
     ]
    },
@@ -719,6 +731,7 @@
      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
     },
     "InstanceType": "t2.micro",
+    "KeyName": "gafPair",
     "NetworkInterfaces": [
      {
       "AssociatePublicIpAddress": true,
@@ -760,7 +773,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11QwW6DMAz9lt5DNqpJ3bVDU9XDNgRTr5MJbucWEpQ4VBXi3xdgjG0nPz8/Pz17LeOHjbxfwdVFqrxEFRWyyxnURQTqo0O1lt2hUSI56kOaiNQXFancFxp54BaUGc/4DkWFC79wW+eMImAy+kc8gOd9OpRX4B0wXuEmUkttgIvxXjPagGfBlOS723LI+lmjZpGj8pb4trPGN2OGP8ReOwatcLKccC8IatllZgo913mcWnOkCvteZOiMt8Oyd2zqpQ1Lv/ALNA3p0z9VsGmpRPsEDkV4BHJ48GnUHXUKFmoMFw7Nm+fGj0cnRpc0fKsX2pQoz+6ujR9lvJHx6uyIIus1U40ym+oX0/Oq5MgBAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11QTU/DMAz9LbtnYRQkzmVC0w5A1KJdkZu6w1vrVImzaqr631FXtgKn9+Fn6yWJvn980qsFdGFpy+OypkL3uYA9KujCZ4820f2utWpd8c6slYlFTTaPBaOM3swyFwU/oKhx9mcvDcFZAiHHt/BIXrZmhDeQDQh2cFbG0wkE58NbFvSMt8DU5EelImC/GmRROdroSc4b72J76fDH2HIQYIvTyYkPiqDRfeam0le8jo13FdU4DCrD4KIfl2MQ18yy4t/8FdqWeP8vZbw7UYn+GQKqNASUXGB/yVVswEODgn4U71HaeHn02nFJ428Nil2J+hDuTkmiH/RqcQhESx9ZqEGdTfgNIr1G8McBAAA="
    },
    "Metadata": {
     "aws:cdk:path": "NewStack/CDKMetadata/Default"
