@@ -1,9 +1,9 @@
 import React from 'react';
 import './Landingpage.css';
-import { useUserContext } from '../UserContextProvider.js';
+import { useUserContext } from '../UserContextProvider';
 import Navbar from '../Navbar/Navbar.tsx';
 import Gallery from '../Gallery/Gallery.tsx';
-import { randomProducts } from '../../utils/endpoints.js';
+import { randomProducts } from '../../utils/endpoints';
 
 export default function Landingpage() {
 	//method to access the ContextAPi
@@ -12,16 +12,19 @@ export default function Landingpage() {
 	const randomProductsHandler = async () => {
 		try {
 			const response = await randomProducts();
-			
+
 			setUser((prevUser) => {
 				if (!prevUser) {
-					return { role: '', name: '', username: '', cart: [], search: response };
+					return {
+						role: '',
+						name: '',
+						username: '',
+						cart: [],
+						search: response,
+					};
 				}
 				return { ...prevUser, search: response };
 			});
-
-
-
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
