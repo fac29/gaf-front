@@ -13,7 +13,7 @@ export default function CartItemComponent({ productId, quantity }: CartItem) {
 	//adding products to userCart
 	const handleAddToCart = (productId: number) => {
 		if (user) {
-			const updatedCart: CartItem[] = [...user.cart];
+			const updatedCart: CartItem[] = user && user.cart ? [...user.cart] : [];
 			const existingCartItem: CartItem | undefined = updatedCart.find(
 				(element) => element.productId === productId,
 			);
@@ -32,7 +32,7 @@ export default function CartItemComponent({ productId, quantity }: CartItem) {
 
 	const handleDecrementCart = (productId: number) => {
 		if (user) {
-			const updatedCart: CartItem[] = [...user.cart];
+			const updatedCart: CartItem[] = user && user.cart ? [...user.cart] : [];
 			const existingCartItemIndex: number = updatedCart.findIndex(
 				(item) => item.productId === productId,
 			);

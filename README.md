@@ -47,4 +47,6 @@ npm run dev
 ```
 
 ### Deploy
-cdk bootstrap aws://788798427985/eu-west-2
+cdk bootstrap
+cdk deploy
+

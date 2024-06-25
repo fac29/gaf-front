@@ -46,7 +46,7 @@ export default function Search() {
 				<Button
 					btnText="Search"
 					btnclassName="btnPrimary"
-					btnonClick={handleSubmit}
+					btnonClick={() => handleSubmit}
 				/>
 			</form>
 		</>
