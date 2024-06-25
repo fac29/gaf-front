@@ -14,8 +14,94 @@ export class NewStack extends cdk.Stack {
 		super(scope, id, props);
 
 		//******************** */
+		//BACKEND
+		/********************* */
+		// Define a VPC
+		const vpc = new ec2.Vpc(this, 'VPC', {
+			maxAzs: 2, // Default is all AZs in the region
+		});
+
+		// Define a security group
+		const securityGroup = new ec2.SecurityGroup(this, 'SecurityGroup', {
+			vpc,
+			description: 'Allow SSH access to EC2 instance',
+			allowAllOutbound: true, // Allow outbound traffic by default
+		});
+		securityGroup.addIngressRule(
+			ec2.Peer.anyIpv4(),
+			ec2.Port.tcp(22),
+			'allow SSH access from anywhere',
+		);
+
+		securityGroup.addIngressRule(
+			ec2.Peer.anyIpv4(),
+			ec2.Port.tcp(3000),
+			'allow access to port 3000 from anywhere',
+		);
+
+		// Define an IAM role for the EC2 instance
+		const role = new iam.Role(this, 'InstanceRole', {
+			assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
+		});
+		role.addManagedPolicy(
+			iam.ManagedPolicy.fromAwsManagedPolicyName(
+				'AmazonSSMManagedInstanceCore',
+			),
+		); // Allow SSM access
+		role.addManagedPolicy(
+			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonS3ReadOnlyAccess'),
+		); // Optional: Allow read access to S3
+		role.addManagedPolicy(
+			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonEC2FullAccess'),
+		); // Allow full access to EC2
+
+		// Create a new EC2 key pair
+		const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
+
+		// Define the EC2 instance
+		const instance = new ec2.Instance(this, 'Instance', {
+			vpc,
+			instanceType: new ec2.InstanceType('t2.micro'),
+			machineImage: new ec2.AmazonLinuxImage(),
+			securityGroup,
+			role,
+			keyPair,
+			vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC }, // Ensure the instance is in a public subnet
+			associatePublicIpAddress: true, // Ensure the instance has a public IP
+		});
+
+		// Add user data to clone the GitHub repo and install dependencies
+		instance.addUserData(
+			`#!/bin/bash`,
+			`sudo yum update -y`,
+			`sudo yum install -y git`,
+			`curl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -`, // Use Node.js 16.x
+			`sudo yum install -y nodejs`,
+			`cd /home/ec2-user`,
+			`git clone https://github.com/fac29/gaf-back.git`,
+			`cd gaf-back`,
+			`echo "DB_FILE=gaf_database.sqlite" > .env`,
+			`echo "COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg" >> .env`,
+			`npm install`,
+			`npm start`,
+		);
+
+		// Output the EC2 instance public IP
+		new cdk.CfnOutput(this, 'InstancePublicIP', {
+			value: instance.instancePublicIp,
+			description: 'Public IP of the EC2 instance',
+		});
+
+		// Output the EC2 instance public DNS
+		new cdk.CfnOutput(this, 'InstancePublicDNS', {
+			value: `https://${instance.instancePublicDnsName}`,
+			description: 'Public DNS of the EC2 instance',
+		});
+		
+		//******************** */
 		//FRONTEND
 		/********************* */
+
 
 		// Define an S3 bucket
 		const uniqueBucketName = `backendbucket-${this.node.addr}`;
@@ -58,81 +144,5 @@ export class NewStack extends cdk.Stack {
 			description: 'The URL of the CloudFront distribution',
 		});
 
-		//******************** */
-		//BACKEND
-		/********************* */
-		// Define a VPC
-		const vpc = new ec2.Vpc(this, 'VPC', {
-			maxAzs: 2, // Default is all AZs in the region
-		});
-
-		// Define a security group
-		const securityGroup = new ec2.SecurityGroup(this, 'SecurityGroup', {
-			vpc,
-			description: 'Allow SSH access to EC2 instance',
-			allowAllOutbound: true, // Allow outbound traffic by default
-		});
-		securityGroup.addIngressRule(
-			ec2.Peer.anyIpv4(),
-			ec2.Port.tcp(22),
-			'allow SSH access from anywhere',
-		);
-
-		// Define an IAM role for the EC2 instance
-		const role = new iam.Role(this, 'InstanceRole', {
-			assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
-		});
-		role.addManagedPolicy(
-			iam.ManagedPolicy.fromAwsManagedPolicyName(
-				'AmazonSSMManagedInstanceCore',
-			),
-		); // Allow SSM access
-		role.addManagedPolicy(
-			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonS3ReadOnlyAccess'),
-		); // Optional: Allow read access to S3
-		role.addManagedPolicy(
-			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonEC2FullAccess'),
-		); // Allow full access to EC2
-
-		// Create a new EC2 key pair
-		const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
-
-		// Define the EC2 instance
-		const instance = new ec2.Instance(this, 'Instance', {
-			vpc,
-			instanceType: new ec2.InstanceType('t2.micro'),
-			machineImage: new ec2.AmazonLinuxImage(),
-			securityGroup,
-			role,
-			keyPair,
-			vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC }, // Ensure the instance is in a public subnet
-			associatePublicIpAddress: true, // Ensure the instance has a public IP
-		});
-
-		// Add user data to clone the GitHub repo and install dependencies
-		instance.addUserData(
-			`#!/bin/bash`,
-			`sudo yum update -y`,
-			`sudo yum install -y git`,
-			`curl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -`, // Use Node.js 16.x
-			`sudo yum install -y nodejs`, // Install Node.js and npm
-			`cd /home/ec2-user`,
-			`git clone https://github.com/fac29/gaf-back.git`,
-			`cd gaf-back`,
-			`npm install`, // Install dependencies
-			`npm start` // Start the application
-		);
-
-		// Output the EC2 instance public IP
-		new cdk.CfnOutput(this, 'InstancePublicIP', {
-			value: instance.instancePublicIp,
-			description: 'Public IP of the EC2 instance',
-		});
-
-		// Output the EC2 instance public DNS
-		new cdk.CfnOutput(this, 'InstancePublicDNS', {
-			value: `https://${instance.instancePublicDnsName}`,
-			description: 'Public DNS of the EC2 instance',
-		});
 	}
 }

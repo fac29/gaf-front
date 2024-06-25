@@ -1080,6 +1080,13 @@
       "FromPort": 22,
       "IpProtocol": "tcp",
       "ToPort": 22
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "allow access to port 3000 from anywhere",
+      "FromPort": 3000,
+      "IpProtocol": "tcp",
+      "ToPort": 3000
      }
     ],
     "VpcId": {
@@ -1204,7 +1211,7 @@
      }
     ],
     "UserData": {
-     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nsudo yum update -y\nsudo yum install -y git\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\nnpm install\nnpm start"
+     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nsudo yum update -y\nsudo yum install -y git\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\necho \"DB_FILE=gaf_database.sqlite\" > .env\necho \"COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg\" >> .env\nnpm install\nnpm start"
     }
    },
    "DependsOn": [

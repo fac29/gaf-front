@@ -3,4 +3,4 @@ import { NewStack } from '../lib/stack';
 
 const app = new cdk.App();
 // new HelloCdkStack(app, 'HelloCdkStack');
-new NewStack(app, 'NewStack2');
+new NewStack(app, 'NewStack');

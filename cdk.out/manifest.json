@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "NewStack2.assets": {
+    "NewStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "NewStack2.assets.json",
+        "file": "NewStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "NewStack2": {
+    "NewStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "NewStack2.template.json",
+        "templateFile": "NewStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/7feb683769c7afc6e722ffcc48fffb7ae8b7e262bc2a180a867619612f1168a2.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6e20cbbc1d0c0fb6c30085b12296ed63d8004dd72f5fcbaa84bf07da8f6ba256.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "NewStack2.assets"
+          "NewStack.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -31,317 +31,317 @@
         }
       },
       "dependencies": [
-        "NewStack2.assets"
+        "NewStack.assets"
       ],
       "metadata": {
-        "/NewStack2/MyBucket/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketF68F3FF0"
-          }
-        ],
-        "/NewStack2/MyBucket/Policy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketPolicyE7FBAC7B"
-          }
-        ],
-        "/NewStack2/MyBucket/AutoDeleteObjectsCustomResource/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketAutoDeleteObjectsCustomResource2C28D565"
-          }
-        ],
-        "/NewStack2/LatestNodeRuntimeMap": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "LatestNodeRuntimeMap"
-          }
-        ],
-        "/NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
-          }
-        ],
-        "/NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
-          }
-        ],
-        "/NewStack2/DeployApp/AwsCliLayer/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DeployAppAwsCliLayerAEF99B2F"
-          }
-        ],
-        "/NewStack2/DeployApp/CustomResource/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DeployAppCustomResourceDEE6DDD6"
-          }
-        ],
-        "/NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
-          }
-        ],
-        "/NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
-          }
-        ],
-        "/NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
-          }
-        ],
-        "/NewStack2/Distribution/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Distribution830FAC52"
-          }
-        ],
-        "/NewStack2/BucketURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "BucketURL"
-          }
-        ],
-        "/NewStack2/CloudFrontURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CloudFrontURL"
-          }
-        ],
-        "/NewStack2/VPC/Resource": [
+        "/NewStack/VPC/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCB9E5F0B4"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/Subnet": [
+        "/NewStack/VPC/PublicSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1SubnetB4246D30"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/RouteTable": [
+        "/NewStack/VPC/PublicSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1RouteTableFEE4B781"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/RouteTableAssociation": [
+        "/NewStack/VPC/PublicSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1RouteTableAssociation0B0896DC"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/DefaultRoute": [
+        "/NewStack/VPC/PublicSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1DefaultRoute91CEF279"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/EIP": [
+        "/NewStack/VPC/PublicSubnet1/EIP": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1EIP6AD938E8"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet1/NATGateway": [
+        "/NewStack/VPC/PublicSubnet1/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet1NATGatewayE0556630"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/Subnet": [
+        "/NewStack/VPC/PublicSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2Subnet74179F39"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/RouteTable": [
+        "/NewStack/VPC/PublicSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2RouteTable6F1A15F1"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/RouteTableAssociation": [
+        "/NewStack/VPC/PublicSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2RouteTableAssociation5A808732"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/DefaultRoute": [
+        "/NewStack/VPC/PublicSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2DefaultRouteB7481BBA"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/EIP": [
+        "/NewStack/VPC/PublicSubnet2/EIP": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2EIP4947BC00"
           }
         ],
-        "/NewStack2/VPC/PublicSubnet2/NATGateway": [
+        "/NewStack/VPC/PublicSubnet2/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPublicSubnet2NATGateway3C070193"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet1/Subnet": [
+        "/NewStack/VPC/PrivateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet1Subnet8BCA10E0"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet1/RouteTable": [
+        "/NewStack/VPC/PrivateSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet1RouteTableBE8A6027"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet1/RouteTableAssociation": [
+        "/NewStack/VPC/PrivateSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet1RouteTableAssociation347902D1"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet1/DefaultRoute": [
+        "/NewStack/VPC/PrivateSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet1DefaultRouteAE1D6490"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet2/Subnet": [
+        "/NewStack/VPC/PrivateSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet2SubnetCFCDAA7A"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet2/RouteTable": [
+        "/NewStack/VPC/PrivateSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet2RouteTable0A19E10E"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet2/RouteTableAssociation": [
+        "/NewStack/VPC/PrivateSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet2RouteTableAssociation0C73D413"
           }
         ],
-        "/NewStack2/VPC/PrivateSubnet2/DefaultRoute": [
+        "/NewStack/VPC/PrivateSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCPrivateSubnet2DefaultRouteF4F5CFD2"
           }
         ],
-        "/NewStack2/VPC/IGW": [
+        "/NewStack/VPC/IGW": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCIGWB7E252D3"
           }
         ],
-        "/NewStack2/VPC/VPCGW": [
+        "/NewStack/VPC/VPCGW": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCVPCGW99B986DC"
           }
         ],
-        "/NewStack2/VPC/RestrictDefaultSecurityGroupCustomResource/Default": [
+        "/NewStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "VPCRestrictDefaultSecurityGroupCustomResource59474679"
           }
         ],
-        "/NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+        "/NewStack/LatestNodeRuntimeMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LatestNodeRuntimeMap"
+          }
+        ],
+        "/NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
           }
         ],
-        "/NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+        "/NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
           }
         ],
-        "/NewStack2/SecurityGroup/Resource": [
+        "/NewStack/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SecurityGroupDD263621"
           }
         ],
-        "/NewStack2/InstanceRole/Resource": [
+        "/NewStack/InstanceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "InstanceRole3CCE2F1D"
           }
         ],
-        "/NewStack2/Instance/InstanceProfile": [
+        "/NewStack/Instance/InstanceProfile": [
           {
             "type": "aws:cdk:logicalId",
             "data": "InstanceInstanceProfileAB5AEF02"
           }
         ],
-        "/NewStack2/Instance/Resource": [
+        "/NewStack/Instance/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "InstanceC1063A87"
           }
         ],
-        "/NewStack2/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+        "/NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
           }
         ],
-        "/NewStack2/InstancePublicIP": [
+        "/NewStack/InstancePublicIP": [
           {
             "type": "aws:cdk:logicalId",
             "data": "InstancePublicIP"
           }
         ],
-        "/NewStack2/InstancePublicDNS": [
+        "/NewStack/InstancePublicDNS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "InstancePublicDNS"
           }
         ],
-        "/NewStack2/CDKMetadata/Default": [
+        "/NewStack/MyBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyBucketF68F3FF0"
+          }
+        ],
+        "/NewStack/MyBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyBucketPolicyE7FBAC7B"
+          }
+        ],
+        "/NewStack/MyBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyBucketAutoDeleteObjectsCustomResource2C28D565"
+          }
+        ],
+        "/NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/NewStack/DeployApp/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployAppAwsCliLayerAEF99B2F"
+          }
+        ],
+        "/NewStack/DeployApp/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployAppCustomResourceDEE6DDD6"
+          }
+        ],
+        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/NewStack/Distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Distribution830FAC52"
+          }
+        ],
+        "/NewStack/BucketURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketURL"
+          }
+        ],
+        "/NewStack/CloudFrontURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudFrontURL"
+          }
+        ],
+        "/NewStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/NewStack2/CDKMetadata/Condition": [
+        "/NewStack/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/NewStack2/BootstrapVersion": [
+        "/NewStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/NewStack2/CheckBootstrapVersion": [
+        "/NewStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "NewStack2"
+      "displayName": "NewStack"
     },
     "Tree": {
       "type": "cdk:tree",
