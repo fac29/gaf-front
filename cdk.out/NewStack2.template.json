@@ -3,7 +3,7 @@
   "MyBucketF68F3FF0": {
    "Type": "AWS::S3::Bucket",
    "Properties": {
-    "BucketName": "backendbucket-c80397f2177644b16b429e7b9801b431ca1f71f8fd",
+    "BucketName": "backendbucket-c89f300f6783b90421d092320bb47af674a9f23680",
     "PublicAccessBlockConfiguration": {
      "BlockPublicAcls": false,
      "BlockPublicPolicy": false,
@@ -16,7 +16,7 @@
       "Value": "true"
      },
      {
-      "Key": "aws-cdk:cr-owned:db8200e1",
+      "Key": "aws-cdk:cr-owned:54acd336",
       "Value": "true"
      }
     ],
@@ -28,7 +28,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "NewStack/MyBucket/Resource"
+    "aws:cdk:path": "NewStack2/MyBucket/Resource"
    }
   },
   "MyBucketPolicyE7FBAC7B": {
@@ -104,7 +104,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/MyBucket/Policy/Resource"
+    "aws:cdk:path": "NewStack2/MyBucket/Policy/Resource"
    }
   },
   "MyBucketAutoDeleteObjectsCustomResource2C28D565": {
@@ -126,7 +126,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "NewStack/MyBucket/AutoDeleteObjectsCustomResource/Default"
+    "aws:cdk:path": "NewStack2/MyBucket/AutoDeleteObjectsCustomResource/Default"
    }
   },
   "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
@@ -151,7 +151,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+    "aws:cdk:path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
    }
   },
   "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
@@ -198,7 +198,7 @@
     "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+    "aws:cdk:path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
     "aws:asset:path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
     "aws:asset:property": "Code"
    }
@@ -215,7 +215,7 @@
     "Description": "/opt/awscli/aws"
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/DeployApp/AwsCliLayer/Resource",
+    "aws:cdk:path": "NewStack2/DeployApp/AwsCliLayer/Resource",
     "aws:asset:path": "asset.3322b7049fb0ed2b7cbb644a2ada8d1116ff80c32dca89e6ada846b5de26f961.zip",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Content"
@@ -246,7 +246,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "NewStack/DeployApp/CustomResource/Default"
+    "aws:cdk:path": "NewStack2/DeployApp/CustomResource/Default"
    }
   },
   "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265": {
@@ -280,7 +280,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource"
+    "aws:cdk:path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource"
    }
   },
   "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF": {
@@ -377,7 +377,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource"
    }
   },
   "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": {
@@ -414,7 +414,7 @@
     "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+    "aws:cdk:path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
     "aws:asset:path": "asset.2d56e153cac88d3e0c2f842e8e6f6783b8725bf91f95e0673b4725448a56e96d",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
@@ -427,7 +427,7 @@
      "DefaultCacheBehavior": {
       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
       "Compress": true,
-      "TargetOriginId": "NewStackDistributionOrigin10DCE94C4",
+      "TargetOriginId": "NewStack2DistributionOrigin18F6C7D29",
       "ViewerProtocolPolicy": "allow-all"
      },
      "DefaultRootObject": "index.html",
@@ -458,13 +458,13 @@
          }
         ]
        },
-       "Id": "NewStackDistributionOrigin10DCE94C4"
+       "Id": "NewStack2DistributionOrigin18F6C7D29"
       }
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Distribution/Resource"
+    "aws:cdk:path": "NewStack2/Distribution/Resource"
    }
   },
   "VPCB9E5F0B4": {
@@ -477,12 +477,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC"
+      "Value": "NewStack2/VPC"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/Resource"
+    "aws:cdk:path": "NewStack2/VPC/Resource"
    }
   },
   "VPCPublicSubnet1SubnetB4246D30": {
@@ -509,7 +509,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "NewStack2/VPC/PublicSubnet1"
      }
     ],
     "VpcId": {
@@ -517,7 +517,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/Subnet"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/Subnet"
    }
   },
   "VPCPublicSubnet1RouteTableFEE4B781": {
@@ -526,7 +526,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "NewStack2/VPC/PublicSubnet1"
      }
     ],
     "VpcId": {
@@ -534,7 +534,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/RouteTable"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/RouteTable"
    }
   },
   "VPCPublicSubnet1RouteTableAssociation0B0896DC": {
@@ -548,7 +548,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/RouteTableAssociation"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/RouteTableAssociation"
    }
   },
   "VPCPublicSubnet1DefaultRoute91CEF279": {
@@ -566,7 +566,7 @@
     "VPCVPCGW99B986DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/DefaultRoute"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/DefaultRoute"
    }
   },
   "VPCPublicSubnet1EIP6AD938E8": {
@@ -576,12 +576,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "NewStack2/VPC/PublicSubnet1"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/EIP"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/EIP"
    }
   },
   "VPCPublicSubnet1NATGatewayE0556630": {
@@ -599,7 +599,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "NewStack2/VPC/PublicSubnet1"
      }
     ]
    },
@@ -608,7 +608,7 @@
     "VPCPublicSubnet1RouteTableAssociation0B0896DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/NATGateway"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet1/NATGateway"
    }
   },
   "VPCPublicSubnet2Subnet74179F39": {
@@ -635,7 +635,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "NewStack2/VPC/PublicSubnet2"
      }
     ],
     "VpcId": {
@@ -643,7 +643,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/Subnet"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/Subnet"
    }
   },
   "VPCPublicSubnet2RouteTable6F1A15F1": {
@@ -652,7 +652,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "NewStack2/VPC/PublicSubnet2"
      }
     ],
     "VpcId": {
@@ -660,7 +660,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/RouteTable"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/RouteTable"
    }
   },
   "VPCPublicSubnet2RouteTableAssociation5A808732": {
@@ -674,7 +674,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/RouteTableAssociation"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/RouteTableAssociation"
    }
   },
   "VPCPublicSubnet2DefaultRouteB7481BBA": {
@@ -692,7 +692,7 @@
     "VPCVPCGW99B986DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/DefaultRoute"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/DefaultRoute"
    }
   },
   "VPCPublicSubnet2EIP4947BC00": {
@@ -702,12 +702,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "NewStack2/VPC/PublicSubnet2"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/EIP"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/EIP"
    }
   },
   "VPCPublicSubnet2NATGateway3C070193": {
@@ -725,7 +725,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "NewStack2/VPC/PublicSubnet2"
      }
     ]
    },
@@ -734,7 +734,7 @@
     "VPCPublicSubnet2RouteTableAssociation5A808732"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/NATGateway"
+    "aws:cdk:path": "NewStack2/VPC/PublicSubnet2/NATGateway"
    }
   },
   "VPCPrivateSubnet1Subnet8BCA10E0": {
@@ -761,7 +761,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet1"
+      "Value": "NewStack2/VPC/PrivateSubnet1"
      }
     ],
     "VpcId": {
@@ -769,7 +769,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/Subnet"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet1/Subnet"
    }
   },
   "VPCPrivateSubnet1RouteTableBE8A6027": {
@@ -778,7 +778,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet1"
+      "Value": "NewStack2/VPC/PrivateSubnet1"
      }
     ],
     "VpcId": {
@@ -786,7 +786,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/RouteTable"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet1/RouteTable"
    }
   },
   "VPCPrivateSubnet1RouteTableAssociation347902D1": {
@@ -800,7 +800,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/RouteTableAssociation"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet1/RouteTableAssociation"
    }
   },
   "VPCPrivateSubnet1DefaultRouteAE1D6490": {
@@ -815,7 +815,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/DefaultRoute"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet1/DefaultRoute"
    }
   },
   "VPCPrivateSubnet2SubnetCFCDAA7A": {
@@ -842,7 +842,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet2"
+      "Value": "NewStack2/VPC/PrivateSubnet2"
      }
     ],
     "VpcId": {
@@ -850,7 +850,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/Subnet"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet2/Subnet"
    }
   },
   "VPCPrivateSubnet2RouteTable0A19E10E": {
@@ -859,7 +859,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet2"
+      "Value": "NewStack2/VPC/PrivateSubnet2"
      }
     ],
     "VpcId": {
@@ -867,7 +867,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/RouteTable"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet2/RouteTable"
    }
   },
   "VPCPrivateSubnet2RouteTableAssociation0C73D413": {
@@ -881,7 +881,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/RouteTableAssociation"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet2/RouteTableAssociation"
    }
   },
   "VPCPrivateSubnet2DefaultRouteF4F5CFD2": {
@@ -896,7 +896,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/DefaultRoute"
+    "aws:cdk:path": "NewStack2/VPC/PrivateSubnet2/DefaultRoute"
    }
   },
   "VPCIGWB7E252D3": {
@@ -905,12 +905,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC"
+      "Value": "NewStack2/VPC"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/IGW"
+    "aws:cdk:path": "NewStack2/VPC/IGW"
    }
   },
   "VPCVPCGW99B986DC": {
@@ -924,7 +924,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/VPCGW"
+    "aws:cdk:path": "NewStack2/VPC/VPCGW"
    }
   },
   "VPCRestrictDefaultSecurityGroupCustomResource59474679": {
@@ -949,7 +949,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default"
+    "aws:cdk:path": "NewStack2/VPC/RestrictDefaultSecurityGroupCustomResource/Default"
    }
   },
   "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0": {
@@ -1021,7 +1021,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
+    "aws:cdk:path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
    }
   },
   "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E": {
@@ -1057,7 +1057,7 @@
     "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+    "aws:cdk:path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
     "aws:asset:path": "asset.ee7de53d64cc9d6248fa6aa550f92358f6c907b5efd6f3298aeab1b5e7ea358a",
     "aws:asset:property": "Code"
    }
@@ -1087,7 +1087,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/SecurityGroup/Resource"
+    "aws:cdk:path": "NewStack2/SecurityGroup/Resource"
    }
   },
   "InstanceRole3CCE2F1D": {
@@ -1145,7 +1145,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/InstanceRole/Resource"
+    "aws:cdk:path": "NewStack2/InstanceRole/Resource"
    }
   },
   "InstanceInstanceProfileAB5AEF02": {
@@ -1158,7 +1158,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Instance/InstanceProfile"
+    "aws:cdk:path": "NewStack2/Instance/InstanceProfile"
    }
   },
   "InstanceC1063A87": {
@@ -1179,6 +1179,7 @@
      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
     },
     "InstanceType": "t2.micro",
+    "KeyName": "gafPair",
     "NetworkInterfaces": [
      {
       "AssociatePublicIpAddress": true,
@@ -1199,11 +1200,11 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/Instance"
+      "Value": "NewStack2/Instance"
      }
     ],
     "UserData": {
-     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nyum update -y\nyum install -y git\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\nnpm install\nnpm run start"
+     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nsudo yum update -y\nsudo yum install -y git\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\nnpm install\nnpm start"
     }
    },
    "DependsOn": [
@@ -1214,7 +1215,7 @@
     "VPCPublicSubnet2RouteTableAssociation5A808732"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Instance/Resource"
+    "aws:cdk:path": "NewStack2/Instance/Resource"
    }
   },
   "CDKMetadata": {
@@ -1223,7 +1224,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/11SwW7bMAz9lt4VdWkHdNfU7YoA22okQ64BLTMdG1kyJCqBYfjfJ1lxnfbEx0eCeuTTnVx+f5DfbuDsF6o+LjRVst8yqKOI1L7397J/DOqILIqDuaAcSqtJdTN9yXPyCB4H4e/3fY2ttl2DhmUuPX0QArxH9nKVwiA0NFUNso8Tf0GHbofOkzViS+ZNI1vzMxjFifkAsXXCgyBoZL+xGhM9xlnijNbGMxiFpbMH0lGk0jbUB2ejwP6JPDuqwjT8Oh8EqjvZ71qVKruyEGWo4tRtqEw+z4w2NjD+hSpryfzMxX2tIpgeGQsJPK/LFP4AvwDjGTpROjpFOA9eG0YX8dSQlVyyFUfj/o2X3aIKjrh7cTa0o4ZPxHSE64MMgyiCZ9ts0NvgcvEa/4a2jVZ86Yp3PFGNLjkuRifj93lLfdnPvU5e7uNvUprk6uwLTaO94nr2a+A2jBuW4KDBuGVKCmtqysc3tkb57m9Pyx9y+SCXN++eaOGCYWpQbnL8D98a4QTPAgAA"
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/CDKMetadata/Default"
+    "aws:cdk:path": "NewStack2/CDKMetadata/Default"
    },
    "Condition": "CDKMetadataAvailable"
   }
@@ -1361,9 +1362,17 @@
   "InstancePublicDNS": {
    "Description": "Public DNS of the EC2 instance",
    "Value": {
-    "Fn::GetAtt": [
-     "InstanceC1063A87",
-     "PublicDnsName"
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Fn::GetAtt": [
+        "InstanceC1063A87",
+        "PublicDnsName"
+       ]
+      }
+     ]
     ]
    }
   }

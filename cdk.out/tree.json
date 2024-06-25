@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "NewStack": {
-        "id": "NewStack",
-        "path": "NewStack",
+      "NewStack2": {
+        "id": "NewStack2",
+        "path": "NewStack2",
         "children": {
           "MyBucket": {
             "id": "MyBucket",
-            "path": "NewStack/MyBucket",
+            "path": "NewStack2/MyBucket",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/MyBucket/Resource",
+                "path": "NewStack2/MyBucket/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "backendbucket-c80397f2177644b16b429e7b9801b431ca1f71f8fd",
+                    "bucketName": "backendbucket-c89f300f6783b90421d092320bb47af674a9f23680",
                     "publicAccessBlockConfiguration": {
                       "blockPublicAcls": false,
                       "blockPublicPolicy": false,
@@ -31,7 +31,7 @@
                         "value": "true"
                       },
                       {
-                        "key": "aws-cdk:cr-owned:db8200e1",
+                        "key": "aws-cdk:cr-owned:54acd336",
                         "value": "true"
                       }
                     ],
@@ -48,11 +48,11 @@
               },
               "Policy": {
                 "id": "Policy",
-                "path": "NewStack/MyBucket/Policy",
+                "path": "NewStack2/MyBucket/Policy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "NewStack/MyBucket/Policy/Resource",
+                    "path": "NewStack2/MyBucket/Policy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
                       "aws:cdk:cloudformation:props": {
@@ -139,11 +139,11 @@
               },
               "AutoDeleteObjectsCustomResource": {
                 "id": "AutoDeleteObjectsCustomResource",
-                "path": "NewStack/MyBucket/AutoDeleteObjectsCustomResource",
+                "path": "NewStack2/MyBucket/AutoDeleteObjectsCustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "NewStack/MyBucket/AutoDeleteObjectsCustomResource/Default",
+                    "path": "NewStack2/MyBucket/AutoDeleteObjectsCustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -163,7 +163,7 @@
           },
           "LatestNodeRuntimeMap": {
             "id": "LatestNodeRuntimeMap",
-            "path": "NewStack/LatestNodeRuntimeMap",
+            "path": "NewStack2/LatestNodeRuntimeMap",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnMapping",
               "version": "2.147.0"
@@ -171,11 +171,11 @@
           },
           "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
             "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
-            "path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider",
             "children": {
               "Staging": {
                 "id": "Staging",
-                "path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.AssetStaging",
                   "version": "2.147.0"
@@ -183,7 +183,7 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -191,7 +191,7 @@
               },
               "Handler": {
                 "id": "Handler",
-                "path": "NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "path": "NewStack2/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -205,19 +205,19 @@
           },
           "DeployApp": {
             "id": "DeployApp",
-            "path": "NewStack/DeployApp",
+            "path": "NewStack2/DeployApp",
             "children": {
               "AwsCliLayer": {
                 "id": "AwsCliLayer",
-                "path": "NewStack/DeployApp/AwsCliLayer",
+                "path": "NewStack2/DeployApp/AwsCliLayer",
                 "children": {
                   "Code": {
                     "id": "Code",
-                    "path": "NewStack/DeployApp/AwsCliLayer/Code",
+                    "path": "NewStack2/DeployApp/AwsCliLayer/Code",
                     "children": {
                       "Stage": {
                         "id": "Stage",
-                        "path": "NewStack/DeployApp/AwsCliLayer/Code/Stage",
+                        "path": "NewStack2/DeployApp/AwsCliLayer/Code/Stage",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.AssetStaging",
                           "version": "2.147.0"
@@ -225,7 +225,7 @@
                       },
                       "AssetBucket": {
                         "id": "AssetBucket",
-                        "path": "NewStack/DeployApp/AwsCliLayer/Code/AssetBucket",
+                        "path": "NewStack2/DeployApp/AwsCliLayer/Code/AssetBucket",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                           "version": "2.147.0"
@@ -239,7 +239,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "NewStack/DeployApp/AwsCliLayer/Resource",
+                    "path": "NewStack2/DeployApp/AwsCliLayer/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
                       "aws:cdk:cloudformation:props": {
@@ -265,7 +265,7 @@
               },
               "CustomResourceHandler": {
                 "id": "CustomResourceHandler",
-                "path": "NewStack/DeployApp/CustomResourceHandler",
+                "path": "NewStack2/DeployApp/CustomResourceHandler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.SingletonFunction",
                   "version": "2.147.0"
@@ -273,11 +273,11 @@
               },
               "Asset1": {
                 "id": "Asset1",
-                "path": "NewStack/DeployApp/Asset1",
+                "path": "NewStack2/DeployApp/Asset1",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "NewStack/DeployApp/Asset1/Stage",
+                    "path": "NewStack2/DeployApp/Asset1/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.147.0"
@@ -285,7 +285,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "NewStack/DeployApp/Asset1/AssetBucket",
+                    "path": "NewStack2/DeployApp/Asset1/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.147.0"
@@ -299,11 +299,11 @@
               },
               "CustomResource": {
                 "id": "CustomResource",
-                "path": "NewStack/DeployApp/CustomResource",
+                "path": "NewStack2/DeployApp/CustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "NewStack/DeployApp/CustomResource/Default",
+                    "path": "NewStack2/DeployApp/CustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -323,15 +323,15 @@
           },
           "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": {
             "id": "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
-            "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
+                "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/ImportServiceRole",
+                    "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -339,7 +339,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
+                    "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -378,11 +378,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
+                    "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
+                        "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -496,11 +496,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
+                "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
+                    "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.147.0"
@@ -508,7 +508,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
+                    "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.147.0"
@@ -522,7 +522,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+                "path": "NewStack2/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -566,11 +566,11 @@
           },
           "Distribution": {
             "id": "Distribution",
-            "path": "NewStack/Distribution",
+            "path": "NewStack2/Distribution",
             "children": {
               "Origin1": {
                 "id": "Origin1",
-                "path": "NewStack/Distribution/Origin1",
+                "path": "NewStack2/Distribution/Origin1",
                 "constructInfo": {
                   "fqn": "constructs.Construct",
                   "version": "10.3.0"
@@ -578,7 +578,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/Distribution/Resource",
+                "path": "NewStack2/Distribution/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
                   "aws:cdk:cloudformation:props": {
@@ -602,7 +602,7 @@
                               }
                             ]
                           },
-                          "id": "NewStackDistributionOrigin10DCE94C4",
+                          "id": "NewStack2DistributionOrigin18F6C7D29",
                           "customOriginConfig": {
                             "originSslProtocols": [
                               "TLSv1.2"
@@ -613,7 +613,7 @@
                       ],
                       "defaultCacheBehavior": {
                         "pathPattern": "*",
-                        "targetOriginId": "NewStackDistributionOrigin10DCE94C4",
+                        "targetOriginId": "NewStack2DistributionOrigin18F6C7D29",
                         "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
                         "compress": true,
                         "viewerProtocolPolicy": "allow-all"
@@ -637,7 +637,7 @@
           },
           "BucketURL": {
             "id": "BucketURL",
-            "path": "NewStack/BucketURL",
+            "path": "NewStack2/BucketURL",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -645,7 +645,7 @@
           },
           "CloudFrontURL": {
             "id": "CloudFrontURL",
-            "path": "NewStack/CloudFrontURL",
+            "path": "NewStack2/CloudFrontURL",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -653,11 +653,11 @@
           },
           "VPC": {
             "id": "VPC",
-            "path": "NewStack/VPC",
+            "path": "NewStack2/VPC",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/VPC/Resource",
+                "path": "NewStack2/VPC/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
                   "aws:cdk:cloudformation:props": {
@@ -668,7 +668,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "NewStack/VPC"
+                        "value": "NewStack2/VPC"
                       }
                     ]
                   }
@@ -680,11 +680,11 @@
               },
               "PublicSubnet1": {
                 "id": "PublicSubnet1",
-                "path": "NewStack/VPC/PublicSubnet1",
+                "path": "NewStack2/VPC/PublicSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NewStack/VPC/PublicSubnet1/Subnet",
+                    "path": "NewStack2/VPC/PublicSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -709,7 +709,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet1"
+                            "value": "NewStack2/VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -724,7 +724,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NewStack/VPC/PublicSubnet1/Acl",
+                    "path": "NewStack2/VPC/PublicSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -732,14 +732,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NewStack/VPC/PublicSubnet1/RouteTable",
+                    "path": "NewStack2/VPC/PublicSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet1"
+                            "value": "NewStack2/VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -754,7 +754,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NewStack/VPC/PublicSubnet1/RouteTableAssociation",
+                    "path": "NewStack2/VPC/PublicSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -773,7 +773,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NewStack/VPC/PublicSubnet1/DefaultRoute",
+                    "path": "NewStack2/VPC/PublicSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -793,7 +793,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "NewStack/VPC/PublicSubnet1/EIP",
+                    "path": "NewStack2/VPC/PublicSubnet1/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -801,7 +801,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet1"
+                            "value": "NewStack2/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -813,7 +813,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "NewStack/VPC/PublicSubnet1/NATGateway",
+                    "path": "NewStack2/VPC/PublicSubnet1/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -829,7 +829,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet1"
+                            "value": "NewStack2/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -847,11 +847,11 @@
               },
               "PublicSubnet2": {
                 "id": "PublicSubnet2",
-                "path": "NewStack/VPC/PublicSubnet2",
+                "path": "NewStack2/VPC/PublicSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NewStack/VPC/PublicSubnet2/Subnet",
+                    "path": "NewStack2/VPC/PublicSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -876,7 +876,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet2"
+                            "value": "NewStack2/VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -891,7 +891,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NewStack/VPC/PublicSubnet2/Acl",
+                    "path": "NewStack2/VPC/PublicSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -899,14 +899,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NewStack/VPC/PublicSubnet2/RouteTable",
+                    "path": "NewStack2/VPC/PublicSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet2"
+                            "value": "NewStack2/VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -921,7 +921,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NewStack/VPC/PublicSubnet2/RouteTableAssociation",
+                    "path": "NewStack2/VPC/PublicSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -940,7 +940,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NewStack/VPC/PublicSubnet2/DefaultRoute",
+                    "path": "NewStack2/VPC/PublicSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -960,7 +960,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "NewStack/VPC/PublicSubnet2/EIP",
+                    "path": "NewStack2/VPC/PublicSubnet2/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -968,7 +968,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet2"
+                            "value": "NewStack2/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -980,7 +980,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "NewStack/VPC/PublicSubnet2/NATGateway",
+                    "path": "NewStack2/VPC/PublicSubnet2/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -996,7 +996,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PublicSubnet2"
+                            "value": "NewStack2/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -1014,11 +1014,11 @@
               },
               "PrivateSubnet1": {
                 "id": "PrivateSubnet1",
-                "path": "NewStack/VPC/PrivateSubnet1",
+                "path": "NewStack2/VPC/PrivateSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NewStack/VPC/PrivateSubnet1/Subnet",
+                    "path": "NewStack2/VPC/PrivateSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -1043,7 +1043,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PrivateSubnet1"
+                            "value": "NewStack2/VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -1058,7 +1058,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NewStack/VPC/PrivateSubnet1/Acl",
+                    "path": "NewStack2/VPC/PrivateSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -1066,14 +1066,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NewStack/VPC/PrivateSubnet1/RouteTable",
+                    "path": "NewStack2/VPC/PrivateSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PrivateSubnet1"
+                            "value": "NewStack2/VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -1088,7 +1088,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NewStack/VPC/PrivateSubnet1/RouteTableAssociation",
+                    "path": "NewStack2/VPC/PrivateSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -1107,7 +1107,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NewStack/VPC/PrivateSubnet1/DefaultRoute",
+                    "path": "NewStack2/VPC/PrivateSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -1133,11 +1133,11 @@
               },
               "PrivateSubnet2": {
                 "id": "PrivateSubnet2",
-                "path": "NewStack/VPC/PrivateSubnet2",
+                "path": "NewStack2/VPC/PrivateSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "NewStack/VPC/PrivateSubnet2/Subnet",
+                    "path": "NewStack2/VPC/PrivateSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -1162,7 +1162,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PrivateSubnet2"
+                            "value": "NewStack2/VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -1177,7 +1177,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "NewStack/VPC/PrivateSubnet2/Acl",
+                    "path": "NewStack2/VPC/PrivateSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -1185,14 +1185,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "NewStack/VPC/PrivateSubnet2/RouteTable",
+                    "path": "NewStack2/VPC/PrivateSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "NewStack/VPC/PrivateSubnet2"
+                            "value": "NewStack2/VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -1207,7 +1207,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "NewStack/VPC/PrivateSubnet2/RouteTableAssociation",
+                    "path": "NewStack2/VPC/PrivateSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -1226,7 +1226,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "NewStack/VPC/PrivateSubnet2/DefaultRoute",
+                    "path": "NewStack2/VPC/PrivateSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -1252,14 +1252,14 @@
               },
               "IGW": {
                 "id": "IGW",
-                "path": "NewStack/VPC/IGW",
+                "path": "NewStack2/VPC/IGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
                   "aws:cdk:cloudformation:props": {
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "NewStack/VPC"
+                        "value": "NewStack2/VPC"
                       }
                     ]
                   }
@@ -1271,7 +1271,7 @@
               },
               "VPCGW": {
                 "id": "VPCGW",
-                "path": "NewStack/VPC/VPCGW",
+                "path": "NewStack2/VPC/VPCGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
                   "aws:cdk:cloudformation:props": {
@@ -1290,11 +1290,11 @@
               },
               "RestrictDefaultSecurityGroupCustomResource": {
                 "id": "RestrictDefaultSecurityGroupCustomResource",
-                "path": "NewStack/VPC/RestrictDefaultSecurityGroupCustomResource",
+                "path": "NewStack2/VPC/RestrictDefaultSecurityGroupCustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "NewStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default",
+                    "path": "NewStack2/VPC/RestrictDefaultSecurityGroupCustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -1314,11 +1314,11 @@
           },
           "Custom::VpcRestrictDefaultSGCustomResourceProvider": {
             "id": "Custom::VpcRestrictDefaultSGCustomResourceProvider",
-            "path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider",
+            "path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider",
             "children": {
               "Staging": {
                 "id": "Staging",
-                "path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
+                "path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.AssetStaging",
                   "version": "2.147.0"
@@ -1326,7 +1326,7 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
+                "path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1334,7 +1334,7 @@
               },
               "Handler": {
                 "id": "Handler",
-                "path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+                "path": "NewStack2/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1348,11 +1348,11 @@
           },
           "SecurityGroup": {
             "id": "SecurityGroup",
-            "path": "NewStack/SecurityGroup",
+            "path": "NewStack2/SecurityGroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/SecurityGroup/Resource",
+                "path": "NewStack2/SecurityGroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
@@ -1391,11 +1391,11 @@
           },
           "InstanceRole": {
             "id": "InstanceRole",
-            "path": "NewStack/InstanceRole",
+            "path": "NewStack2/InstanceRole",
             "children": {
               "ImportInstanceRole": {
                 "id": "ImportInstanceRole",
-                "path": "NewStack/InstanceRole/ImportInstanceRole",
+                "path": "NewStack2/InstanceRole/ImportInstanceRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.147.0"
@@ -1403,7 +1403,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/InstanceRole/Resource",
+                "path": "NewStack2/InstanceRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -1472,7 +1472,7 @@
           },
           "KeyPair": {
             "id": "KeyPair",
-            "path": "NewStack/KeyPair",
+            "path": "NewStack2/KeyPair",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
@@ -1480,11 +1480,11 @@
           },
           "Instance": {
             "id": "Instance",
-            "path": "NewStack/Instance",
+            "path": "NewStack2/Instance",
             "children": {
               "InstanceProfile": {
                 "id": "InstanceProfile",
-                "path": "NewStack/Instance/InstanceProfile",
+                "path": "NewStack2/Instance/InstanceProfile",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::InstanceProfile",
                   "aws:cdk:cloudformation:props": {
@@ -1502,7 +1502,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "NewStack/Instance/Resource",
+                "path": "NewStack2/Instance/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::Instance",
                   "aws:cdk:cloudformation:props": {
@@ -1542,11 +1542,11 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "NewStack/Instance"
+                        "value": "NewStack2/Instance"
                       }
                     ],
                     "userData": {
-                      "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nyum update -y\nyum install -y git\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\nnpm install\nnpm run start"
+                      "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nsudo yum update -y\nsudo yum install -y git\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\nnpm install\nnpm start"
                     }
                   }
                 },
@@ -1563,7 +1563,7 @@
           },
           "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
             "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
-            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "NewStack2/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.147.0"
@@ -1571,7 +1571,7 @@
           },
           "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118": {
             "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
-            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "NewStack2/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
@@ -1579,7 +1579,7 @@
           },
           "InstancePublicIP": {
             "id": "InstancePublicIP",
-            "path": "NewStack/InstancePublicIP",
+            "path": "NewStack2/InstancePublicIP",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -1587,7 +1587,7 @@
           },
           "InstancePublicDNS": {
             "id": "InstancePublicDNS",
-            "path": "NewStack/InstancePublicDNS",
+            "path": "NewStack2/InstancePublicDNS",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -1595,11 +1595,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "NewStack/CDKMetadata",
+            "path": "NewStack2/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "NewStack/CDKMetadata/Default",
+                "path": "NewStack2/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1607,7 +1607,7 @@
               },
               "Condition": {
                 "id": "Condition",
-                "path": "NewStack/CDKMetadata/Condition",
+                "path": "NewStack2/CDKMetadata/Condition",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnCondition",
                   "version": "2.147.0"
@@ -1621,7 +1621,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "NewStack/BootstrapVersion",
+            "path": "NewStack2/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.147.0"
@@ -1629,7 +1629,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "NewStack/CheckBootstrapVersion",
+            "path": "NewStack2/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.147.0"

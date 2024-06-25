@@ -112,13 +112,15 @@ export class NewStack extends cdk.Stack {
 		// Add user data to clone the GitHub repo and install dependencies
 		instance.addUserData(
 			`#!/bin/bash`,
-			`yum update -y`,
-			`yum install -y git`,
+			`sudo yum update -y`,
+			`sudo yum install -y git`,
+			`curl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -`, // Use Node.js 16.x
+			`sudo yum install -y nodejs`, // Install Node.js and npm
 			`cd /home/ec2-user`,
 			`git clone https://github.com/fac29/gaf-back.git`,
 			`cd gaf-back`,
-			`npm install`,
-			`npm run start`,
+			`npm install`, // Install dependencies
+			`npm start` // Start the application
 		);
 
 		// Output the EC2 instance public IP
@@ -129,7 +131,7 @@ export class NewStack extends cdk.Stack {
 
 		// Output the EC2 instance public DNS
 		new cdk.CfnOutput(this, 'InstancePublicDNS', {
-			value: instance.instancePublicDnsName,
+			value: `https://${instance.instancePublicDnsName}`,
 			description: 'Public DNS of the EC2 instance',
 		});
 	}

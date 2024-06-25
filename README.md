@@ -46,7 +46,18 @@ To start the server, use the following command:
 npm run dev
 ```
 
+# Useful CDK commands:
 ### Deploy
 cdk bootstrap
+cdk bootstrap aws://788798427985/us-west-2
 cdk deploy
 
+### List stacks
+aws cloudformation list-stacks --query "StackSummaries[?StackName=='CDKToolkit']"
+
+### Delete stack
+aws cloudformation delete-stack --stack-name CDKToolkit
+
+### Update stack
+cdk synth
+cdk deploy
