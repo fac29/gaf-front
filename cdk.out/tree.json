@@ -1522,17 +1522,23 @@
                     },
                     "instanceType": "t2.micro",
                     "keyName": "gafPair",
-                    "securityGroupIds": [
+                    "networkInterfaces": [
                       {
-                        "Fn::GetAtt": [
-                          "SecurityGroupDD263621",
-                          "GroupId"
+                        "deviceIndex": "0",
+                        "associatePublicIpAddress": true,
+                        "subnetId": {
+                          "Ref": "VPCPublicSubnet1SubnetB4246D30"
+                        },
+                        "groupSet": [
+                          {
+                            "Fn::GetAtt": [
+                              "SecurityGroupDD263621",
+                              "GroupId"
+                            ]
+                          }
                         ]
                       }
                     ],
-                    "subnetId": {
-                      "Ref": "VPCPrivateSubnet1Subnet8BCA10E0"
-                    },
                     "tags": [
                       {
                         "key": "Name",
@@ -1574,6 +1580,14 @@
           "InstancePublicIP": {
             "id": "InstancePublicIP",
             "path": "NewStack/InstancePublicIP",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.147.0"
+            }
+          },
+          "InstancePublicDNS": {
+            "id": "InstancePublicDNS",
+            "path": "NewStack/InstancePublicDNS",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"

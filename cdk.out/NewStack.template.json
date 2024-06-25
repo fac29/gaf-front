@@ -1180,17 +1180,23 @@
     },
     "InstanceType": "t2.micro",
     "KeyName": "gafPair",
-    "SecurityGroupIds": [
+    "NetworkInterfaces": [
      {
-      "Fn::GetAtt": [
-       "SecurityGroupDD263621",
-       "GroupId"
-      ]
+      "AssociatePublicIpAddress": true,
+      "DeviceIndex": "0",
+      "GroupSet": [
+       {
+        "Fn::GetAtt": [
+         "SecurityGroupDD263621",
+         "GroupId"
+        ]
+       }
+      ],
+      "SubnetId": {
+       "Ref": "VPCPublicSubnet1SubnetB4246D30"
+      }
      }
     ],
-    "SubnetId": {
-     "Ref": "VPCPrivateSubnet1Subnet8BCA10E0"
-    },
     "Tags": [
      {
       "Key": "Name",
@@ -1202,7 +1208,11 @@
     }
    },
    "DependsOn": [
-    "InstanceRole3CCE2F1D"
+    "InstanceRole3CCE2F1D",
+    "VPCPublicSubnet1DefaultRoute91CEF279",
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+    "VPCPublicSubnet2DefaultRouteB7481BBA",
+    "VPCPublicSubnet2RouteTableAssociation5A808732"
    ],
    "Metadata": {
     "aws:cdk:path": "NewStack/Instance/Resource"
@@ -1326,14 +1336,31 @@
   "CloudFrontURL": {
    "Description": "The URL of the CloudFront distribution",
    "Value": {
-    "Fn::GetAtt": [
-     "Distribution830FAC52",
-     "DomainName"
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "Distribution830FAC52",
+        "DomainName"
+       ]
+      }
+     ]
     ]
    }
   },
   "InstancePublicIP": {
    "Description": "Public IP of the EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "InstanceC1063A87",
+     "PublicIp"
+    ]
+   }
+  },
+  "InstancePublicDNS": {
+   "Description": "Public DNS of the EC2 instance",
    "Value": {
     "Fn::GetAtt": [
      "InstanceC1063A87",

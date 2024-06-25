@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3f508ae3f55477a400b66f93a08774959fc3572f1c83ae948399a1bdabc02eb9.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3f09f3f64480a9af6ab64c327939c93d407c334e18a4688c7d32dd975a7539fc.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -308,6 +308,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "InstancePublicIP"
+          }
+        ],
+        "/NewStack/InstancePublicDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstancePublicDNS"
           }
         ],
         "/NewStack/CDKMetadata/Default": [

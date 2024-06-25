@@ -53,7 +53,8 @@ export class NewStack extends cdk.Stack {
 		});
 
 		new cdk.CfnOutput(this, 'CloudFrontURL', {
-			value: distribution.distributionDomainName,
+			//value: distribution.distributionDomainName,
+			value: `http://${distribution.distributionDomainName}`,
 			description: 'The URL of the CloudFront distribution',
 		});
 
@@ -104,6 +105,8 @@ export class NewStack extends cdk.Stack {
 			securityGroup,
 			role,
 			keyPair,
+			vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC }, // Ensure the instance is in a public subnet
+			associatePublicIpAddress: true, // Ensure the instance has a public IP
 		});
 
 		// Add user data to clone the GitHub repo and install dependencies
@@ -120,8 +123,14 @@ export class NewStack extends cdk.Stack {
 
 		// Output the EC2 instance public IP
 		new cdk.CfnOutput(this, 'InstancePublicIP', {
-			value: instance.instancePublicDnsName,
+			value: instance.instancePublicIp,
 			description: 'Public IP of the EC2 instance',
+		});
+
+		// Output the EC2 instance public DNS
+		new cdk.CfnOutput(this, 'InstancePublicDNS', {
+			value: instance.instancePublicDnsName,
+			description: 'Public DNS of the EC2 instance',
 		});
 	}
 }
