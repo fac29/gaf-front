@@ -27,6 +27,7 @@ export class NewStack extends cdk.Stack {
 			description: 'Allow SSH access to EC2 instance',
 			allowAllOutbound: true, // Allow outbound traffic by default
 		});
+
 		securityGroup.addIngressRule(
 			ec2.Peer.anyIpv4(),
 			ec2.Port.tcp(22),
@@ -56,7 +57,7 @@ export class NewStack extends cdk.Stack {
 		); // Allow full access to EC2
 
 		// Create a new EC2 key pair
-		const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
+		//const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
 
 		// Define the EC2 instance
 		const instance = new ec2.Instance(this, 'Instance', {
@@ -65,7 +66,7 @@ export class NewStack extends cdk.Stack {
 			machineImage: new ec2.AmazonLinuxImage(),
 			securityGroup,
 			role,
-			keyPair,
+			//keyPair,
 			vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC }, // Ensure the instance is in a public subnet
 			associatePublicIpAddress: true, // Ensure the instance has a public IP
 		});
@@ -97,52 +98,53 @@ export class NewStack extends cdk.Stack {
 			value: `https://${instance.instancePublicDnsName}`,
 			description: 'Public DNS of the EC2 instance',
 		});
-		
+
 		//******************** */
 		//FRONTEND
-		/********************* */
+		// /********************* */
 
+		// // Define an S3 bucket
+		// const uniqueBucketName = `backendbucket-${this.node.addr}`;
+		// const myBucket = new s3.Bucket(this, 'MyBucket', {
+		// 	bucketName: uniqueBucketName,
+		// 	removalPolicy: cdk.RemovalPolicy.DESTROY, // Optional: Automatically delete the bucket when the stack is deleted
+		// 	autoDeleteObjects: true, // Optional: Automatically delete objects in the bucket when the bucket is deleted
+		// 	publicReadAccess: true, // Allow public read access to the bucket
+		// 	websiteIndexDocument: 'index.html',
+		// 	websiteErrorDocument: 'index.html', // Route all errors to index.html (for SPA routing)
+		// 	blockPublicAccess: {
+		// 		blockPublicAcls: false,
+		// 		blockPublicPolicy: false,
+		// 		ignorePublicAcls: false,
+		// 		restrictPublicBuckets: false,
+		// 	},
+		// });
 
-		// Define an S3 bucket
-		const uniqueBucketName = `backendbucket-${this.node.addr}`;
-		const myBucket = new s3.Bucket(this, 'MyBucket', {
-			bucketName: uniqueBucketName,
-			removalPolicy: cdk.RemovalPolicy.DESTROY, // Optional: Automatically delete the bucket when the stack is deleted
-			autoDeleteObjects: true, // Optional: Automatically delete objects in the bucket when the bucket is deleted
-			publicReadAccess: true, // Allow public read access to the bucket
-			websiteIndexDocument: 'index.html',
-			websiteErrorDocument: 'index.html', // Route all errors to index.html (for SPA routing)
-			blockPublicAccess: {
-				blockPublicAcls: false,
-				blockPublicPolicy: false,
-				ignorePublicAcls: false,
-				restrictPublicBuckets: false,
-			},
-		});
+		// // Ensure the EC2 instance is created before the S3 bucket
+		// myBucket.node.addDependency(instance);
 
-		// Deploy local files to the S3 bucket
-		new s3deploy.BucketDeployment(this, 'DeployApp', {
-			sources: [s3deploy.Source.asset('./dist')],
-			destinationBucket: myBucket,
-		});
+		// // Deploy local files to the S3 bucket
+		// new s3deploy.BucketDeployment(this, 'DeployApp', {
+		// 	sources: [s3deploy.Source.asset('./dist')],
+		// 	destinationBucket: myBucket,
+		// });
 
-		// Set up CloudFront distribution for the S3 bucket
-		const distribution = new cloudfront.Distribution(this, 'Distribution', {
-			defaultBehavior: { origin: new origins.S3Origin(myBucket) },
-			defaultRootObject: 'index.html',
-		});
+		// // Set up CloudFront distribution for the S3 bucket
+		// const distribution = new cloudfront.Distribution(this, 'Distribution', {
+		// 	defaultBehavior: { origin: new origins.S3Origin(myBucket) },
+		// 	defaultRootObject: 'index.html',
+		// });
 
-		// Output the S3 bucket name and CloudFront URL
-		new cdk.CfnOutput(this, 'BucketURL', {
-			value: myBucket.bucketWebsiteUrl,
-			description: 'The URL of the S3 bucket website',
-		});
+		// // Output the S3 bucket name and CloudFront URL
+		// new cdk.CfnOutput(this, 'BucketURL', {
+		// 	value: myBucket.bucketWebsiteUrl,
+		// 	description: 'The URL of the S3 bucket website',
+		// });
 
-		new cdk.CfnOutput(this, 'CloudFrontURL', {
-			//value: distribution.distributionDomainName,
-			value: `http://${distribution.distributionDomainName}`,
-			description: 'The URL of the CloudFront distribution',
-		});
-
+		// new cdk.CfnOutput(this, 'CloudFrontURL', {
+		// 	//value: distribution.distributionDomainName,
+		// 	value: `http://${distribution.distributionDomainName}`,
+		// 	description: 'The URL of the CloudFront distribution',
+		// });
 	}
 }

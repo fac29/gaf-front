@@ -61,3 +61,5 @@ aws cloudformation delete-stack --stack-name CDKToolkit
 ### Update stack
 cdk synth
 cdk deploy
+
+### Delete the CDK context file

@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6e20cbbc1d0c0fb6c30085b12296ed63d8004dd72f5fcbaa84bf07da8f6ba256.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2df6213b58e624fc006695253a7a73165bd9e12a146051368930191b71c5ad54.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -236,84 +236,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "InstancePublicDNS"
-          }
-        ],
-        "/NewStack/MyBucket/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketF68F3FF0"
-          }
-        ],
-        "/NewStack/MyBucket/Policy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketPolicyE7FBAC7B"
-          }
-        ],
-        "/NewStack/MyBucket/AutoDeleteObjectsCustomResource/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyBucketAutoDeleteObjectsCustomResource2C28D565"
-          }
-        ],
-        "/NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
-          }
-        ],
-        "/NewStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
-          }
-        ],
-        "/NewStack/DeployApp/AwsCliLayer/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DeployAppAwsCliLayerAEF99B2F"
-          }
-        ],
-        "/NewStack/DeployApp/CustomResource/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DeployAppCustomResourceDEE6DDD6"
-          }
-        ],
-        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
-          }
-        ],
-        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
-          }
-        ],
-        "/NewStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
-          }
-        ],
-        "/NewStack/Distribution/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "Distribution830FAC52"
-          }
-        ],
-        "/NewStack/BucketURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "BucketURL"
-          }
-        ],
-        "/NewStack/CloudFrontURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CloudFrontURL"
           }
         ],
         "/NewStack/CDKMetadata/Default": [
