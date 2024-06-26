@@ -31,16 +31,10 @@ export default function CartComponent({
 			const createUserCart = await fetchCreateCart(420);
 			const createProductCart = await fetchUpdateCart(
 				createUserCart,
-				user.cart,
+				user!.cart!,
 			);
 
-			return console.log(
-				'need to extract cartId from here',
-				createUserCart,
-				'this are the cart items being sent back',
-				user?.cart,
-				createProductCart,
-			);
+			return console.log(createProductCart);
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
