@@ -16,23 +16,7 @@ export default function CreateLog({
 	const [emailInput, setEmailInput] = React.useState('');
 	const [passwordInput, setPasswordInput] = React.useState('');
 	const [isFormValid, setIsFormValid] = React.useState(false);
-
-	const handleSubmitCreate = (e: Event) => {
-		e.preventDefault();
-		if (validateSubmitForm()) {
-			signUp(nameInput, emailInput, passwordInput);
-		} else {
-			alert('Please fill in all required fields.');
-		}
-	};
-	const handleSubmitLogIn = (e: Event) => {
-		e.preventDefault();
-		if (validateLogInForm()) {
-			login(emailInput, passwordInput);
-		} else {
-			alert('Please fill in all required fields.');
-		}
-	};
+	const [error, setError] = React.useState('');
 
 	const validateSubmitForm = () => {
 		const isNameValid = nameInput.trim().length > 0;
