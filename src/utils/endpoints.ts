@@ -1,8 +1,10 @@
 //file reserved for creating and exporting all required fetch calls
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 export const deleteProduct = async (id: number) => {
 	try {
-		const response = await fetch(`http://localhost:3000/product/${id}`, {
+		const response = await fetch(`${API_URL}/product/${id}`, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ export const deleteProduct = async (id: number) => {
 
 export const singleProduct = async (id: number) => {
 	try {
-		const response = await fetch(`http://localhost:3000/product/${id}`, {
+		const response = await fetch(`${API_URL}/product/${id}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -66,7 +68,7 @@ export const singleProduct = async (id: number) => {
 
 export const randomProducts = async () => {
 	try {
-		const response = await fetch(`http://localhost:3000/products/random`, {
+		const response = await fetch(`${API_URL}/products/random`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -97,7 +99,7 @@ export const randomProducts = async () => {
 
 export const SearchProducts = async (userInput: Array<string>) => {
 	try {
-		const response = await fetch(`http://localhost:3000/products`, {
+		const response = await fetch(`${API_URL}/products`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -130,7 +132,7 @@ export const SearchProducts = async (userInput: Array<string>) => {
 
 export const login = async (email: string, password: string) => {
 	try {
-		const response = await fetch(`http://localhost:3000/login`, {
+		const response = await fetch(`${API_URL}/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -164,7 +166,7 @@ export const login = async (email: string, password: string) => {
 
 export const signUp = async (name: string, email: string, password: string) => {
 	try {
-		const response = await fetch(`http://localhost:3000/signup`, {
+		const response = await fetch(`${API_URL}/signup`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -198,7 +200,7 @@ export const signUp = async (name: string, email: string, password: string) => {
 
 export const fetchReviews = async (productId: number) => {
 	try {
-		const response = await fetch(`http://localhost:3000/review/${productId}`, {
+		const response = await fetch(`${API_URL}/review/${productId}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -228,15 +230,12 @@ export const fetchReviews = async (productId: number) => {
 
 export const fetchProductScore = async (productId: number) => {
 	try {
-		const response = await fetch(
-			`http://localhost:3000/productscore/${productId}`,
-			{
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-				},
+		const response = await fetch(`${API_URL}/productscore/${productId}`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
 			},
-		);
+		});
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
