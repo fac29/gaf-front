@@ -72,7 +72,6 @@ export default function CartComponent({
 					)}
 				</div>
 				<div>
-					<button onClick={handleModalToggle}>Close</button>
 					<Button
 						btnText="Complete Your Order"
 						btnonClick={() => gloryToAFG()}
