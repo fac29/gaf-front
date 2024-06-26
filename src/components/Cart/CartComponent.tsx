@@ -5,6 +5,7 @@ import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
 import { CartComponentProps } from '../../utils/tyBucket';
 import { fetchCreateCart, fetchUpdateCart } from '../../utils/endpoints';
+import Button from '../Button/Button';
 
 export default function CartComponent({
 	handleModalToggle,
@@ -55,22 +56,28 @@ export default function CartComponent({
 		<div className="cartycart" onClick={handleClickOutside}>
 			<div className="cartbody">
 				<div>
-					<button onClick={gloryToAFG}>ting</button>
-				</div>
-				{user?.cart && user.cart.length > 0 ? (
-					user.cart.map((item) => (
-						<div key={item.productId} className="cart-item">
-							<CartItemComponent
-								productId={item.productId}
-								quantity={item.quantity}
-							/>
+					{user?.cart && user.cart.length > 0 ? (
+						user.cart.map((item) => (
+							<div key={item.productId} className="cart-item">
+								<CartItemComponent
+									productId={item.productId}
+									quantity={item.quantity}
+								/>
+							</div>
+						))
+					) : (
+						<div>
+							<p>Your cart is empty</p>
 						</div>
-					))
-				) : (
-					<div>
-						<p>Your cart is empty</p>
-					</div>
-				)}
+					)}
+				</div>
+				<div>
+					<Button
+						btnText="Complete Your Order"
+						btnonClick={() => gloryToAFG()}
+						btnclassName="btnSecondary"
+					/>
+				</div>
 			</div>
 		</div>
 	);
