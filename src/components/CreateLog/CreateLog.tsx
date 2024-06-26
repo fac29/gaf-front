@@ -189,6 +189,15 @@ export default function CreateLog({
 					</div>
 				</div>
 			)}
+			{isAccountLoggedIn && (
+				<div>
+					<Button
+						btnText="Logout"
+						btnclassName="btnSecondary"
+						btnonClick={handleLogout}
+					/>
+				</div>
+			)}
 		</div>
 	);
 }
