@@ -9,7 +9,7 @@ import { fetchCreateCart, fetchUpdateCart } from '../../utils/endpoints';
 export default function CartComponent({
 	handleModalToggle,
 }: CartComponentProps) {
-	const { user } = useUserContext();
+	const { user, setUser } = useUserContext();
 
 	useEffect(() => {
 		if (user?.cart && user.cart.length === 0) {
@@ -36,7 +36,7 @@ export default function CartComponent({
 
 			if (createProductCart.userCartchanges[0].completed === 1) {
 				// reset the user.cart to an empty array and generate an alert with message 'hooray'
-				user!.cart = [];
+				setUser({ ...user!, cart: [] });
 				console.log(createProductCart);
 				return alert('hooray');
 			}
