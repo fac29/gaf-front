@@ -34,6 +34,13 @@ export default function CartComponent({
 				user!.cart!,
 			);
 
+			if (createProductCart.userCartchanges[0].completed === 1) {
+				// reset the user.cart to an empty array and generate an alert with message 'hooray'
+				user!.cart = [];
+				console.log(createProductCart);
+				return alert('hooray');
+			}
+
 			return console.log(createProductCart);
 		} catch (error) {
 			if (error instanceof Error) {
