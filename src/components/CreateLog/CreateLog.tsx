@@ -66,6 +66,12 @@ export default function CreateLog({
 			alert('Please fill in all required fields.');
 		}
 	};
+
+	const handleLogout = () => {
+		setIsAccountLoggedIn(false);
+		setEmailInput('');
+		setPasswordInput('');
+		alert('Logged out successfully.');
 	};
 
 	return (
