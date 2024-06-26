@@ -17,6 +17,7 @@ export default function Navbar({ hasSearch = true }: props) {
 	const handleModalToggle = () => setModalIsOpen(!modalIsOpen);
 	const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
 	const [isLogInOpen, setIsLogInOpen] = useState(false);
+	const [isAccountLoggedIn, setIsAccountLoggedIn] = useState(false);
 
 	const openCreateAccountModal = () => setIsCreateAccountOpen(true);
 	const closeCreateAccountModal = () => setIsCreateAccountOpen(false);
@@ -60,21 +61,27 @@ export default function Navbar({ hasSearch = true }: props) {
 				</div>
 				{modalIsOpen && <CartComponent handleModalToggle={handleModalToggle} />}
 
-				<Button
-					btnText="Create Account"
-					btnclassName="btnSecondary"
-					btnonClick={openCreateAccountModal}
-				/>
-				<Button
-					btnText="Log In"
-					btnclassName="btnSecondary"
-					btnonClick={openLogInModal}
-				/>
+				{!isAccountLoggedIn && (
+					<Button
+						btnText="Create Account"
+						btnclassName="btnSecondary"
+						btnonClick={openCreateAccountModal}
+					/>
+				)}
+				{!isAccountLoggedIn && (
+					<Button
+						btnText="Log In"
+						btnclassName="btnSecondary"
+						btnonClick={openLogInModal}
+					/>
+				)}
 				<CreateLog
 					isCreateAccountOpen={isCreateAccountOpen}
 					isLogInOpen={isLogInOpen}
 					closeCreateAccountModal={closeCreateAccountModal}
 					closeLogInModal={closeLogInModal}
+					isAccountLoggedIn={isAccountLoggedIn}
+					setIsAccountLoggedIn={setIsAccountLoggedIn}
 				/>
 			</div>
 		</nav>

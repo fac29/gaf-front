@@ -9,28 +9,14 @@ export default function CreateLog({
 	isLogInOpen,
 	closeCreateAccountModal,
 	closeLogInModal,
+	isAccountLoggedIn,
+	setIsAccountLoggedIn,
 }: CreateLogProps) {
 	const [nameInput, setNameInput] = React.useState('');
 	const [emailInput, setEmailInput] = React.useState('');
 	const [passwordInput, setPasswordInput] = React.useState('');
 	const [isFormValid, setIsFormValid] = React.useState(false);
-
-	const handleSubmitCreate = (e: Event) => {
-		e.preventDefault();
-		if (validateSubmitForm()) {
-			signUp(nameInput, emailInput, passwordInput);
-		} else {
-			alert('Please fill in all required fields.');
-		}
-	};
-	const handleSubmitLogIn = (e: Event) => {
-		e.preventDefault();
-		if (validateLogInForm()) {
-			login(emailInput, passwordInput);
-		} else {
-			alert('Please fill in all required fields.');
-		}
-	};
+	const [error, setError] = React.useState('');
 
 	const validateSubmitForm = () => {
 		const isNameValid = nameInput.trim().length > 0;
@@ -38,16 +24,54 @@ export default function CreateLog({
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isNameValid && isEmailValid && isPasswordValid;
-		setIsFormValid(!isFormValid);
-		return isValid;
+		setIsFormValid(isValid);
+		return isFormValid;
 	};
+
 	const validateLogInForm = () => {
 		const isEmailValid = emailInput.trim().length > 0;
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isEmailValid && isPasswordValid;
-		setIsFormValid(!isFormValid);
-		return isValid;
+		setIsFormValid(isValid);
+		return isFormValid;
+	};
+
+	const handleSubmitCreate = async () => {
+		if (validateSubmitForm()) {
+			try {
+				await signUp(nameInput, emailInput, passwordInput);
+				setError('');
+				setIsAccountLoggedIn(true);
+				alert('Account created successfully.');
+				closeCreateAccountModal();
+			} catch (err) {
+				setError('Failed to create account.');
+			}
+		} else {
+			alert('Please fill in all required fields.');
+		}
+	};
+	const handleSubmitLogIn = async () => {
+		if (validateLogInForm()) {
+			try {
+				await login(emailInput, passwordInput);
+				setError('');
+				setIsAccountLoggedIn(true);
+				closeLogInModal();
+			} catch (err) {
+				setError('Failed to log in.');
+			}
+		} else {
+			alert('Please fill in all required fields.');
+		}
+	};
+
+	const handleLogout = () => {
+		setIsAccountLoggedIn(false);
+		setEmailInput('');
+		setPasswordInput('');
+		alert('Logged out successfully.');
 	};
 
 	return (
@@ -64,7 +88,12 @@ export default function CreateLog({
 
 							<h2>Create Account</h2>
 						</div>
-						<form>
+						<form
+							onSubmit={(event) => {
+								event.preventDefault();
+								handleSubmitCreate();
+							}}
+						>
 							<div className="formLine">
 								<label>
 									Name:
@@ -104,11 +133,8 @@ export default function CreateLog({
 									/>
 								</label>
 							</div>
-							<Button
-								btnText="Create"
-								btnclassName="btnPrimary"
-								btnonClick={() => handleSubmitCreate}
-							/>
+							<Button btnText="Create" btnclassName="btnPrimary" />
+							{error && <p className="error">{error}</p>}
 						</form>
 					</div>
 				</div>
@@ -125,7 +151,12 @@ export default function CreateLog({
 						/> */}
 							<h2>Log In</h2>
 						</div>
-						<form>
+						<form
+							onSubmit={(event) => {
+								event.preventDefault();
+								handleSubmitLogIn();
+							}}
+						>
 							<div className="formLine">
 								<label>
 									Email:
@@ -152,13 +183,19 @@ export default function CreateLog({
 									/>
 								</label>
 							</div>
-							<Button
-								btnText="Log In!"
-								btnclassName="btnPrimary"
-								btnonClick={() => handleSubmitLogIn}
-							/>
+							<Button btnText="Log In!" btnclassName="btnPrimary" />
+							{error && <p className="error">{error}</p>}
 						</form>
 					</div>
+				</div>
+			)}
+			{isAccountLoggedIn && (
+				<div>
+					<Button
+						btnText="Logout"
+						btnclassName="btnSecondary"
+						btnonClick={handleLogout}
+					/>
 				</div>
 			)}
 		</div>
