@@ -45,8 +45,10 @@ export default function CreateLog({
 				setIsAccountLoggedIn(true);
 				alert('Account created successfully.');
 				closeCreateAccountModal();
-			} catch (err) {
-				setError('Failed to create account.');
+			} catch (err: any) {
+				setError(err.message || 'Failed to create account.');
+				alert('Failed to create account');
+				setIsAccountLoggedIn(false);
 			}
 		} else {
 			alert('Please fill in all required fields.');
@@ -59,8 +61,10 @@ export default function CreateLog({
 				setError('');
 				setIsAccountLoggedIn(true);
 				closeLogInModal();
-			} catch (err) {
-				setError('Failed to log in.');
+			} catch (err: any) {
+				setError(err.message || 'Failed to log in.');
+				alert('Failed to log in.');
+				setIsAccountLoggedIn(false);
 			}
 		} else {
 			alert('Please fill in all required fields.');

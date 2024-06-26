@@ -138,21 +138,24 @@ export const login = async (email: string, password: string) => {
 			body: JSON.stringify({ email, password }),
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
 		const contentType = response.headers.get('Content-Type');
-		if (contentType && contentType.includes('application/json')) {
-			const result = await response.json();
-			// Trigger state update (remove Create Account and log in buttons, Show log out)
-			return result;
-		} else {
-			const result = await response.text();
-			return result;
+
+		if (!response.ok) {
+			let errorMessage = 'Failed to log in';
+
+			if (contentType && contentType.includes('application/json')) {
+				const result = await response.json();
+				errorMessage = result.message || errorMessage;
+			} else {
+				const text = await response.text();
+				errorMessage = text || errorMessage;
+			}
+			throw new Error(errorMessage);
 		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
+			throw error;
 		} else {
 			alert('Unknown error');
 		}
@@ -167,26 +170,26 @@ export const signUp = async (name: string, email: string, password: string) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ name, email, password }),
-			credentials: 'include', // Ensure cookies are included
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
 		const contentType = response.headers.get('Content-Type');
-		if (contentType && contentType.includes('application/json')) {
-			const result = await response.json();
 
-			// Trigger state update (remove Create Account and log in buttons, Show log out)
-			return result;
-		} else {
-			const result = await response.text();
-			return result;
+		if (!response.ok) {
+			let errorMessage = 'Failed to sign up';
+
+			if (contentType && contentType.includes('application/json')) {
+				const data = await response.json();
+				errorMessage = data.message || errorMessage;
+			} else {
+				const text = await response.text();
+				errorMessage = text || errorMessage;
+			}
+			throw new Error(errorMessage);
 		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
+			throw error;
 		} else {
 			alert('Unknown error');
 		}
