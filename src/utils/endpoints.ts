@@ -286,7 +286,11 @@ export const fetchCreateCart = async (userID: number) => {
 	}
 };
 
-export const fetchUpdateCart = async (cartId: number, userCartItems: any) => {
+import { CartItem } from './tyBucket';
+export const fetchUpdateCart = async (
+	cartId: number,
+	userCartItems: Array<CartItem>,
+) => {
 	try {
 		const response = await fetch(`http://localhost:3000/cart/${cartId}`, {
 			method: 'PUT',
