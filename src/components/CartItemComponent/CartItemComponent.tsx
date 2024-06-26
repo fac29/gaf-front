@@ -26,7 +26,6 @@ export default function CartItemComponent({ productId, quantity }: CartItem) {
 
 			setUser({ ...user, cart: updatedCart });
 			console.log(`Added product ${productId} to cart`);
-			console.log(user.cart);
 		}
 	};
 

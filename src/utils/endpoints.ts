@@ -265,3 +265,53 @@ export const fetchProductScore = async (productId: number) => {
 		throw error;
 	}
 };
+
+export const fetchCreateCart = async (userID: number) => {
+	try {
+		const response = await fetch(`http://localhost:3000/cart`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ userID }),
+		});
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result.id;
+		}
+	} catch (error) {
+		if (error instanceof Error) {
+			alert(error.message);
+		} else {
+			alert('An unexpected error occurred');
+		}
+	}
+};
+
+import { CartItem } from './tyBucket';
+export const fetchUpdateCart = async (
+	cartId: number,
+	userCartItems: Array<CartItem>,
+) => {
+	try {
+		const response = await fetch(`http://localhost:3000/cart/${cartId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(userCartItems),
+		});
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result;
+		}
+	} catch (error) {
+		if (error instanceof Error) {
+			alert(error.message);
+		} else {
+			alert('An unexpected error occurred');
+		}
+	}
+};

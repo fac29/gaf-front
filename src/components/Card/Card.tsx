@@ -31,7 +31,6 @@ export default function Card({ id, image, name, description, price }: Cards) {
 
 			setUser({ ...user, cart: updatedCart });
 			console.log(`Added product ${productId} to cart`);
-			console.log(user.cart);
 		}
 	};
 
