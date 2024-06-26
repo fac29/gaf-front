@@ -24,16 +24,18 @@ export default function CreateLog({
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isNameValid && isEmailValid && isPasswordValid;
-		setIsFormValid(!isFormValid);
-		return isValid;
+		setIsFormValid(isValid);
+		return isFormValid;
 	};
+
 	const validateLogInForm = () => {
 		const isEmailValid = emailInput.trim().length > 0;
 		const isPasswordValid = passwordInput.trim().length > 0;
 
 		const isValid = isEmailValid && isPasswordValid;
-		setIsFormValid(!isFormValid);
-		return isValid;
+		setIsFormValid(isValid);
+		return isFormValid;
+	};
 	};
 
 	return (
