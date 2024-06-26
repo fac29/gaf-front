@@ -1,6 +1,9 @@
+// CDK Entry point
 import * as cdk from 'aws-cdk-lib';
-import { NewStack } from '../lib/stack';
+import { BEStack } from '../lib/BEstack';
+//import { FEStack } from '../lib/FEStack';
 
 const app = new cdk.App();
-// new HelloCdkStack(app, 'HelloCdkStack');
-new NewStack(app, 'NewStack');
+
+new BEStack(app, 'BEStack');
+//new FEStack(app, 'FEStack');

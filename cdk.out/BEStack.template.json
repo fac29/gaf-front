@@ -10,12 +10,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC"
+      "Value": "BEStack/VPC"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/Resource"
+    "aws:cdk:path": "BEStack/VPC/Resource"
    }
   },
   "VPCPublicSubnet1SubnetB4246D30": {
@@ -42,7 +42,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "BEStack/VPC/PublicSubnet1"
      }
     ],
     "VpcId": {
@@ -50,7 +50,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/Subnet"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/Subnet"
    }
   },
   "VPCPublicSubnet1RouteTableFEE4B781": {
@@ -59,7 +59,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "BEStack/VPC/PublicSubnet1"
      }
     ],
     "VpcId": {
@@ -67,7 +67,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/RouteTable"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/RouteTable"
    }
   },
   "VPCPublicSubnet1RouteTableAssociation0B0896DC": {
@@ -81,7 +81,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/RouteTableAssociation"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/RouteTableAssociation"
    }
   },
   "VPCPublicSubnet1DefaultRoute91CEF279": {
@@ -99,7 +99,7 @@
     "VPCVPCGW99B986DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/DefaultRoute"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/DefaultRoute"
    }
   },
   "VPCPublicSubnet1EIP6AD938E8": {
@@ -109,12 +109,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "BEStack/VPC/PublicSubnet1"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/EIP"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/EIP"
    }
   },
   "VPCPublicSubnet1NATGatewayE0556630": {
@@ -132,7 +132,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet1"
+      "Value": "BEStack/VPC/PublicSubnet1"
      }
     ]
    },
@@ -141,7 +141,7 @@
     "VPCPublicSubnet1RouteTableAssociation0B0896DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet1/NATGateway"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet1/NATGateway"
    }
   },
   "VPCPublicSubnet2Subnet74179F39": {
@@ -168,7 +168,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "BEStack/VPC/PublicSubnet2"
      }
     ],
     "VpcId": {
@@ -176,7 +176,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/Subnet"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/Subnet"
    }
   },
   "VPCPublicSubnet2RouteTable6F1A15F1": {
@@ -185,7 +185,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "BEStack/VPC/PublicSubnet2"
      }
     ],
     "VpcId": {
@@ -193,7 +193,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/RouteTable"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/RouteTable"
    }
   },
   "VPCPublicSubnet2RouteTableAssociation5A808732": {
@@ -207,7 +207,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/RouteTableAssociation"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/RouteTableAssociation"
    }
   },
   "VPCPublicSubnet2DefaultRouteB7481BBA": {
@@ -225,7 +225,7 @@
     "VPCVPCGW99B986DC"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/DefaultRoute"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/DefaultRoute"
    }
   },
   "VPCPublicSubnet2EIP4947BC00": {
@@ -235,12 +235,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "BEStack/VPC/PublicSubnet2"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/EIP"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/EIP"
    }
   },
   "VPCPublicSubnet2NATGateway3C070193": {
@@ -258,7 +258,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PublicSubnet2"
+      "Value": "BEStack/VPC/PublicSubnet2"
      }
     ]
    },
@@ -267,7 +267,7 @@
     "VPCPublicSubnet2RouteTableAssociation5A808732"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PublicSubnet2/NATGateway"
+    "aws:cdk:path": "BEStack/VPC/PublicSubnet2/NATGateway"
    }
   },
   "VPCPrivateSubnet1Subnet8BCA10E0": {
@@ -294,7 +294,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet1"
+      "Value": "BEStack/VPC/PrivateSubnet1"
      }
     ],
     "VpcId": {
@@ -302,7 +302,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/Subnet"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet1/Subnet"
    }
   },
   "VPCPrivateSubnet1RouteTableBE8A6027": {
@@ -311,7 +311,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet1"
+      "Value": "BEStack/VPC/PrivateSubnet1"
      }
     ],
     "VpcId": {
@@ -319,7 +319,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/RouteTable"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet1/RouteTable"
    }
   },
   "VPCPrivateSubnet1RouteTableAssociation347902D1": {
@@ -333,7 +333,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/RouteTableAssociation"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet1/RouteTableAssociation"
    }
   },
   "VPCPrivateSubnet1DefaultRouteAE1D6490": {
@@ -348,7 +348,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet1/DefaultRoute"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet1/DefaultRoute"
    }
   },
   "VPCPrivateSubnet2SubnetCFCDAA7A": {
@@ -375,7 +375,7 @@
      },
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet2"
+      "Value": "BEStack/VPC/PrivateSubnet2"
      }
     ],
     "VpcId": {
@@ -383,7 +383,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/Subnet"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet2/Subnet"
    }
   },
   "VPCPrivateSubnet2RouteTable0A19E10E": {
@@ -392,7 +392,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC/PrivateSubnet2"
+      "Value": "BEStack/VPC/PrivateSubnet2"
      }
     ],
     "VpcId": {
@@ -400,7 +400,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/RouteTable"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet2/RouteTable"
    }
   },
   "VPCPrivateSubnet2RouteTableAssociation0C73D413": {
@@ -414,7 +414,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/RouteTableAssociation"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet2/RouteTableAssociation"
    }
   },
   "VPCPrivateSubnet2DefaultRouteF4F5CFD2": {
@@ -429,7 +429,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/PrivateSubnet2/DefaultRoute"
+    "aws:cdk:path": "BEStack/VPC/PrivateSubnet2/DefaultRoute"
    }
   },
   "VPCIGWB7E252D3": {
@@ -438,12 +438,12 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/VPC"
+      "Value": "BEStack/VPC"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/IGW"
+    "aws:cdk:path": "BEStack/VPC/IGW"
    }
   },
   "VPCVPCGW99B986DC": {
@@ -457,7 +457,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/VPCGW"
+    "aws:cdk:path": "BEStack/VPC/VPCGW"
    }
   },
   "VPCRestrictDefaultSecurityGroupCustomResource59474679": {
@@ -482,7 +482,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "NewStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default"
+    "aws:cdk:path": "BEStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default"
    }
   },
   "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0": {
@@ -554,7 +554,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
+    "aws:cdk:path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
    }
   },
   "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E": {
@@ -590,7 +590,7 @@
     "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+    "aws:cdk:path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
     "aws:asset:path": "asset.ee7de53d64cc9d6248fa6aa550f92358f6c907b5efd6f3298aeab1b5e7ea358a",
     "aws:asset:property": "Code"
    }
@@ -620,6 +620,13 @@
       "FromPort": 3000,
       "IpProtocol": "tcp",
       "ToPort": 3000
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "allow HTTP access from anywhere",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
      }
     ],
     "VpcId": {
@@ -627,7 +634,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/SecurityGroup/Resource"
+    "aws:cdk:path": "BEStack/SecurityGroup/Resource"
    }
   },
   "InstanceRole3CCE2F1D": {
@@ -685,7 +692,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/InstanceRole/Resource"
+    "aws:cdk:path": "BEStack/InstanceRole/Resource"
    }
   },
   "InstanceRoleDefaultPolicy1531605C": {
@@ -709,7 +716,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/InstanceRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "BEStack/InstanceRole/DefaultPolicy/Resource"
    }
   },
   "InstanceInstanceProfileAB5AEF02": {
@@ -722,7 +729,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/Instance/InstanceProfile"
+    "aws:cdk:path": "BEStack/Instance/InstanceProfile"
    }
   },
   "InstanceC1063A87": {
@@ -764,11 +771,11 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "NewStack/Instance"
+      "Value": "BEStack/Instance"
      }
     ],
     "UserData": {
-     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nsudo touch /var/log/user-data.log\nsudo chown ec2-user:ec2-user /var/log/user-data.log\nsudo chmod 644 /var/log/user-data.log\necho \"Starting user data script\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y ec2-instance-connect\necho \"EC2 Instance Connect installed\" | sudo tee -a /var/log/user-data.log\nsudo yum update -y\necho \"Yum updated\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y git\necho \"Git installed\" | sudo tee -a /var/log/user-data.log\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\necho \"NodeSource repository added\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y nodejs\necho \"Node.js installed\" | sudo tee -a /var/log/user-data.log\nnode --version | sudo tee -a /var/log/user-data.log\nnpm --version | sudo tee -a /var/log/user-data.log\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git || { echo \"Failed to clone repository\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"Repository cloned\" | sudo tee -a /var/log/user-data.log\ncd gaf-back\necho \"DB_FILE=gaf_database.sqlite\" > .env\nCOOKIE_SECRET=$(aws secretsmanager get-secret-value --secret-id gaf_secret --query SecretString --output text | jq -r .COOKIE_SECRET)\necho \"Retrieved COOKIE_SECRET: $COOKIE_SECRET\" | sudo tee -a /var/log/user-data.log\necho \"COOKIE_SECRET=$COOKIE_SECRET\" >> .env`\necho \"Environment file created\" | sudo tee -a /var/log/user-data.log\nnpm ci || { echo \"Failed to install dependencies\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"Dependencies installed\" | sudo tee -a /var/log/user-data.log\nnpm run production || { echo \"Failed to start application\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"User data script completed\" | sudo tee -a /var/log/user-data.log"
+     "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nsudo touch /var/log/user-data.log\nsudo chown ec2-user:ec2-user /var/log/user-data.log\nsudo chmod 644 /var/log/user-data.log\necho \"Starting user data script\" | sudo tee -a /var/log/user-data.log\nsudo yum update -y\nsudo yum install -y nginx\necho \"Nginx installed\" | sudo tee -a /var/log/user-data.log\nsudo systemctl start nginx\nsudo systemctl enable nginx\necho \"Nginx started and enabled\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y git\necho \"Git installed\" | sudo tee -a /var/log/user-data.log\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\necho \"Node.js installed\" | sudo tee -a /var/log/user-data.log\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\necho \"Repository cloned\" | sudo tee -a /var/log/user-data.log\ncd gaf-back\necho \"DB_FILE=gaf_database.sqlite\" > .env\necho \"COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg\" >> .env\necho \"Environment file created\" | sudo tee -a /var/log/user-data.log\nnpm ci\necho \"Dependencies installed\" | sudo tee -a /var/log/user-data.log\nsudo npm install -g pm2\npm2 start npm --name \"gaf-back\" -- run production\npm2 startup\nsudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ec2-user --hp /home/ec2-user\npm2 save\necho \"Application started with PM2\" | sudo tee -a /var/log/user-data.log\nsudo tee /etc/nginx/conf.d/gaf-back.conf > /dev/null <<EOT\nserver {\n    listen 80;\n    server_name _;\n    location / {\n        proxy_pass http://localhost:3000;\n        proxy_http_version 1.1;\n        proxy_set_header Upgrade $http_upgrade;\n        proxy_set_header Connection 'upgrade';\n        proxy_set_header Host $host;\n        proxy_cache_bypass $http_upgrade;\n    }\n}\nEOT\nsudo nginx -t\nsudo systemctl reload nginx\necho \"Nginx configuration updated\" | sudo tee -a /var/log/user-data.log\necho \"User data script completed\" | sudo tee -a /var/log/user-data.log"
     }
    },
    "DependsOn": [
@@ -780,7 +787,7 @@
     "VPCPublicSubnet2RouteTableAssociation5A808732"
    ],
    "Metadata": {
-    "aws:cdk:path": "NewStack/Instance/Resource"
+    "aws:cdk:path": "BEStack/Instance/Resource"
    }
   },
   "CDKMetadata": {
@@ -789,7 +796,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/11QTUvDQBD9Lb1v1xoFz7VIyUFdEulVJptJO20yG3ZnW0rIf5ck2qin98HjzWMSff/4pFcLuISlLU/Lmgrd5QL2pOASPju0ie52rVWbindmo0wsarJ5LBhl8GaWuSj4AUWNsz976xCcJRByfAsP5CU1A7yBbEHwAldlPJ1BcC5OWdAz3gLTkm+1FgF7aJBF5WijJ7luvYvtuOGPkXIQYItT5cR7RdDoLnPT6BGNq8mOV2b2kzfeVVRj36sMg4t+aItBXDPLin/zV2hb4v2/lPHuTCX6Zwio1iGg5AL7MVexAQ8NCvpBvEdp4/iFjeOShvf1il2J+hjuzkmiH/RqcQxESx9ZqEGdTfgFYTr+WNgBAAA="
    },
    "Metadata": {
-    "aws:cdk:path": "NewStack/CDKMetadata/Default"
+    "aws:cdk:path": "BEStack/CDKMetadata/Default"
    },
    "Condition": "CDKMetadataAvailable"
   }

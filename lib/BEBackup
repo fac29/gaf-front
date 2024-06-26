@@ -1,8 +1,9 @@
+//BEStack.ts
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { aws_ec2 as ec2, aws_iam as iam } from 'aws-cdk-lib';
 
-export class NewStack extends cdk.Stack {
+export class BEStack extends cdk.Stack {
 	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
 		super(scope, id, props);
 
@@ -33,12 +34,6 @@ export class NewStack extends cdk.Stack {
 			'allow access to port 3000 from anywhere',
 		);
 
-		// securityGroup.addIngressRule(
-		// 	ec2.Peer.ipv4('18.132.54.0/29'), // EC2 Instance Connect IP range for eu-west-2 (London)
-		// 	ec2.Port.tcp(22),
-		// 	'allow EC2 Instance Connect',
-		// );
-
 		// Define an IAM role for the EC2 instance
 		const role = new iam.Role(this, 'InstanceRole', {
 			assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
@@ -55,18 +50,15 @@ export class NewStack extends cdk.Stack {
 			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonEC2FullAccess'),
 		); // Allow full access to EC2
 
-		// // Custom policy for EC2 Instance Connect
-		// const ec2InstanceConnectPolicy = new iam.PolicyStatement({
-		// 	effect: iam.Effect.ALLOW,
-		// 	actions: [
-		// 		'ec2-instance-connect:SendSSHPublicKey',
-		// 		'ec2:DescribeInstances',
-		// 		'ec2:DescribeInstanceStatus',
-		// 	],
-		// 	resources: ['*'],
-		// });
-
-		// role.addToPolicy(ec2InstanceConnectPolicy);
+		role.addToPolicy(
+			new iam.PolicyStatement({
+				effect: iam.Effect.ALLOW,
+				actions: ['secretsmanager:GetSecretValue'],
+				resources: [
+					'arn:aws:secretsmanager:eu-west-2:788798427985:secret:gaf_secret-KG9WoL',
+				], 
+			}),
+		);
 
 		// Create a new EC2 key pair
 		const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
@@ -107,11 +99,21 @@ export class NewStack extends cdk.Stack {
 			'echo "Repository cloned" | sudo tee -a /var/log/user-data.log',
 			'cd gaf-back',
 			'echo "DB_FILE=gaf_database.sqlite" > .env',
+
+			//'COOKIE_SECRET=$(aws secretsmanager get-secret-value --secret-id gaf_secret --query SecretString --output text | jq -r .COOKIE_SECRET)',
+			//'echo "Retrieved COOKIE_SECRET: $COOKIE_SECRET" | sudo tee -a /var/log/user-data.log',
+			//'echo "COOKIE_SECRET=$COOKIE_SECRET" >> .env`',
+
 			'echo "COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg" >> .env',
+
 			'echo "Environment file created" | sudo tee -a /var/log/user-data.log',
-			'npm install || { echo "Failed to install dependencies" | sudo tee -a /var/log/user-data.log; exit 1; }',
+
+			// 'npm install || { echo "Failed to install dependencies" | sudo tee -a /var/log/user-data.log; exit 1; }',
+			'npm ci || { echo "Failed to install dependencies" | sudo tee -a /var/log/user-data.log; exit 1; }',
+
 			'echo "Dependencies installed" | sudo tee -a /var/log/user-data.log',
-			'npm start || { echo "Failed to start application" | sudo tee -a /var/log/user-data.log; exit 1; }',
+
+			'npm run production || { echo "Failed to start application" | sudo tee -a /var/log/user-data.log; exit 1; }',
 			'echo "User data script completed" | sudo tee -a /var/log/user-data.log',
 		);
 

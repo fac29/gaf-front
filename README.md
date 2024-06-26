@@ -52,7 +52,7 @@ npm run dev
 
 cdk bootstrap
 cdk bootstrap aws://788798427985/us-west-2
-cdk deploy
+cdk deploy --all
 
 ### List stacks
 
@@ -61,7 +61,7 @@ aws cloudformation list-stacks --query "StackSummaries[?StackName=='CDKToolkit']
 ### Update stack
 
 cdk synth
-cdk deploy
+cdk deploy 
 
 ### Delete the CDK context file
 
