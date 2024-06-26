@@ -37,8 +37,11 @@ export class FEStack extends cdk.Stack {
 			},
 		});
 
+		// Fetch the BackendInstancePublicIp output from BEStack
+		const backendIp = cdk.Fn.importValue('BackendInstancePublicIp');
+
 		// Create .env file content
-		const envFileContent = `VITE_API_URL=http://${props.backendUrl}:3000\n`;
+		const envFileContent = `VITE_API_URL=http://${backendIp}:3000\n`;
 
 		// Deploy local files to the S3 bucket
 		new s3deploy.BucketDeployment(this, 'DeployApp', {

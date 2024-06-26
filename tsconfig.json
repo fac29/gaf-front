@@ -2,7 +2,11 @@
 	"compilerOptions": {
 		"target": "ES2020",
 		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"lib": [
+			"ES2020",
+			"DOM",
+			"DOM.Iterable"
+		],
 		"module": "ESNext",
 		"skipLibCheck": true,
 		/* Bundler mode */
@@ -17,7 +21,10 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		"types": ["jest", "@testing-library/jest-dom"],
+		"types": [
+			"jest",
+			"@testing-library/jest-dom"
+		],
 		"esModuleInterop": true
 	},
 	"include": [
@@ -28,9 +35,14 @@
 		"bin/**/*.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"node_modules/@testing-library/jest-dom/types/index.d.ts"
+		"node_modules/@testing-library/jest-dom/types/index.d.ts",
+		"lib/**/*.ts"
 	],
-	"exclude": ["node_modules"],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"vite.config.ts"
+	],
 	"references": [
 		{
 			"path": "./tsconfig.node.json"
