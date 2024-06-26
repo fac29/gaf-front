@@ -133,11 +133,7 @@ export default function CreateLog({
 									/>
 								</label>
 							</div>
-							<Button
-								btnText="Create"
-								btnclassName="btnPrimary"
-								btnonClick={() => handleSubmitCreate}
-							/>
+							{error && <p className="error">{error}</p>}
 						</form>
 					</div>
 				</div>
