@@ -907,15 +907,6 @@
   }
  },
  "Outputs": {
-  "InstancePublicIP": {
-   "Description": "Public IP of the EC2 instance",
-   "Value": {
-    "Fn::GetAtt": [
-     "InstanceC1063A87",
-     "PublicIp"
-    ]
-   }
-  },
   "InstancePublicDNS": {
    "Description": "Public DNS of the EC2 instance",
    "Value": {
@@ -931,6 +922,18 @@
       }
      ]
     ]
+   }
+  },
+  "InstancePublicIP": {
+   "Description": "Public IP of the EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "InstanceC1063A87",
+     "PublicIp"
+    ]
+   },
+   "Export": {
+    "Name": "BackendInstancePublicIp"
    }
   }
  },

@@ -4,6 +4,7 @@ import { Construct } from 'constructs';
 import { aws_ec2 as ec2, aws_iam as iam } from 'aws-cdk-lib';
 
 export class BEStack extends cdk.Stack {
+	public readonly instancePublicIp: string;
 	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
 		super(scope, id, props);
 
@@ -134,16 +135,26 @@ export class BEStack extends cdk.Stack {
 			'echo "User data script completed" | sudo tee -a /var/log/user-data.log',
 		);
 
-		// Output the EC2 instance public IP
-		new cdk.CfnOutput(this, 'InstancePublicIP', {
-			value: instance.instancePublicIp,
-			description: 'Public IP of the EC2 instance',
-		});
+		// // Output the EC2 instance public IP
+		// new cdk.CfnOutput(this, 'InstancePublicIP', {
+		// 	value: instance.instancePublicIp,
+		// 	description: 'Public IP of the EC2 instance',
+		// });
 
 		// Output the EC2 instance public DNS
 		new cdk.CfnOutput(this, 'InstancePublicDNS', {
 			value: `https://${instance.instancePublicDnsName}`,
 			description: 'Public DNS of the EC2 instance',
+		});
+
+		// Store the instance public IP
+		this.instancePublicIp = instance.instancePublicIp;
+
+		// Output the EC2 instance public IP
+		new cdk.CfnOutput(this, 'InstancePublicIP', {
+			value: this.instancePublicIp,
+			description: 'Public IP of the EC2 instance',
+			exportName: 'BackendInstancePublicIp',
 		});
 	}
 }

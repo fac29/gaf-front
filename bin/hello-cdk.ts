@@ -1,9 +1,13 @@
 // CDK Entry point
 import * as cdk from 'aws-cdk-lib';
 import { BEStack } from '../lib/BEstack';
-//import { FEStack } from '../lib/FEStack';
+import { FEStack } from '../lib/FEStack';
 
 const app = new cdk.App();
 
-new BEStack(app, 'BEStack');
-//new FEStack(app, 'FEStack');
+const beStack = new BEStack(app, 'BEStack');
+
+new FEStack(app, 'FEStack', {
+  backendUrl: beStack.instancePublicIp,
+  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION }
+});

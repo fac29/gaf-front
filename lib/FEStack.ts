@@ -6,11 +6,14 @@ import {
 	aws_s3_deployment as s3deploy,
 	aws_cloudfront as cloudfront,
 	aws_cloudfront_origins as origins,
-
 } from 'aws-cdk-lib';
 
+interface FEStackProps extends cdk.StackProps {
+	backendUrl: string;
+}
+
 export class FEStack extends cdk.Stack {
-	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+	constructor(scope: Construct, id: string, props: FEStackProps) {
 		super(scope, id, props);
 
 		//******************** */
@@ -34,9 +37,15 @@ export class FEStack extends cdk.Stack {
 			},
 		});
 
+		// Create .env file content
+		const envFileContent = `VITE_API_URL=http://${props.backendUrl}:3000\n`;
+
 		// Deploy local files to the S3 bucket
 		new s3deploy.BucketDeployment(this, 'DeployApp', {
-			sources: [s3deploy.Source.asset('./dist')],
+			sources: [
+				s3deploy.Source.asset('./dist'),
+				s3deploy.Source.data('.env', envFileContent),
+			],
 			destinationBucket: myBucket,
 		});
 
