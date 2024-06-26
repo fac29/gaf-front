@@ -13,7 +13,7 @@ export default function Button({
 	btnclassName,
 }: btnProps) {
 	return (
-		<button className={btnclassName} onClick={btnonClick} type="button">
+		<button className={btnclassName} onClick={btnonClick} type="submit">
 			{btnText}
 		</button>
 	);
