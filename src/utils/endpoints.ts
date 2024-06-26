@@ -275,7 +275,6 @@ export const fetchCreateCart = async (userID: number) => {
 		const contentType = response.headers.get('Content-Type');
 		if (contentType && contentType.includes('application/json')) {
 			const result = await response.json();
-			console.log(result.id);
 			return result.id;
 		}
 	} catch (error) {
@@ -287,8 +286,20 @@ export const fetchCreateCart = async (userID: number) => {
 	}
 };
 
-export const fetchUpdateCart = async (cartId: number) => {
+export const fetchUpdateCart = async (cartId: number, userCartItems: any) => {
 	try {
+		const response = await fetch(`http://localhost:3000/cart/${cartId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(userCartItems),
+		});
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result;
+		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);

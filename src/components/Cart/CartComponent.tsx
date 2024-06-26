@@ -4,7 +4,7 @@ import './CartComponent.css';
 import { useUserContext } from '../UserContextProvider';
 import CartItemComponent from '../CartItemComponent/CartItemComponent';
 import { CartComponentProps } from '../../utils/tyBucket';
-import { fetchCreateCart } from '../../utils/endpoints';
+import { fetchCreateCart, fetchUpdateCart } from '../../utils/endpoints';
 
 export default function CartComponent({
 	handleModalToggle,
@@ -28,9 +28,18 @@ export default function CartComponent({
 
 	const gloryToAFG = async () => {
 		try {
-			const initialPing = await fetchCreateCart(420);
+			const createUserCart = await fetchCreateCart(420);
+			const createProductCart = await fetchUpdateCart(
+				createUserCart,
+				user?.cart,
+			);
 
-			return console.log('need to extract cartId from here', initialPing);
+			return console.log(
+				'need to extract cartId from here',
+				createUserCart,
+				'this are the cart items being sent back',
+				user.cart,
+			);
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
