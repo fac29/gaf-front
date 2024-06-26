@@ -133,6 +133,7 @@ export default function CreateLog({
 									/>
 								</label>
 							</div>
+							<Button btnText="Create" btnclassName="btnPrimary" />
 							{error && <p className="error">{error}</p>}
 						</form>
 					</div>
@@ -182,11 +183,8 @@ export default function CreateLog({
 									/>
 								</label>
 							</div>
-							<Button
-								btnText="Log In!"
-								btnclassName="btnPrimary"
-								btnonClick={() => handleSubmitLogIn}
-							/>
+							<Button btnText="Log In!" btnclassName="btnPrimary" />
+							{error && <p className="error">{error}</p>}
 						</form>
 					</div>
 				</div>
