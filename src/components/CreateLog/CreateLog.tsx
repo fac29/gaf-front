@@ -36,6 +36,36 @@ export default function CreateLog({
 		setIsFormValid(isValid);
 		return isFormValid;
 	};
+
+	const handleSubmitCreate = async () => {
+		if (validateSubmitForm()) {
+			try {
+				await signUp(nameInput, emailInput, passwordInput);
+				setError('');
+				setIsAccountLoggedIn(true);
+				alert('Account created successfully.');
+				closeCreateAccountModal();
+			} catch (err) {
+				setError('Failed to create account.');
+			}
+		} else {
+			alert('Please fill in all required fields.');
+		}
+	};
+	const handleSubmitLogIn = async () => {
+		if (validateLogInForm()) {
+			try {
+				await login(emailInput, passwordInput);
+				setError('');
+				setIsAccountLoggedIn(true);
+				closeLogInModal();
+			} catch (err) {
+				setError('Failed to log in.');
+			}
+		} else {
+			alert('Please fill in all required fields.');
+		}
+	};
 	};
 
 	return (
