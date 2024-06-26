@@ -4,17 +4,17 @@
     "id": "App",
     "path": "",
     "children": {
-      "BEStack": {
-        "id": "BEStack",
-        "path": "BEStack",
+      "GAFStack": {
+        "id": "GAFStack",
+        "path": "GAFStack",
         "children": {
           "VPC": {
             "id": "VPC",
-            "path": "BEStack/VPC",
+            "path": "GAFStack/VPC",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BEStack/VPC/Resource",
+                "path": "GAFStack/VPC/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
                   "aws:cdk:cloudformation:props": {
@@ -25,7 +25,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "BEStack/VPC"
+                        "value": "GAFStack/VPC"
                       }
                     ]
                   }
@@ -37,22 +37,15 @@
               },
               "PublicSubnet1": {
                 "id": "PublicSubnet1",
-                "path": "BEStack/VPC/PublicSubnet1",
+                "path": "GAFStack/VPC/PublicSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BEStack/VPC/PublicSubnet1/Subnet",
+                    "path": "GAFStack/VPC/PublicSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
-                        "availabilityZone": {
-                          "Fn::Select": [
-                            0,
-                            {
-                              "Fn::GetAZs": ""
-                            }
-                          ]
-                        },
+                        "availabilityZone": "dummy1a",
                         "cidrBlock": "10.0.0.0/18",
                         "mapPublicIpOnLaunch": true,
                         "tags": [
@@ -66,7 +59,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet1"
+                            "value": "GAFStack/VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -81,7 +74,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BEStack/VPC/PublicSubnet1/Acl",
+                    "path": "GAFStack/VPC/PublicSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -89,14 +82,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BEStack/VPC/PublicSubnet1/RouteTable",
+                    "path": "GAFStack/VPC/PublicSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet1"
+                            "value": "GAFStack/VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -111,7 +104,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BEStack/VPC/PublicSubnet1/RouteTableAssociation",
+                    "path": "GAFStack/VPC/PublicSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -130,7 +123,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BEStack/VPC/PublicSubnet1/DefaultRoute",
+                    "path": "GAFStack/VPC/PublicSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -150,7 +143,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "BEStack/VPC/PublicSubnet1/EIP",
+                    "path": "GAFStack/VPC/PublicSubnet1/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -158,7 +151,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet1"
+                            "value": "GAFStack/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -170,7 +163,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "BEStack/VPC/PublicSubnet1/NATGateway",
+                    "path": "GAFStack/VPC/PublicSubnet1/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -186,7 +179,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet1"
+                            "value": "GAFStack/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -204,22 +197,15 @@
               },
               "PublicSubnet2": {
                 "id": "PublicSubnet2",
-                "path": "BEStack/VPC/PublicSubnet2",
+                "path": "GAFStack/VPC/PublicSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BEStack/VPC/PublicSubnet2/Subnet",
+                    "path": "GAFStack/VPC/PublicSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
-                        "availabilityZone": {
-                          "Fn::Select": [
-                            1,
-                            {
-                              "Fn::GetAZs": ""
-                            }
-                          ]
-                        },
+                        "availabilityZone": "dummy1b",
                         "cidrBlock": "10.0.64.0/18",
                         "mapPublicIpOnLaunch": true,
                         "tags": [
@@ -233,7 +219,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet2"
+                            "value": "GAFStack/VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -248,7 +234,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BEStack/VPC/PublicSubnet2/Acl",
+                    "path": "GAFStack/VPC/PublicSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -256,14 +242,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BEStack/VPC/PublicSubnet2/RouteTable",
+                    "path": "GAFStack/VPC/PublicSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet2"
+                            "value": "GAFStack/VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -278,7 +264,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BEStack/VPC/PublicSubnet2/RouteTableAssociation",
+                    "path": "GAFStack/VPC/PublicSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -297,7 +283,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BEStack/VPC/PublicSubnet2/DefaultRoute",
+                    "path": "GAFStack/VPC/PublicSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -317,7 +303,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "BEStack/VPC/PublicSubnet2/EIP",
+                    "path": "GAFStack/VPC/PublicSubnet2/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -325,7 +311,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet2"
+                            "value": "GAFStack/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -337,7 +323,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "BEStack/VPC/PublicSubnet2/NATGateway",
+                    "path": "GAFStack/VPC/PublicSubnet2/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -353,7 +339,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PublicSubnet2"
+                            "value": "GAFStack/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -371,22 +357,15 @@
               },
               "PrivateSubnet1": {
                 "id": "PrivateSubnet1",
-                "path": "BEStack/VPC/PrivateSubnet1",
+                "path": "GAFStack/VPC/PrivateSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BEStack/VPC/PrivateSubnet1/Subnet",
+                    "path": "GAFStack/VPC/PrivateSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
-                        "availabilityZone": {
-                          "Fn::Select": [
-                            0,
-                            {
-                              "Fn::GetAZs": ""
-                            }
-                          ]
-                        },
+                        "availabilityZone": "dummy1a",
                         "cidrBlock": "10.0.128.0/18",
                         "mapPublicIpOnLaunch": false,
                         "tags": [
@@ -400,7 +379,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PrivateSubnet1"
+                            "value": "GAFStack/VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -415,7 +394,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BEStack/VPC/PrivateSubnet1/Acl",
+                    "path": "GAFStack/VPC/PrivateSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -423,14 +402,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BEStack/VPC/PrivateSubnet1/RouteTable",
+                    "path": "GAFStack/VPC/PrivateSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PrivateSubnet1"
+                            "value": "GAFStack/VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -445,7 +424,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BEStack/VPC/PrivateSubnet1/RouteTableAssociation",
+                    "path": "GAFStack/VPC/PrivateSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -464,7 +443,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BEStack/VPC/PrivateSubnet1/DefaultRoute",
+                    "path": "GAFStack/VPC/PrivateSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -490,22 +469,15 @@
               },
               "PrivateSubnet2": {
                 "id": "PrivateSubnet2",
-                "path": "BEStack/VPC/PrivateSubnet2",
+                "path": "GAFStack/VPC/PrivateSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BEStack/VPC/PrivateSubnet2/Subnet",
+                    "path": "GAFStack/VPC/PrivateSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
-                        "availabilityZone": {
-                          "Fn::Select": [
-                            1,
-                            {
-                              "Fn::GetAZs": ""
-                            }
-                          ]
-                        },
+                        "availabilityZone": "dummy1b",
                         "cidrBlock": "10.0.192.0/18",
                         "mapPublicIpOnLaunch": false,
                         "tags": [
@@ -519,7 +491,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PrivateSubnet2"
+                            "value": "GAFStack/VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -534,7 +506,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BEStack/VPC/PrivateSubnet2/Acl",
+                    "path": "GAFStack/VPC/PrivateSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -542,14 +514,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BEStack/VPC/PrivateSubnet2/RouteTable",
+                    "path": "GAFStack/VPC/PrivateSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BEStack/VPC/PrivateSubnet2"
+                            "value": "GAFStack/VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -564,7 +536,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BEStack/VPC/PrivateSubnet2/RouteTableAssociation",
+                    "path": "GAFStack/VPC/PrivateSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -583,7 +555,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BEStack/VPC/PrivateSubnet2/DefaultRoute",
+                    "path": "GAFStack/VPC/PrivateSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -609,14 +581,14 @@
               },
               "IGW": {
                 "id": "IGW",
-                "path": "BEStack/VPC/IGW",
+                "path": "GAFStack/VPC/IGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
                   "aws:cdk:cloudformation:props": {
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "BEStack/VPC"
+                        "value": "GAFStack/VPC"
                       }
                     ]
                   }
@@ -628,7 +600,7 @@
               },
               "VPCGW": {
                 "id": "VPCGW",
-                "path": "BEStack/VPC/VPCGW",
+                "path": "GAFStack/VPC/VPCGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
                   "aws:cdk:cloudformation:props": {
@@ -647,11 +619,11 @@
               },
               "RestrictDefaultSecurityGroupCustomResource": {
                 "id": "RestrictDefaultSecurityGroupCustomResource",
-                "path": "BEStack/VPC/RestrictDefaultSecurityGroupCustomResource",
+                "path": "GAFStack/VPC/RestrictDefaultSecurityGroupCustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "BEStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default",
+                    "path": "GAFStack/VPC/RestrictDefaultSecurityGroupCustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -669,21 +641,13 @@
               "version": "2.147.0"
             }
           },
-          "LatestNodeRuntimeMap": {
-            "id": "LatestNodeRuntimeMap",
-            "path": "BEStack/LatestNodeRuntimeMap",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnMapping",
-              "version": "2.147.0"
-            }
-          },
           "Custom::VpcRestrictDefaultSGCustomResourceProvider": {
             "id": "Custom::VpcRestrictDefaultSGCustomResourceProvider",
-            "path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider",
+            "path": "GAFStack/Custom::VpcRestrictDefaultSGCustomResourceProvider",
             "children": {
               "Staging": {
                 "id": "Staging",
-                "path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
+                "path": "GAFStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.AssetStaging",
                   "version": "2.147.0"
@@ -691,7 +655,7 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
+                "path": "GAFStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -699,7 +663,7 @@
               },
               "Handler": {
                 "id": "Handler",
-                "path": "BEStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+                "path": "GAFStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -713,11 +677,11 @@
           },
           "SecurityGroup": {
             "id": "SecurityGroup",
-            "path": "BEStack/SecurityGroup",
+            "path": "GAFStack/SecurityGroup",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BEStack/SecurityGroup/Resource",
+                "path": "GAFStack/SecurityGroup/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
@@ -770,11 +734,11 @@
           },
           "InstanceRole": {
             "id": "InstanceRole",
-            "path": "BEStack/InstanceRole",
+            "path": "GAFStack/InstanceRole",
             "children": {
               "ImportInstanceRole": {
                 "id": "ImportInstanceRole",
-                "path": "BEStack/InstanceRole/ImportInstanceRole",
+                "path": "GAFStack/InstanceRole/ImportInstanceRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.147.0"
@@ -782,7 +746,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "BEStack/InstanceRole/Resource",
+                "path": "GAFStack/InstanceRole/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -845,11 +809,11 @@
               },
               "DefaultPolicy": {
                 "id": "DefaultPolicy",
-                "path": "BEStack/InstanceRole/DefaultPolicy",
+                "path": "GAFStack/InstanceRole/DefaultPolicy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "BEStack/InstanceRole/DefaultPolicy/Resource",
+                    "path": "GAFStack/InstanceRole/DefaultPolicy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                       "aws:cdk:cloudformation:props": {
@@ -890,7 +854,7 @@
           },
           "KeyPair": {
             "id": "KeyPair",
-            "path": "BEStack/KeyPair",
+            "path": "GAFStack/KeyPair",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
@@ -898,11 +862,11 @@
           },
           "Instance": {
             "id": "Instance",
-            "path": "BEStack/Instance",
+            "path": "GAFStack/Instance",
             "children": {
               "InstanceProfile": {
                 "id": "InstanceProfile",
-                "path": "BEStack/Instance/InstanceProfile",
+                "path": "GAFStack/Instance/InstanceProfile",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::InstanceProfile",
                   "aws:cdk:cloudformation:props": {
@@ -920,18 +884,11 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "BEStack/Instance/Resource",
+                "path": "GAFStack/Instance/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::Instance",
                   "aws:cdk:cloudformation:props": {
-                    "availabilityZone": {
-                      "Fn::Select": [
-                        0,
-                        {
-                          "Fn::GetAZs": ""
-                        }
-                      ]
-                    },
+                    "availabilityZone": "dummy1a",
                     "iamInstanceProfile": {
                       "Ref": "InstanceInstanceProfileAB5AEF02"
                     },
@@ -960,7 +917,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "BEStack/Instance"
+                        "value": "GAFStack/Instance"
                       }
                     ],
                     "userData": {
@@ -981,7 +938,7 @@
           },
           "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
             "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
-            "path": "BEStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "GAFStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.147.0"
@@ -989,91 +946,39 @@
           },
           "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118": {
             "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118",
-            "path": "BEStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "GAFStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
             }
           },
-          "InstancePublicDNS": {
-            "id": "InstancePublicDNS",
-            "path": "BEStack/InstancePublicDNS",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnOutput",
-              "version": "2.147.0"
-            }
-          },
           "InstancePublicIP": {
             "id": "InstancePublicIP",
-            "path": "BEStack/InstancePublicIP",
+            "path": "GAFStack/InstancePublicIP",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
             }
           },
-          "CDKMetadata": {
-            "id": "CDKMetadata",
-            "path": "BEStack/CDKMetadata",
-            "children": {
-              "Default": {
-                "id": "Default",
-                "path": "BEStack/CDKMetadata/Default",
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.147.0"
-                }
-              },
-              "Condition": {
-                "id": "Condition",
-                "path": "BEStack/CDKMetadata/Condition",
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.CfnCondition",
-                  "version": "2.147.0"
-                }
-              }
-            },
+          "InstancePublicDNS": {
+            "id": "InstancePublicDNS",
+            "path": "GAFStack/InstancePublicDNS",
             "constructInfo": {
-              "fqn": "constructs.Construct",
-              "version": "10.3.0"
-            }
-          },
-          "BootstrapVersion": {
-            "id": "BootstrapVersion",
-            "path": "BEStack/BootstrapVersion",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnParameter",
+              "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
             }
           },
-          "CheckBootstrapVersion": {
-            "id": "CheckBootstrapVersion",
-            "path": "BEStack/CheckBootstrapVersion",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnRule",
-              "version": "2.147.0"
-            }
-          }
-        },
-        "constructInfo": {
-          "fqn": "aws-cdk-lib.Stack",
-          "version": "2.147.0"
-        }
-      },
-      "FEStack": {
-        "id": "FEStack",
-        "path": "FEStack",
-        "children": {
           "MyBucket": {
             "id": "MyBucket",
-            "path": "FEStack/MyBucket",
+            "path": "GAFStack/MyBucket",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "FEStack/MyBucket/Resource",
+                "path": "GAFStack/MyBucket/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "backendbucket-c891b77fd76c10e0148c27ad3fef8b1433e1931a29",
+                    "bucketName": "backendbucket-c86af50ba9b2727e0b7807f6ec210217396cbc671a",
                     "publicAccessBlockConfiguration": {
                       "blockPublicAcls": false,
                       "blockPublicPolicy": false,
@@ -1086,7 +991,7 @@
                         "value": "true"
                       },
                       {
-                        "key": "aws-cdk:cr-owned:6c6a4fc5",
+                        "key": "aws-cdk:cr-owned:a60b1b70",
                         "value": "true"
                       }
                     ],
@@ -1103,11 +1008,11 @@
               },
               "Policy": {
                 "id": "Policy",
-                "path": "FEStack/MyBucket/Policy",
+                "path": "GAFStack/MyBucket/Policy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "FEStack/MyBucket/Policy/Resource",
+                    "path": "GAFStack/MyBucket/Policy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
                       "aws:cdk:cloudformation:props": {
@@ -1194,11 +1099,11 @@
               },
               "AutoDeleteObjectsCustomResource": {
                 "id": "AutoDeleteObjectsCustomResource",
-                "path": "FEStack/MyBucket/AutoDeleteObjectsCustomResource",
+                "path": "GAFStack/MyBucket/AutoDeleteObjectsCustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "FEStack/MyBucket/AutoDeleteObjectsCustomResource/Default",
+                    "path": "GAFStack/MyBucket/AutoDeleteObjectsCustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -1218,11 +1123,11 @@
           },
           "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
             "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
-            "path": "FEStack/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "GAFStack/Custom::S3AutoDeleteObjectsCustomResourceProvider",
             "children": {
               "Staging": {
                 "id": "Staging",
-                "path": "FEStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "path": "GAFStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.AssetStaging",
                   "version": "2.147.0"
@@ -1230,7 +1135,7 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "FEStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "path": "GAFStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1238,7 +1143,7 @@
               },
               "Handler": {
                 "id": "Handler",
-                "path": "FEStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "path": "GAFStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1252,19 +1157,19 @@
           },
           "DeployApp": {
             "id": "DeployApp",
-            "path": "FEStack/DeployApp",
+            "path": "GAFStack/DeployApp",
             "children": {
               "AwsCliLayer": {
                 "id": "AwsCliLayer",
-                "path": "FEStack/DeployApp/AwsCliLayer",
+                "path": "GAFStack/DeployApp/AwsCliLayer",
                 "children": {
                   "Code": {
                     "id": "Code",
-                    "path": "FEStack/DeployApp/AwsCliLayer/Code",
+                    "path": "GAFStack/DeployApp/AwsCliLayer/Code",
                     "children": {
                       "Stage": {
                         "id": "Stage",
-                        "path": "FEStack/DeployApp/AwsCliLayer/Code/Stage",
+                        "path": "GAFStack/DeployApp/AwsCliLayer/Code/Stage",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.AssetStaging",
                           "version": "2.147.0"
@@ -1272,7 +1177,7 @@
                       },
                       "AssetBucket": {
                         "id": "AssetBucket",
-                        "path": "FEStack/DeployApp/AwsCliLayer/Code/AssetBucket",
+                        "path": "GAFStack/DeployApp/AwsCliLayer/Code/AssetBucket",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                           "version": "2.147.0"
@@ -1286,7 +1191,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "FEStack/DeployApp/AwsCliLayer/Resource",
+                    "path": "GAFStack/DeployApp/AwsCliLayer/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
                       "aws:cdk:cloudformation:props": {
@@ -1310,7 +1215,7 @@
               },
               "CustomResourceHandler": {
                 "id": "CustomResourceHandler",
-                "path": "FEStack/DeployApp/CustomResourceHandler",
+                "path": "GAFStack/DeployApp/CustomResourceHandler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.SingletonFunction",
                   "version": "2.147.0"
@@ -1318,11 +1223,11 @@
               },
               "Asset1": {
                 "id": "Asset1",
-                "path": "FEStack/DeployApp/Asset1",
+                "path": "GAFStack/DeployApp/Asset1",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "FEStack/DeployApp/Asset1/Stage",
+                    "path": "GAFStack/DeployApp/Asset1/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.147.0"
@@ -1330,7 +1235,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "FEStack/DeployApp/Asset1/AssetBucket",
+                    "path": "GAFStack/DeployApp/Asset1/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.147.0"
@@ -1344,11 +1249,11 @@
               },
               "Asset2": {
                 "id": "Asset2",
-                "path": "FEStack/DeployApp/Asset2",
+                "path": "GAFStack/DeployApp/Asset2",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "FEStack/DeployApp/Asset2/Stage",
+                    "path": "GAFStack/DeployApp/Asset2/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.147.0"
@@ -1356,7 +1261,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "FEStack/DeployApp/Asset2/AssetBucket",
+                    "path": "GAFStack/DeployApp/Asset2/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.147.0"
@@ -1370,11 +1275,11 @@
               },
               "CustomResource": {
                 "id": "CustomResource",
-                "path": "FEStack/DeployApp/CustomResource",
+                "path": "GAFStack/DeployApp/CustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "FEStack/DeployApp/CustomResource/Default",
+                    "path": "GAFStack/DeployApp/CustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.147.0"
@@ -1394,15 +1299,15 @@
           },
           "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": {
             "id": "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
-            "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
+                "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/ImportServiceRole",
+                    "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.147.0"
@@ -1410,7 +1315,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
+                    "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1449,11 +1354,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
+                    "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
+                        "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -1538,11 +1443,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
+                "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
+                    "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.147.0"
@@ -1550,7 +1455,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
+                    "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.147.0"
@@ -1564,7 +1469,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "FEStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+                "path": "GAFStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -1606,11 +1511,11 @@
           },
           "Distribution": {
             "id": "Distribution",
-            "path": "FEStack/Distribution",
+            "path": "GAFStack/Distribution",
             "children": {
               "Origin1": {
                 "id": "Origin1",
-                "path": "FEStack/Distribution/Origin1",
+                "path": "GAFStack/Distribution/Origin1",
                 "constructInfo": {
                   "fqn": "constructs.Construct",
                   "version": "10.3.0"
@@ -1618,7 +1523,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "FEStack/Distribution/Resource",
+                "path": "GAFStack/Distribution/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
                   "aws:cdk:cloudformation:props": {
@@ -1642,7 +1547,7 @@
                               }
                             ]
                           },
-                          "id": "FEStackDistributionOrigin19C497D60",
+                          "id": "GAFStackDistributionOrigin15C464208",
                           "customOriginConfig": {
                             "originSslProtocols": [
                               "TLSv1.2"
@@ -1653,7 +1558,7 @@
                       ],
                       "defaultCacheBehavior": {
                         "pathPattern": "*",
-                        "targetOriginId": "FEStackDistributionOrigin19C497D60",
+                        "targetOriginId": "GAFStackDistributionOrigin15C464208",
                         "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
                         "compress": true,
                         "viewerProtocolPolicy": "allow-all"
@@ -1677,7 +1582,7 @@
           },
           "BucketURL": {
             "id": "BucketURL",
-            "path": "FEStack/BucketURL",
+            "path": "GAFStack/BucketURL",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -1685,7 +1590,7 @@
           },
           "CloudFrontURL": {
             "id": "CloudFrontURL",
-            "path": "FEStack/CloudFrontURL",
+            "path": "GAFStack/CloudFrontURL",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.147.0"
@@ -1693,11 +1598,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "FEStack/CDKMetadata",
+            "path": "GAFStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "FEStack/CDKMetadata/Default",
+                "path": "GAFStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.147.0"
@@ -1711,7 +1616,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "FEStack/BootstrapVersion",
+            "path": "GAFStack/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.147.0"
@@ -1719,7 +1624,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "FEStack/CheckBootstrapVersion",
+            "path": "GAFStack/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.147.0"
