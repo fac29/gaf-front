@@ -140,21 +140,24 @@ export const login = async (email: string, password: string) => {
 			body: JSON.stringify({ email, password }),
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
 		const contentType = response.headers.get('Content-Type');
-		if (contentType && contentType.includes('application/json')) {
-			const result = await response.json();
-			// Trigger state update (remove Create Account and log in buttons, Show log out)
-			return result;
-		} else {
-			const result = await response.text();
-			return result;
+
+		if (!response.ok) {
+			let errorMessage = 'Failed to log in';
+
+			if (contentType && contentType.includes('application/json')) {
+				const result = await response.json();
+				errorMessage = result.message || errorMessage;
+			} else {
+				const text = await response.text();
+				errorMessage = text || errorMessage;
+			}
+			throw new Error(errorMessage);
 		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
+			throw error;
 		} else {
 			alert('Unknown error');
 		}
@@ -169,26 +172,26 @@ export const signUp = async (name: string, email: string, password: string) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ name, email, password }),
-			credentials: 'include', // Ensure cookies are included
 		});
 
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
 		const contentType = response.headers.get('Content-Type');
-		if (contentType && contentType.includes('application/json')) {
-			const result = await response.json();
 
-			// Trigger state update (remove Create Account and log in buttons, Show log out)
-			return result;
-		} else {
-			const result = await response.text();
-			return result;
+		if (!response.ok) {
+			let errorMessage = 'Failed to sign up';
+
+			if (contentType && contentType.includes('application/json')) {
+				const data = await response.json();
+				errorMessage = data.message || errorMessage;
+			} else {
+				const text = await response.text();
+				errorMessage = text || errorMessage;
+			}
+			throw new Error(errorMessage);
 		}
 	} catch (error) {
 		if (error instanceof Error) {
 			alert(error.message);
+			throw error;
 		} else {
 			alert('Unknown error');
 		}
@@ -248,7 +251,9 @@ export const fetchProductScore = async (productId: number) => {
 			}
 		} else {
 			const result = await response.text();
-			throw new Error(`Unexpected response content type: ${contentType} ${result}`);
+			throw new Error(
+				`Unexpected response content type: ${contentType} ${result}`,
+			);
 		}
 	} catch (error) {
 		if (error instanceof Error) {
@@ -257,5 +262,55 @@ export const fetchProductScore = async (productId: number) => {
 			alert('An unexpected error occurred');
 		}
 		throw error;
+	}
+};
+
+export const fetchCreateCart = async (userID: number) => {
+	try {
+		const response = await fetch(`http://localhost:3000/cart`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ userID }),
+		});
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result.id;
+		}
+	} catch (error) {
+		if (error instanceof Error) {
+			alert(error.message);
+		} else {
+			alert('An unexpected error occurred');
+		}
+	}
+};
+
+import { CartItem } from './tyBucket';
+export const fetchUpdateCart = async (
+	cartId: number,
+	userCartItems: Array<CartItem>,
+) => {
+	try {
+		const response = await fetch(`http://localhost:3000/cart/${cartId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(userCartItems),
+		});
+		const contentType = response.headers.get('Content-Type');
+		if (contentType && contentType.includes('application/json')) {
+			const result = await response.json();
+			return result;
+		}
+	} catch (error) {
+		if (error instanceof Error) {
+			alert(error.message);
+		} else {
+			alert('An unexpected error occurred');
+		}
 	}
 };

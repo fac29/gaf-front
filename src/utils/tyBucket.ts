@@ -74,4 +74,6 @@ export type CreateLogProps = {
 	isLogInOpen: boolean;
 	closeCreateAccountModal: () => void;
 	closeLogInModal: () => void;
+	isAccountLoggedIn: boolean;
+	setIsAccountLoggedIn: (value: boolean) => void;
 };

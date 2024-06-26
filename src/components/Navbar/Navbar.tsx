@@ -8,7 +8,6 @@ import CartComponent from '../Cart/CartComponent';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaCartArrowDown } from 'react-icons/fa'; // Import the cart icon from react-icons
 
-
 type props = {
 	hasSearch?: boolean;
 };
@@ -18,6 +17,7 @@ export default function Navbar({ hasSearch = true }: props) {
 	const handleModalToggle = () => setModalIsOpen(!modalIsOpen);
 	const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
 	const [isLogInOpen, setIsLogInOpen] = useState(false);
+	const [isAccountLoggedIn, setIsAccountLoggedIn] = useState(false);
 
 	const openCreateAccountModal = () => setIsCreateAccountOpen(true);
 	const closeCreateAccountModal = () => setIsCreateAccountOpen(false);
@@ -33,11 +33,11 @@ export default function Navbar({ hasSearch = true }: props) {
 	};
 
 	//create a function that checks the user.cart array and tallys the total quantity of items
-	const totalQuantity: number = user?.cart?.reduce((acc, item) => acc + item.quantity, 0) ?? 0;
-
+	const totalQuantity: number =
+		user?.cart?.reduce((acc, item) => acc + item.quantity, 0) ?? 0;
 
 	return (
-		<div className="navstyle">
+		<nav className="navstyle">
 			<a href="#" onClick={handleProductRouting}>
 				Home
 			</a>
@@ -52,32 +52,38 @@ export default function Navbar({ hasSearch = true }: props) {
 				>
 					{totalQuantity > 0 ? (
 						<>
-							<FaCartArrowDown size={24}  />
+							<FaCartArrowDown size={24} />
 							<span className="cart-badge">{totalQuantity}</span>
 						</>
 					) : (
-						<FaShoppingCart size={24} color='grey'/>
+						<FaShoppingCart size={24} color="grey" />
 					)}
 				</div>
 				{modalIsOpen && <CartComponent handleModalToggle={handleModalToggle} />}
 
-				<Button
-					btnText="Create Account"
-					btnclassName="btnSecondary"
-					btnonClick={openCreateAccountModal}
-				/>
-				<Button
-					btnText="Log In"
-					btnclassName="btnSecondary"
-					btnonClick={openLogInModal}
-				/>
+				{!isAccountLoggedIn && (
+					<Button
+						btnText="Create Account"
+						btnclassName="btnSecondary"
+						btnonClick={openCreateAccountModal}
+					/>
+				)}
+				{!isAccountLoggedIn && (
+					<Button
+						btnText="Log In"
+						btnclassName="btnSecondary"
+						btnonClick={openLogInModal}
+					/>
+				)}
 				<CreateLog
 					isCreateAccountOpen={isCreateAccountOpen}
 					isLogInOpen={isLogInOpen}
 					closeCreateAccountModal={closeCreateAccountModal}
 					closeLogInModal={closeLogInModal}
+					isAccountLoggedIn={isAccountLoggedIn}
+					setIsAccountLoggedIn={setIsAccountLoggedIn}
 				/>
 			</div>
-		</div>
+		</nav>
 	);
 }
