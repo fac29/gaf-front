@@ -73,7 +73,14 @@ cdk bootstrap --destroy
 
 aws s3 rb s3://cdk-hnb659fds-assets-788798427985-eu-west-2 --force
 
-
 ### Delete stack
 
 aws cloudformation delete-stack --stack-name CDKToolkit
+
+### Set read only permissions to the key
+
+chmod 400 keys/gafPair.pem
+
+
+### SSH to the EC2 instance
+ssh -i keys/gafPair.pem ec2-user@13.40.129.227 //Substitute for public IP

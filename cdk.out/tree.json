@@ -827,18 +827,6 @@
                             ":iam::aws:policy/AmazonEC2FullAccess"
                           ]
                         ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:",
-                            {
-                              "Ref": "AWS::Partition"
-                            },
-                            ":iam::aws:policy/AdministratorAccess"
-                          ]
-                        ]
                       }
                     ]
                   }
@@ -851,6 +839,14 @@
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_iam.Role",
+              "version": "2.147.0"
+            }
+          },
+          "KeyPair": {
+            "id": "KeyPair",
+            "path": "NewStack/KeyPair",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
             }
           },
@@ -894,7 +890,7 @@
                       "Ref": "InstanceInstanceProfileAB5AEF02"
                     },
                     "imageId": {
-                      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+                      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
                     },
                     "instanceType": "t2.micro",
                     "keyName": "gafPair",
@@ -922,7 +918,7 @@
                       }
                     ],
                     "userData": {
-                      "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nsudo yum update -y\nsudo yum install -y git\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\nsudo yum install -y nodejs\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git\ncd gaf-back\necho \"DB_FILE=gaf_database.sqlite\" > .env\necho \"COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg\" >> .env\nnpm install\nnpm start"
+                      "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nsudo touch /var/log/user-data.log\nsudo chown ec2-user:ec2-user /var/log/user-data.log\nsudo chmod 644 /var/log/user-data.log\necho \"Starting user data script\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y ec2-instance-connect\necho \"EC2 Instance Connect installed\" | sudo tee -a /var/log/user-data.log\nsudo yum update -y\necho \"Yum updated\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y git\necho \"Git installed\" | sudo tee -a /var/log/user-data.log\ncurl -sL https://rpm.nodesource.com/setup_20.x | sudo bash -\necho \"NodeSource repository added\" | sudo tee -a /var/log/user-data.log\nsudo yum install -y nodejs\necho \"Node.js installed\" | sudo tee -a /var/log/user-data.log\nnode --version | sudo tee -a /var/log/user-data.log\nnpm --version | sudo tee -a /var/log/user-data.log\ncd /home/ec2-user\ngit clone https://github.com/fac29/gaf-back.git || { echo \"Failed to clone repository\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"Repository cloned\" | sudo tee -a /var/log/user-data.log\ncd gaf-back\necho \"DB_FILE=gaf_database.sqlite\" > .env\necho \"COOKIE_SECRET=gsdfhj345q78yrsdghj£$kvhjsd£$asdfg\" >> .env\necho \"Environment file created\" | sudo tee -a /var/log/user-data.log\nnpm install || { echo \"Failed to install dependencies\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"Dependencies installed\" | sudo tee -a /var/log/user-data.log\nnpm start || { echo \"Failed to start application\" | sudo tee -a /var/log/user-data.log; exit 1; }\necho \"User data script completed\" | sudo tee -a /var/log/user-data.log"
                     }
                   }
                 },
@@ -937,17 +933,17 @@
               "version": "2.147.0"
             }
           },
-          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
-            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
-            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.147.0"
             }
           },
-          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118": {
-            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
-            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118",
+          "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118": {
+            "id": "SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "NewStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.147.0"
