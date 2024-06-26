@@ -88,7 +88,12 @@ export default function CreateLog({
 
 							<h2>Create Account</h2>
 						</div>
-						<form>
+						<form
+							onSubmit={(event) => {
+								event.preventDefault();
+								handleSubmitCreate();
+							}}
+						>
 							<div className="formLine">
 								<label>
 									Name:
@@ -149,7 +154,12 @@ export default function CreateLog({
 						/> */}
 							<h2>Log In</h2>
 						</div>
-						<form>
+						<form
+							onSubmit={(event) => {
+								event.preventDefault();
+								handleSubmitLogIn();
+							}}
+						>
 							<div className="formLine">
 								<label>
 									Email:
