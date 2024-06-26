@@ -54,54 +54,60 @@ export default function CreateLog({
 		<div className="CreateLog">
 			{isCreateAccountOpen && (
 				<div className="modal-overlay" onClick={closeCreateAccountModal}>
-					<div className="modal-content"  onClick={(e) => e.stopPropagation()}>
-						<div className='formLine'>
-						{/* <IoMdCloseCircle className="closeIcon"
+					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
+						<div className="formLine">
+							{/* <IoMdCloseCircle className="closeIcon"
 							color="darkred"
 							size="2rem"
 							onClick={closeCreateAccountModal}
 						/> */}
 
-						<h2>Create Account</h2>
+							<h2>Create Account</h2>
 						</div>
 						<form>
 							<div className="formLine">
-								<label>Name:</label>
-								<input
-									type="text"
-									value={nameInput}
-									onChange={(e) => {
-										setNameInput(e.target.value);
-										validateSubmitForm();
-									}}
-								/>
+								<label>
+									Name:
+									<input
+										type="text"
+										value={nameInput}
+										onChange={(e) => {
+											setNameInput(e.target.value);
+											validateSubmitForm();
+										}}
+									/>
+								</label>
 							</div>
 							<div className="formLine">
-								<label>Email:</label>
-								<input
-									type="email"
-									value={emailInput}
-									onChange={(e) => {
-										setEmailInput(e.target.value);
-										validateSubmitForm();
-									}}
-								/>
+								<label>
+									Email:
+									<input
+										type="email"
+										value={emailInput}
+										onChange={(e) => {
+											setEmailInput(e.target.value);
+											validateSubmitForm();
+										}}
+									/>
+								</label>
 							</div>
 							<div className="formLine">
-								<label>Password:</label>
-								<input
-									type="password"
-									value={passwordInput}
-									onChange={(e) => {
-										setPasswordInput(e.target.value);
-										validateSubmitForm();
-									}}
-								/>
+								<label>
+									Password:
+									<input
+										type="password"
+										value={passwordInput}
+										onChange={(e) => {
+											setPasswordInput(e.target.value);
+											validateSubmitForm();
+										}}
+									/>
+								</label>
 							</div>
 							<Button
 								btnText="Create"
 								btnclassName="btnPrimary"
-								btnonClick={()=>handleSubmitCreate}
+								btnonClick={() => handleSubmitCreate}
 							/>
 						</form>
 					</div>
@@ -111,41 +117,45 @@ export default function CreateLog({
 			{isLogInOpen && (
 				<div className="modal-overlay" onClick={closeLogInModal}>
 					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
-						<div className='formLine'>
-						{/* <IoMdCloseCircle className="closeIcon"
+						<div className="formLine">
+							{/* <IoMdCloseCircle className="closeIcon"
 							color="darkred"
 							size="2rem"
 							onClick={closeLogInModal}
 						/> */}
-						<h2>Log In</h2>
+							<h2>Log In</h2>
 						</div>
 						<form>
 							<div className="formLine">
-								<label>Email:</label>
-								<input
-									type="email"
-									value={emailInput}
-									onChange={(e) => {
-										setEmailInput(e.target.value);
-										validateLogInForm();
-									}}
-								/>
+								<label>
+									Email:
+									<input
+										type="email"
+										value={emailInput}
+										onChange={(e) => {
+											setEmailInput(e.target.value);
+											validateLogInForm();
+										}}
+									/>
+								</label>
 							</div>
 							<div className="formLine">
-								<label>Password:</label>
-								<input
-									type="password"
-									value={passwordInput}
-									onChange={(e) => {
-										setPasswordInput(e.target.value);
-										validateLogInForm();
-									}}
-								/>
+								<label>
+									Password:
+									<input
+										type="password"
+										value={passwordInput}
+										onChange={(e) => {
+											setPasswordInput(e.target.value);
+											validateLogInForm();
+										}}
+									/>
+								</label>
 							</div>
 							<Button
-								btnText="Log In"
+								btnText="Log In!"
 								btnclassName="btnPrimary"
-								btnonClick={()=>handleSubmitLogIn}
+								btnonClick={() => handleSubmitLogIn}
 							/>
 						</form>
 					</div>
