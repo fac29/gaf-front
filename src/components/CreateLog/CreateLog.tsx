@@ -9,6 +9,8 @@ export default function CreateLog({
 	isLogInOpen,
 	closeCreateAccountModal,
 	closeLogInModal,
+	isAccountLoggedIn,
+	setIsAccountLoggedIn,
 }: CreateLogProps) {
 	const [nameInput, setNameInput] = React.useState('');
 	const [emailInput, setEmailInput] = React.useState('');
