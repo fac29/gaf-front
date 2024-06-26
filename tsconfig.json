@@ -35,10 +35,13 @@
 		"bin/**/*.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"node_modules/@testing-library/jest-dom/types/index.d.ts"
+		"node_modules/@testing-library/jest-dom/types/index.d.ts",
+		"lib/**/*.ts"
 	],
 	"exclude": [
-		"node_modules"
+		"node_modules",
+		"dist",
+		"vite.config.ts"
 	],
 	"references": [
 		{

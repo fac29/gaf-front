@@ -1,4 +1,4 @@
-//BEStack.ts
+//stack.ts
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { aws_ec2 as ec2, aws_iam as iam } from 'aws-cdk-lib';
@@ -10,7 +10,6 @@ import {
 } from 'aws-cdk-lib';
 
 export class stack extends cdk.Stack {
-	
 	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
 		super(scope, id, props);
 
@@ -41,11 +40,11 @@ export class stack extends cdk.Stack {
 			'allow access to port 3000 from anywhere',
 		);
 
-		securityGroup.addIngressRule(
-			ec2.Peer.anyIpv4(),
-			ec2.Port.tcp(80),
-			'allow HTTP access from anywhere',
-		);
+		// securityGroup.addIngressRule(
+		// 	ec2.Peer.anyIpv4(),
+		// 	ec2.Port.tcp(80),
+		// 	'allow HTTP access from anywhere',
+		// );
 
 		// Define an IAM role for the EC2 instance
 		const role = new iam.Role(this, 'InstanceRole', {
@@ -63,15 +62,15 @@ export class stack extends cdk.Stack {
 			iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonEC2FullAccess'),
 		); // Allow full access to EC2
 
-		role.addToPolicy(
-			new iam.PolicyStatement({
-				effect: iam.Effect.ALLOW,
-				actions: ['secretsmanager:GetSecretValue'],
-				resources: [
-					'arn:aws:secretsmanager:eu-west-2:788798427985:secret:gaf_secret-KG9WoL',
-				],
-			}),
-		);
+		// role.addToPolicy(
+		// 	new iam.PolicyStatement({
+		// 		effect: iam.Effect.ALLOW,
+		// 		actions: ['secretsmanager:GetSecretValue'],
+		// 		resources: [
+		// 			'arn:aws:secretsmanager:eu-west-2:788798427985:secret:gaf_secret-KG9WoL',
+		// 		],
+		// 	}),
+		// );
 
 		// Create a new EC2 key pair
 		const keyPair = ec2.KeyPair.fromKeyPairName(this, 'KeyPair', 'gafPair');
@@ -121,23 +120,23 @@ export class stack extends cdk.Stack {
 			'sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ec2-user --hp /home/ec2-user',
 			'pm2 save',
 			'echo "Application started with PM2" | sudo tee -a /var/log/user-data.log',
-			'sudo tee /etc/nginx/conf.d/gaf-back.conf > /dev/null <<EOT',
-			'server {',
-			'    listen 80;',
-			'    server_name _;',
-			'    location / {',
-			'        proxy_pass http://localhost:3000;',
-			'        proxy_http_version 1.1;',
-			'        proxy_set_header Upgrade $http_upgrade;',
-			"        proxy_set_header Connection 'upgrade';",
-			'        proxy_set_header Host $host;',
-			'        proxy_cache_bypass $http_upgrade;',
-			'    }',
-			'}',
-			'EOT',
-			'sudo nginx -t',
-			'sudo systemctl reload nginx',
-			'echo "Nginx configuration updated" | sudo tee -a /var/log/user-data.log',
+			// 'sudo tee /etc/nginx/conf.d/gaf-back.conf > /dev/null <<EOT',
+			// 'server {',
+			// '    listen 80;',
+			// '    server_name _;',
+			// '    location / {',
+			// '        proxy_pass http://localhost:3000;',
+			// '        proxy_http_version 1.1;',
+			// '        proxy_set_header Upgrade $http_upgrade;',
+			// "        proxy_set_header Connection 'upgrade';",
+			// '        proxy_set_header Host $host;',
+			// '        proxy_cache_bypass $http_upgrade;',
+			// '    }',
+			// '}',
+			// 'EOT',
+			// 'sudo nginx -t',
+			// 'sudo systemctl reload nginx',
+			// 'echo "Nginx configuration updated" | sudo tee -a /var/log/user-data.log',
 			'echo "User data script completed" | sudo tee -a /var/log/user-data.log',
 		);
 
@@ -163,12 +162,12 @@ export class stack extends cdk.Stack {
 		// 	exportName: 'BackendInstancePublicIp',
 		// });
 
-        //******************** */
+		//******************** */
 		//FRONTEND
 		// /********************* */
 
 		// Define an S3 bucket
-		const uniqueBucketName = `backendbucket-${this.node.addr}`;
+		const uniqueBucketName = `frontendbucket-${this.node.addr}`;
 		const myBucket = new s3.Bucket(this, 'MyBucket', {
 			bucketName: uniqueBucketName,
 			removalPolicy: cdk.RemovalPolicy.DESTROY, // Optional: Automatically delete the bucket when the stack is deleted
@@ -184,16 +183,14 @@ export class stack extends cdk.Stack {
 			},
 		});
 
-		
-
 		// Create .env file content
-		const envFileContent = `VITE_API_URL=http://${instance.instancePublicIp}:3000\n`;
+		//const envFileContent = `VITE_API_URL=http://${instance.instancePublicIp}:3000\n`;
 
 		// Deploy local files to the S3 bucket
 		new s3deploy.BucketDeployment(this, 'DeployApp', {
 			sources: [
 				s3deploy.Source.asset('./dist'),
-				s3deploy.Source.data('.env', envFileContent),
+				//s3deploy.Source.data('.env', envFileContent),
 			],
 			destinationBucket: myBucket,
 		});
