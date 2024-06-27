@@ -186,6 +186,8 @@ export class stack extends cdk.Stack {
 		// Create .env file content
 		//const envFileContent = `VITE_API_URL=http://${instance.instancePublicIp}:3000\n`;
 
+		////BUILD PROJECT
+
 		// Deploy local files to the S3 bucket
 		new s3deploy.BucketDeployment(this, 'DeployApp', {
 			sources: [

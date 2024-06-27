@@ -3,8 +3,8 @@ import * as cdk from 'aws-cdk-lib';
 //import { BEStack } from '../lib/BEstack';
 //import { FEStack } from '../lib/FEStack';
 // import { stack } from '../lib/stack';
-// import { BE } from '../lib/BE';
- import { FE } from '../lib/FE';
+import { BE } from '../lib/BE';
+// import { FE } from '../lib/FE';
 
 const app = new cdk.App();
 
@@ -24,5 +24,5 @@ const app = new cdk.App();
 
 //new stack(app, 'GAFStack');
 
- //new BE(app, 'BE');
-new FE(app, 'FE');
+ new BE(app, 'BE');
+//new FE(app, 'FE');

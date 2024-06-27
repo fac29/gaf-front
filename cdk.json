@@ -15,6 +15,7 @@
 		]
 	},
 	"context": {
+		"region": "eu-west-2",
 		"@aws-cdk/core:stackRelativeExports": true,
 		"aws-cdk:region": "eu-west-2",
 		"aws-cdk:account": "788798427985",
