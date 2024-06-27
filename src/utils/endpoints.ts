@@ -267,7 +267,7 @@ export const fetchProductScore = async (productId: number) => {
 
 export const fetchCreateCart = async (userID: number) => {
 	try {
-		const response = await fetch(`http://localhost:3000/cart`, {
+		const response = await fetch(`${API_URL}/cart`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -294,7 +294,7 @@ export const fetchUpdateCart = async (
 	userCartItems: Array<CartItem>,
 ) => {
 	try {
-		const response = await fetch(`http://localhost:3000/cart/${cartId}`, {
+		const response = await fetch(`${API_URL}/cart/${cartId}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
